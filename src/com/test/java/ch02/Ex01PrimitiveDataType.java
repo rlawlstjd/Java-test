@@ -29,9 +29,9 @@ public class Ex01PrimitiveDataType {
 		System.out.println("\n실수형\n---"); 
 		
 		float f = -31.999998f; 
-		System.out.printf("float type 최솟값 = \t%d%n" ,f); 
+		System.out.printf("float type 최솟값 = \t%f%n" ,f); 
 		f = 31.9999998f; 
-		System.out.printf("double type 최댓값 = \t%d%n", f); 
+		System.out.printf("double type 최댓값 = \t%f%n", f); 
 		
 		double d = -127.99999999999999;
 		System.out.printf("double type 최솟값 = \t%19.14f%n", d); 
@@ -54,6 +54,32 @@ public class Ex01PrimitiveDataType {
 		c = 'b' ; 
 		System.out.printf("char type 'b' = %c%n" , c ) ; 
 		//c = '' ; 
+		
+		System.out.println("\n논리형\n---");
+		boolean bool = true ; 
+		System.out.printf("boolean type 참 = \t%b%n", bool); 
+		bool = false ; 
+		System.out.printf("boolean type 거짓 = \t%b%n", bool); 
+		System.out.printf("3은 5보다 큰가? = \t%b%n", 3>5); 
+		System.out.printf("5는 7보다 작은가? = \t%b%n", 5< 7);
+		System.out.printf("8은 8보다 크거나 같은가? = \t%b%n", 8 >=8); 
+		System.out.printf("5는 10보다 작거나 같은가? = \t%b%n", 5<=10 ) ; 
+		System.out.printf("7은 8과 같은가? = \t%b%n", 7 == 8) ; 
+		System.out.printf("7은 8과 다른가? = \t%b%n", 7!=8); 
+		
+		System.out.printf("\n이상 기본형 데이터였습니다."); 
+		
+		System.out.println("\n문자열 형\n---");
+		String str = "엘컴퓨터학원"; 
+		System.out.println(str); 
+		str = ""; 
+		System.out.println(str); 
+		str = "1~0, a=z, A~Z !@##$%"; 
+		System.out.println(str); 
+		
+		
+		
+		
 		
 		
 		
