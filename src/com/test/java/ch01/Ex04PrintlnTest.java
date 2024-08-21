@@ -17,7 +17,7 @@ public class Ex04PrintlnTest {
 		System.out.println("현재 잔액은 " + balance + "원 입니다.");
 		System.out.println() ; 
 		
-		int computer = 300 ; 
+		int computer = 300 ; 	// 깃헙 테스트입니다.
 		
 		System.out.println("컴퓨터의 가격은 " + computer + "원 입니다."); 
 		System.out.println("컴퓨터 한 대를 구입하였습니다."); 
