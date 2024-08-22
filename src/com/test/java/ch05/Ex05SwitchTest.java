@@ -12,34 +12,32 @@ public class Ex05SwitchTest {
 
 		
 		switch (number) {
-		case 1:
-		case 2: 
-			System.out.printf("입력하신 숫자의 계절은 겨울 입니다.");
+			case 1:
+			case 2: 
+			case 12:
+				System.out.printf("입력하신 숫자의 계절은 겨울 입니다.");
 				break ; 
-		case 3:
-		case 4: 
-		case 5: 
-			System.out.printf("입력하신 숫자의 계절은 봄 입니다.");
-			 	break ; 
-		case 6: 
-		case 7:
-		case 8: 
-			System.out.printf("입력하신 숫자의 계절은 여름 입니다.");
+			case 3:
+			case 4: 
+			case 5: 
+				System.out.printf("입력하신 숫자의 계절은 봄 입니다.");
+				 break ; 
+			case 6: 
+			case 7:
+			case 8: 
+				System.out.printf("입력하신 숫자의 계절은 여름 입니다.");
 				break ; 
-		case 9:
-		case 10:
-		case 11: 
-			System.out.printf("입력하신 숫자의 계절은 가을 입니다.");
-				break ; 
-		case 12: 
-			System.out.printf("입력하신 숫자의 계절은 겨울입니다.");
-				break ; 
-				
-		default :
-			System.out.printf("잘못 입력하셨습니다.");
+			case 9:
+			case 10:
+			case 11: 
+				System.out.printf("입력하신 숫자의 계절은 가을 입니다.");
+				break ;  
+					
+			default :
+				System.out.printf("잘못 입력하셨습니다.");
 			   
 			  
- }
+		}
 		
 		
 	

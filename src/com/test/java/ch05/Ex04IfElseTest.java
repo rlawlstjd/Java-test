@@ -6,18 +6,18 @@ public class Ex04IfElseTest {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in); 
 		
-	  System.out.printf("숫자를 입력하세요."); 
-	  int number = scan.nextInt(); 
+		System.out.printf("숫자를 입력하세요."); 
+		int number = scan.nextInt(); 
 	  		
-	  String season = "계절"; 
-	String name = "휴가철";
+		String season = "계절"; 
+		String name = "휴가철";
 		if (number >=3 && number <=5) {
 			season = "봄"; 
 			System.out.printf("입력하신 숫자의 계절은 %s 입니다", season); 
 		}else if (number >=6 && number <=8) {	
 			season = "여름";
-				if (number == 8) 
-					season = "*여름 휴가철*";
+			if (number == 8)  
+				season += " 휴가철*";
 			System.out.printf("입력하신 숫자의 계절은 %s 입니다", season); 
 		}else if (number >=9 && number <=11) {
 			season = "가을"; 
