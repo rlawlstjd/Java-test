@@ -15,7 +15,7 @@ public class Ex01ArithmeticOperator {
 		System.out.printf("%d * %d = %d%n", a, b , sum); 
 		
 				
-		System.out.println(10&); //// &&&뭐지 이거 ? 나눈 나머지 ? 
+		System.out.printf("10 %% 4 = %d", 10%4); //// &&&뭐지 이거 ? 나눈 나머지 ? 
 		
 		
 		

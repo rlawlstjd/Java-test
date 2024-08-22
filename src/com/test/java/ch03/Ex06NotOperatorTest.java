@@ -4,10 +4,14 @@ public class Ex06NotOperatorTest {
 	public static void main (String[]args) {
 		
 		
-		boolean power = true ; 
+		boolean power = false ; 
 		
-		System.out.printf("tv의 전원이 꺼져있습니다.(%b)%n",power); 
-		System.out.printf("tv의 전원이 꺼져있습니다. (%b)%n", !power); 
+		System.out.printf("tv의 전원이 꺼져있습니다.(%b)%n",power);
+		
+		power = !power;
+		System.out.printf("tv의 전원이 꺼져있습니다. (%b)%n", power);
+		
+		System.out.printf("tv의 전원이 꺼져있습니다.(%b)%n",power);
 		
 		
 		

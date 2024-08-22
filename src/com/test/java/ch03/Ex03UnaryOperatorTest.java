@@ -3,9 +3,9 @@ package com.test.java.ch03;
 public class Ex03UnaryOperatorTest {
 	public static void main (String[]args) {
 		
-		int a = 5; 
-		a= -- a ; 
-		a= -- a; 
+		int a = 5;
+		--a ; 
+		--a; 
 		System.out.println(a); 
 		
 		

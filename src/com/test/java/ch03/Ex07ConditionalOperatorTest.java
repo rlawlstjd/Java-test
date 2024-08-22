@@ -1,6 +1,6 @@
 package com.test.java.ch03;
 
-
+import java.util.Scanner;
 
 public class Ex07ConditionalOperatorTest {
 	public static void main (String[]args) {
@@ -9,7 +9,11 @@ public class Ex07ConditionalOperatorTest {
 		System.out.printf("숫자를 입력하세요."); 
 		int number = scan.nextInt(); 
 		
-		System.out.printf("%s%n",number < 0 ? "음수" && number > 0 ? "양수" : "0" ) ; 
+		//String result = number < 0 ? "음수" : (number > 0 ? "양수" : "0");
+		
+		//System.out.printf("%s%n", result);
+		
+		System.out.printf("%s%n",number < 0 ? "음수" : number > 0 ? "양수" : "0" ) ; 
 		
 				
 		

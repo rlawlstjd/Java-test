@@ -8,7 +8,7 @@ public class Ex05RelationalOperatorTest {
 	int c = 600 ; 
 	int tv = 200 ; 
 	
-	System.out.printf("%d<%d || %d>%d && %d<%d, (%b)%n", tv, a, tv, b, tv, c, tv<a||tv>b&&tv<c); 
+	System.out.printf("%d<%d || %d>%d && %d<%d, (%b)%n", tv, a, tv, b, tv, c, tv<a||(tv>b&&tv<c)); 
 	
 		
 		
