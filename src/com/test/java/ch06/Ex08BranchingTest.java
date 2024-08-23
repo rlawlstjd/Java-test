@@ -5,11 +5,21 @@ public class Ex08BranchingTest {
 	 int i = 1 ; 
 	 int sum = 0 ; 
 	 
-	 while (i<=50) {
+	 while (true) {
 		 if (i%2==0) {
-		 sum += i ; 
-		 } i++;
-	 }System.out.println(i);
+			 sum += i ; 
+		 } 
+		 i++;
+		 
+		 if (i > 50)
+			 break;
+
+		 if (i == 15)
+			 continue;
+		 
+		 System.out.println("아직 50을 초과하지 않았습니다.");
+	 }
+	 System.out.println(sum + ", " + i);
 	
 	
 	
