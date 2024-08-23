@@ -5,7 +5,22 @@ public class Ex08BranchingTest {
 	 int i = 1 ; 
 	 int sum = 0 ; 
 	 
-	 while (true) {
+	 
+	 while (sum<=50) {
+		 if (i%2 ==0) {
+			 sum+=i ; 
+		 
+		 }i++; 
+		 
+	
+	 }	System.out.printf("sum이 50을 초과할 때의 i의 값은 %d입니다.%n", i-1); 
+	 }
+	 }
+	 
+	 
+	 
+	 
+	/* while (true) {
 		 if (i%2==0) {
 			 sum += i ; 
 		 } 
