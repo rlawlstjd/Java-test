@@ -1,8 +1,10 @@
 package com.test.java.ch06;
 
+import java.util.Arrays;
+
 public class Ex03MaxTest {
 	public static void main(String[] args) {
-		int[][] a= new int [5][1] ; 
+		/*int[][] a= new int [5][1] ; 
 		a[0][0] = 25 ; 
 		a[1][0] = 30 ; 
 		a[2][0] = 85 ; 
@@ -17,7 +19,17 @@ public class Ex03MaxTest {
 				}
 			}
 		}
-		System.out.printf("최댓값은 %d", max); 
+		System.out.printf("최댓값은 %d", max);*/
+		
+		int[] arr = {25, 15, 7, 55, 30};
+		int max = arr[0];
+		for (int i=1; i<arr.length; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		
+		System.out.println(max);
 	
 	}
 }

@@ -9,7 +9,7 @@ public class Ex01ForTest {
 		}
 		System.out.println();
 		
-		int [][] s = {
+		/*int [][] s = {
 				{65},
 				{60},
 				{80}
@@ -17,6 +17,19 @@ public class Ex01ForTest {
 		
 		for (int b=0; b< s.length; b++) {
 			System.out.printf("학생 %d의 중간고사 성적은 %d%n", b+1, s[b][0]); 
+		}*/
+		
+		int [][] s = { 
+			{65, 60},
+			{55, 40},
+			{35, 50, 55, 95}
+		};
+		
+		for (int b=0; b<s.length; b++) {
+			for (int i=0; i<s[b].length; i++) {
+				System.out.printf("학생 %d의 중간고사 성적은 %d\t", b+1, s[b][i]);
+			}
+			System.out.printf("%n");
 		}
 		
 		int [][] e = {

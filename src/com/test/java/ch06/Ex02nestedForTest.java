@@ -7,7 +7,8 @@ public class Ex02nestedForTest {
 		for (int a=2; a<=9; a++) {
 			for (int b=1; b<=9; b++) {
 				System.out.printf("%dx%d=%d\t", a, b, a*b); 
-			} System.out.println();
+			} 
+			System.out.println();
 		}
 		
 		System.out.printf("%n%n%n%n");
@@ -39,6 +40,20 @@ public class Ex02nestedForTest {
 	}
 }
 /*
+문제 1.
+2단에서 9단까지의 구구단을 아래와 같이 출력하세요.
+예) 
+2x1=2 ... 2x9=18
+3x1=3 ... 3x9=27
+...
+9x1=9 ... 9x9=81
+
+문제 2.
+구구단을 아래와 같이 출력하세요.
+2x1=2  3x1=3 ... 9x1=9
+2x2=4  3x2=6 ... 9x2=18
+..
+2x9=18 3x9=27 ... 9x9=81
 
 문제 3.
 3명의 회원은 모두 제품 2개씩 구매하였습니다.
