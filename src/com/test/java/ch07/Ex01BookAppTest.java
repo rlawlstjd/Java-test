@@ -5,70 +5,71 @@ import java.util.Scanner;
 public class Ex01BookAppTest {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);
-		System.out.printf("도서관리 프로그램");
-		System.out.printf("%n============");
+		System.out.println("도서관리 프로그램"); 
 		
+		String[] arrTitle = new String[10]; 
+		String[] arrAuthor = new String[10]; 
+		int[] arrPrice = new int[10]; 
 		
-		
-		boolean run = true ; 
-		String []arrAuthor = new String [10] ;
-		String []arrTitle = new String [10] ; 
-		int [] arrPrice = new int [10] ; 
 		int bookCount = 0 ; 
 		
+		boolean run = true; 
+		
 		while (true) {
-			String title = ""; 
-			String author = "";
-			int price = 0 ; 
-			
-			
-			
-			System.out.printf("메뉴를 선택하세요. 1: 책 등록, 책 목록, 0: 종료%n");
-			System.out.printf(">>");
-			int menu = scan.nextInt(); 
-			scan.nextLine();
-			
-			
-			switch (menu) {
-			case 1: 
-				System.out.printf("책을 등록하세요 !%n");
-				System.out.printf("저자를 입력하세요.");
-				author = scan.nextLine();
-				System.out.printf("제목을 입력하세요.");
-				title = scan.nextLine(); 
-				System.out.printf("가격을 입력하세요."); 
-				 price = scan.nextInt(); 
-				System.out.printf("제목: %s, 저자: %s, 가격: %d ", title, author, price); 
+				String title = ""; 
+				String author = ""; 
+				int price = 0 ; 
 				
-				arrAuthor[bookCount]= title ; 
-				arrTitle[bookCount]= author ; 
-				arrPrice[bookCount]=price ; 
-				bookCount++;
+				System.out.println("==============="); 
+				System.out.println("메뉴를 선택하세요. 1: 책등록, 2: 책목록, 0:종료");
+				System.out.print(">>"); 
+				int menu = scan.nextInt(); 
+				scan.nextLine();
 				
-			case 2 : 
-				System.out.println("책의 목록을 확인합니다."); 
-				for (int i=0; i<arrTitle.length; i++) {
-					for (int j=0; j<arrAuthor.length; j++) {
-						for ( int k=0 ; k < arrPrice k++) 
+				switch (menu) {
+					case 1: 
+						System.out.println("책을 등록하세요."); 
+						System.out.print("제목:"); 
+						title = scan.nextLine(); 
+						System.out.print("저자:");
+						author = scan.nextLine();
+						System.out.print("가격:");
+						price = scan.nextInt();
+						System.out.printf("제목: %s, 저자: %s, 가격: %d%n%n", title, author, price);
+						
+						arrTitle[bookCount] = title; 
+						arrAuthor[bookCount] = author ; 
+						arrPrice[bookCount] = price ; 
+						bookCount++; 
+						break ; 
+					
+				case 2: 
+					System.out.println ("책의 목록을 확인합니다."); 
+					
+					for (int i=0; i < bookCount; i++) {
+						System.out.printf("제목: %s, 저자: %s, 가격: %d원%n",  arrTitle[i], arrAuthor[i], arrPrice[i])
+		; 			}
+					System.out.println();
+					break;
 					
 					
 					
-					System.out.println("총 몽록:"+ arrTitle[i] + arrAuthor[j]+ arrPrice[k]);
-				} 
-				break; 
-			}
-			if (!run)
-				break; 
-			
+				case 0 : 
+					run = false ; 
+					break ; 
+					
+ 					
+				}
+				 if (!run)
+						break ; 
 		}
-		
-	System.out.printf("프로그램을 종료합니다.");
-		
-		
-		
+	System.out.println("프로그램이 종료됩니다.");
 	
-	}			
-	}}
+	}
+	
+	
+	
+}
 /*
 문제 1.
 (1) 의 위치에 책의 목록을 출력하는 코드를 작성하세요.
