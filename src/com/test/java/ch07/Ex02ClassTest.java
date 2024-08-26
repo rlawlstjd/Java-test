@@ -43,7 +43,7 @@ public class Ex02ClassTest {
 				case 2 : 
 					for (int i = 0 ; i <bookCount; i++) {
 						System.out.print("현재 가지고 있는 책 목록은 "); 
-						System.out.println(arrbook[i].title+ arrbook[i].author+ arrbook[i].price);
+						System.out.println(arrbook[i].title+ ", " + arrbook[i].author + ", " + arrbook[i].price);
 					}
 	
 					break;

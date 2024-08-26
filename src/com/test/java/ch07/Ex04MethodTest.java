@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ex04MethodTest {
 	public static void main(String[] args) {
-	/*	Scanner scan  =  new Scanner (System.in);//        1번 문제 .1번 문제 .1번 문제 .
+		Scanner scan  =  new Scanner (System.in);//        1번 문제 .1번 문제 .1번 문제 .
 		
 		BookTest book = new BookTest() ; 
 		
@@ -28,37 +28,29 @@ public class Ex04MethodTest {
 		System.out.println(book1.price); 
 		System.out.println(book2.price); 
 	
-	*/
+	
 		// 3번 문제 3번 문제 3번 문제. 
 		
-	/*	Scanner scan  =  new Scanner (System.in);
+		Scanner scan1  =  new Scanner (System.in);
 		int authorCount =  0 ; 
 		BookTest book3 = new BookTest() ;  // 3번 문제 3번 문제 3번 문제. 
 		book3.setAuthor("김범수");
 		BookTest book4 = new BookTest() ;
 		book4.setAuthor("나얼");
 		BookTest book5 = new BookTest() ;
-		book5.setAuthor("박효신"); */
-		Scanner scan  =  new Scanner (System.in);
+		book5.setAuthor("박효신"); 
+		Scanner scan11  =  new Scanner (System.in);
 		String [] authorList = new String [3]; 
 		for (int i = 0 ; i < authorList.length; i++) {
 			System.out.printf("저자를 입력하세요: ", i+1);
-			authorList[i]= scan.nextLine();
+			authorList[i]= scan11.nextLine();
 		}
 		
 		
 		for(int i=0 ; i <authorList.length; i++) {
 			System.out.printf("저자의 목록은 %s", authorList[i]);
-		}	
-			
-			
-			
 		
-		
-		
-		
-		
-		
+		}		
 	}	
 }
 

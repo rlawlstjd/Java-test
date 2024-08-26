@@ -18,11 +18,10 @@ public class Ex07FinalVariable {
 			
 			System.out.printf("제목: %s%n저자: %s%n서점: %s%n%n", b1.title, b1.author, Book6.BOOKSTORE_NAME);
 			System.out.printf("제목: %s%n저자: %s%n서점: %s%n%n", b2.title, b2.author, Book6.BOOKSTORE_NAME);
-			
-			
+	
 		}
 
-	}
+}
 
 
 

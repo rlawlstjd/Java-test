@@ -3,12 +3,24 @@ package com.test.java.ch07;
 public class Ex05ClassVariableTest {
 	public static void main(String[] args) {
 	
+
+		
 	
 	
-	s
+	
 	
 	
 	}
+}
+
+class Book01{
+	String category = "문화"; 
+	String title; 
+	
+	void printInfo() {
+		
+	}
+	
 }
 /*
 문제 1.
