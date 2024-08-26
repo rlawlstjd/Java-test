@@ -4,64 +4,45 @@ import java.util.Scanner;
 
 public class Ex111111 {
 	public static void main(String[] args) {
-		rPtks c = new rPtks () ; 
+		Car1 car = new Car1("김진성") ; 
+		car.printInfo () ; 
 		
-		System.out.printf("더하기 %n");
-		
-		int result = 0 ; 
-		int []n = new int [2] ; 
-		n= c.input(); 
-		result = c.plus(n) ;
-		System.out.println("결과: " + result) ; 
-		
-		
-		System.out.printf("빼기 %n"); 
-		n = c.input() ; 
-		result = c.minus(n); 
-		System.out.println("결과: " + result); 
-	
-		System.out.printf("곱하기 %n"); 
-		n = c.input () ; 
-		result = c.multi(n);
-		System.out.println("결과: " + result); 
-		
-		System.out.printf("나누기 %n"); 
-		n = c.input() ; 
-		result = c.divi(n); 
-		System.out.println("결과: " + result); 
+		Car2 car2 = new Car2() ; 
+		car2.printInfo();
 	
 	
 	
 	}
 }
-class rPtks {
-	int [] input () {
-		int []a = new int [2] ;
-		
-		Scanner scan = new Scanner (System.in);
-		System.out.printf("a[0] : "); 
-		a[0] = scan.nextInt(); 
-		System.out.printf("a[1] :");
-		a[1] = scan.nextInt() ; 
-		
-		return a; 
+class Car1{
+	String name ; 
+	String company; 
+	int price ; 
+	
+	Car1(String name){	
+		this.name= name ; 
+		this.company = "엘컴퓨터학원" ; 
+		this.price = 50000 ; 
+		}
+	
+	
+	void printInfo() {
+		System.out.printf("이름: %s%n공장: %s%n가격: %s%n", name, company, price); 
+	}	
+}
+class Car2 {
+	String name; 
+	String company; 
+	int price ; 
+	
+	Car2(){
+		this.name = "안녕하세요" ; 
+		this.company = "엘컴퓨터학원";
+		this.price = 50000 ; 
 	}
 	
-	int plus (int [] a ) {		
-		return	a[0]+a[1] ; 
-	}
-	
-	int minus (int [] a) {
-		return a[0]-a[1] ; 
-		
-	}
-	
-	int multi (int [] a ) {
-		return a[0]*a[1] ; 
-	}
-	
-	int divi (int [] a) {
-		return a[0]/a[1]; 
+	void printInfo() {
+		System.out.printf("이름: %s%n공장: %s%n가격: %s%n", name, company, price); 
 	}
 	
 }

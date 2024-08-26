@@ -4,10 +4,20 @@ import java.util.Scanner;
 
 public class Ex08MethodOverloadingTest {
 	public static void main(String[] args) {
+	
+		//문제 1번
+		/*Car car = new Car () ; 
+		car.setInfo ("모르쉐") ;
+		car.setInfo1 ("엘컴퓨터학원");
+		car.setInfo (300);
 		
+		car.printInfo() ;  */
+		
+		
+		//문제 2 번 
 		Car car = new Car () ;
-		car
-		
+		car.setInfo("모르쉐", 300, "엘컴퓨터학원");
+		System.out.println(car.getInfo());
 		
 	
 	
@@ -17,15 +27,44 @@ public class Ex08MethodOverloadingTest {
 	}
 }
 
-class Car {
+/*class Car {
 	String name ; 
 	String company; 
 	int rate; 
 		
-	void printInfo () {
-		
+	void setInfo (String name) {
+		this.name = name ; 
 	}
-
+	
+	void setInfo (int rate) {
+		this.rate = rate ; 
+	}
+	
+	void setInfo1 (String company) {
+		this.company = company ; 
+	}
+	
+	void printInfo () {
+		System.out.println("자동차 이름: " +this.name);           //왜 한 줄에서 모두 사용이 안되는가?
+		System.out.println("최고속도: " +  this.rate + "km/h");
+		System.out.println("자동차 회사: " +this.company );
+	}
+}*/
+	
+class Car {
+	String name ; 
+	String company; 
+	int rate; 
+	void setInfo (String name, int rate, String company) {
+		this.name = name; 	
+		this.rate = rate; 
+		this.company = company;
+	}
+	
+	
+	String getInfo() {
+		return "이름: " + name  + "\n속도: " + rate + "\n회사: " + company + "\n";
+	}
 } 
 /*
 문제 1.

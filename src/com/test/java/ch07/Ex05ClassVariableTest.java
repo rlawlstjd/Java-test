@@ -2,8 +2,27 @@ package com.test.java.ch07;
 
 public class Ex05ClassVariableTest {
 	public static void main(String[] args) {
-	
-
+		//Book01.category ="문화"; 
+		Book01.category ="도서";
+		
+		Book01 b = new Book01 () ; 
+		b.title = "무한도전";
+		b.price = 50000 ; 
+		b.author = "mbc"; 
+		
+		Book01 b2 = new Book01 () ; 
+		b2.title = "1박2일"; 
+		b2.price = 50000 ; 
+		b2.author = "kbs"; 
+		
+		Book01 b3 = new Book01 () ; 
+		b3.title = "웃찾사";
+		b3.price = 50000 ; 
+		b3.author = "sbs"; 
+		
+		b.printInfo();
+		b2.printInfo();
+		b3.printInfo();
 		
 	
 	
@@ -14,11 +33,15 @@ public class Ex05ClassVariableTest {
 }
 
 class Book01{
-	String category = "문화"; 
-	String title; 
+	String title ; 
+	String author ; 
+	int price ; 
 	
+	static String category ; 
+	
+
 	void printInfo() {
-		
+		System.out.printf("책이름: %s%n가격: %d%n저자: %s%n카테고리: %s%n", title, price, author, category); 
 	}
 	
 }

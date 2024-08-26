@@ -35,7 +35,7 @@ class Book5 {
 	}
 	float getDollarPrice() {
 		float dollarPrice = price / 1000f ; 
-		return dollarPrice ; 
+		return dollarPrice ; //return ? 
 	}
 
 }

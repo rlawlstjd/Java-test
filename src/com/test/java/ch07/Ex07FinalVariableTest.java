@@ -23,7 +23,8 @@ public class Ex07FinalVariableTest {
 
 class book1{
 	String title ; 
-	int price ;
+	final int price  = 100 ; 
+	//int price ;
 	final static float tax = 1.5f;
 	
 	void printInfo() {

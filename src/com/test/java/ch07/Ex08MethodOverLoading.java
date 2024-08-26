@@ -30,6 +30,7 @@ class Book7 {
 	void setInfo(String title, int price) {
 		this.title = title;
 		this.price = price;
+		this.author = "안녕하세요"; 
 	}
 		
 	void setInfo(String title, int price, String author) {
