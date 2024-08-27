@@ -18,7 +18,8 @@ public class Ex09ConstructureTest {
 class movie {
 	String title; 
 	int time; 
-	String genre; 
+	String genre;
+	public Object actor; 
 	
 	movie(String title, int time, String genre) {
 		this.title = title ; 

@@ -16,21 +16,23 @@ public class Ex11Varargs {
 	book2.author = "엘코딩"; 
 	book2.setTag("IT", "프로그램 언어");
 	
+	
 	Book12.printInfo(book2);
 	
+	//는 왜 안되는가 ? book2.printInfo();
 	
 	
 	}
 }
 class Book12 {
 	String title; 
-	String author; 
+	String author;  
 	String []tag ; 
-	
-	void setTag(String...params) {
-		tag = new String[params.length]; 
+	 
+	void setTag(String...p) {
+		tag = new String[p.length]; 
 		for (int i=0; i<tag.length; i ++) {
-			tag[i] = params[i] ; 
+			tag[i] = p[i] ; 
 		}
 	}
 	

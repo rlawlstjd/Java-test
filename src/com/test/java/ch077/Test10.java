@@ -1,6 +1,6 @@
-package com.test.java.ch07;
+package com.test.java.ch077;
 
-public class Ex10ThisConstructor {
+public class Test10 {
 	public static void main(String[] args) {
 		Book11 b1 = new Book11(); 
 		Book11.printInfo(b1); 
@@ -42,4 +42,3 @@ class Book11 {
 		System.out.printf("제목: %s%n가격: %d%n저자: %s%n%n", book.title, book.price, book.author);
 	}
 }
-

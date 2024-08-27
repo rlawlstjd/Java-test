@@ -18,7 +18,7 @@ public class Ex09Constructure {
 		b4.printInfo(); 
 		
 		Book10 b5 = new Book10("자바8문법", 40000, "엘컴퓨터학원");
-		b5.printInfo(); 
+		
 		
 		//Book10 b6 = new Book10("김진성", 400000, "엘컴퓨터학원"); 
 		//b6.printInfo();

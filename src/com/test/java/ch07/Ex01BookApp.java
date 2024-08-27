@@ -45,7 +45,10 @@ public class Ex01BookApp {
 					
 				case 2: 
 					System.out.println ("책의 목록을 확인합니다."); 
-					
+					for (int i=0; i<bookCount; i++) {
+						System.out.printf("제목: %s, 저자: %s, 가격: %d", arrTitle[i], arrAuthor[i], arrPrice[i]);
+						System.out.println(); 
+					}
 					
 					
 					
