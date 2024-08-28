@@ -7,7 +7,7 @@ public class Ex13CallByValue {
 		System.out.println("책 번호: "  + book.bookNo);
 		
 		Ex12Book.generateBookNo(book);
-		
+		 
 		System.out.println("책 번호: " + book.bookNo); 
 		
 	}

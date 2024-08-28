@@ -12,7 +12,7 @@ public class Ex12Book {
 	}
 	
 	static void generateBookNo(int bookNo) {
-		bookNo = (int)(Math.random()*9000)+1000; 
+		bookNo = (int)(Math.random()*9000)+1000; //왜 return을 쓰지 않았는가 
 	}
 	
 	static void generateBookNo(Ex12Book book) {
