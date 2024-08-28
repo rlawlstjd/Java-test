@@ -9,9 +9,9 @@ public class Ex03MethodTest {
 		System.out.printf("더하기 %n");
 		
 		int result = 0 ; 
-		int []n = new int [2] ; 
+		int[] n = new int [2] ; 
 		n= c.input(); 
-		result = c.plus(n) ;
+		result = c.plus(n[0], n[1]) ;
 		System.out.println("결과: " + result) ; 
 		
 		
@@ -35,7 +35,7 @@ public class Ex03MethodTest {
 	}
 }
 class rPtks {
-	int [] input () {
+	int[] input () {
 		int []a = new int [2] ;
 		
 		Scanner scan = new Scanner (System.in);
@@ -47,8 +47,8 @@ class rPtks {
 		return a; 
 	}
 	
-	int plus (int [] a ) {		
-		return	a[0]+a[1] ; 
+	int plus (int a, int b) {		
+		return	a+b ; 
 	}
 	
 	int minus (int [] a) {

@@ -48,6 +48,7 @@ public class Ex08MethodOverloadingTest {
 		System.out.println("자동차 이름: " +this.name);           //왜 한 줄에서 모두 사용이 안되는가?
 		System.out.println("최고속도: " +  this.rate + "km/h");
 		System.out.println("자동차 회사: " +this.company );
+		 
 	}
 }*/
 	
@@ -55,10 +56,26 @@ class Car {
 	String name ; 
 	String company; 
 	int rate; 
+	
+	void setInfo(String name) {
+		this.name = name;
+	}
+	
+	void setInfo(int rate) {
+		this.rate = rate;
+	}
+	
+	void setInfo(String name, int rate) {
+		this.name = name;
+		this.rate = rate;
+	}
+	
 	void setInfo (String name, int rate, String company) {
 		this.name = name; 	
 		this.rate = rate; 
 		this.company = company;
+		
+		//System.out.println("자동차 이름: " +this.name + ", " + this.rate + "km/h, " + this.company);
 	}
 	
 	

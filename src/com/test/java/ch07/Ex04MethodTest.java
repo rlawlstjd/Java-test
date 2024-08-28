@@ -1,22 +1,18 @@
 package com.test.java.ch07;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ex04MethodTest {
 	public static void main(String[] args) {
-		Scanner scan  =  new Scanner (System.in);//        1번 문제 .1번 문제 .1번 문제 .
+		/*Scanner scan  =  new Scanner (System.in);//        1번 문제 .1번 문제 .1번 문제 .
 		
 		BookTest book = new BookTest() ; 
 		
 		System.out.printf("가격을 설정하세요");
 		int number = scan.nextInt();
 		
-		if (number >=10000 && number <=80000) {
-			book.setPrice(number);
-			System.out.printf("책의 가격은 %d입니다.",number);
-		}else {
-			System.out.printf("설정 가능하지 않은 가격입니다.%n%n%n");
-		}
+		book.setPrice(number);
 
 	
 		BookTest book1 = new BookTest() ;  // 2번 문제 2번 문제 2번 문제 .
@@ -32,11 +28,28 @@ public class Ex04MethodTest {
 		// 3번 문제 3번 문제 3번 문제. 
 		
 		Scanner scan1  =  new Scanner (System.in);
-		int authorCount =  0 ; 
+		int authorCount =  0 ; */
+		
 		BookTest book3 = new BookTest() ;  // 3번 문제 3번 문제 3번 문제. 
-		book3.setAuthor("김범수");
+		String[] authors = {"김", "나", "박"};
+		book3.setAuthor(authors);
+		System.out.println(Arrays.toString(book3.author));
+		
+		
+		authors[0] = "김2";
+		authors[1] = "나2";
+		authors[2] = "박2";
 		BookTest book4 = new BookTest() ;
-		book4.setAuthor("나얼");
+		book4.setAuthor(authors);
+		System.out.println(Arrays.toString(book4.author));
+		
+		System.out.println("---");
+		
+		System.out.println(Arrays.toString(book3.author));
+		
+		
+		
+		/*book4.setAuthor("나얼");
 		BookTest book5 = new BookTest() ;
 		book5.setAuthor("박효신"); 
 		Scanner scan11  =  new Scanner (System.in);
@@ -50,7 +63,7 @@ public class Ex04MethodTest {
 		for(int i=0 ; i <authorList.length; i++) {
 			System.out.printf("저자의 목록은 %s", authorList[i]);
 		
-		}		
+		}*/		
 	}	
 }
 
@@ -59,15 +72,26 @@ public class Ex04MethodTest {
 class BookTest {
 	int price ; 
 	String title ; 
-	String author ; 
+	String[] author = new String[3];	// 60 
 	
-	
-	void setAuthor(String name) {
-		author = name ; 
+	//String[] name = 50;
+	//String[] author = name;
+	//author = 50;
+	void setAuthor(String[] name) {
+		for (int i=0; i<name.length; i++) {
+			author[i] = name[i];	
+		} 
 	}
 	
 	void setPrice(int parameterPrice){
-		price = parameterPrice ; 
+		if (parameterPrice >=10000 && parameterPrice <=80000) {
+			System.out.printf("책의 가격은 %d입니다.",parameterPrice);
+			price = parameterPrice ; 
+		}else {
+			System.out.printf("설정 가능하지 않은 가격입니다.%n%n%n");
+		}
+		
+
 	}	
 		/*void setTitle(String name){
 			title = name; 

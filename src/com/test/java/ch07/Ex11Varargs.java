@@ -36,7 +36,7 @@ class Book12 {
 		}
 	}
 	
-	static void printInfo(Book12 book) {
+	static void printInfo(Bookk book) {
 		System.out.printf("제목: %s%n저자: %s%n", book.title, book.author); 
 		System.out.printf("카테고리: %s%n", Arrays.toString(book.tag));
 	}

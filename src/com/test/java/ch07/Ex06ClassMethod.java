@@ -16,6 +16,15 @@ public class Ex06ClassMethod {
 		
 		float dollar = b2.getDollarPrice();
 		System.out.println(dollar);
+		
+		Book5 b5 = new Book5();
+		b5.genBookNo3();
+		Book5 b6 = new Book5();
+		b6.genBookNo3();
+		
+		Book5 b7 = new Book5();
+		Book5.genBookNo2(b7);
+		System.out.println(b7.bookNo);
 	}
 
 }
@@ -36,6 +45,16 @@ class Book5 {
 	float getDollarPrice() {
 		float dollarPrice = price / 1000f ; 
 		return dollarPrice ; //return ? 
+	}
+	
+	static void genBookNo2(Book5 book) {
+		book.bookNo = (int)(Math.random()*9000)+1000;
+		//return bookNo;
+	}
+	
+	int genBookNo3() {
+		bookNo = (int)(Math.random()*9000)+1000;
+		return bookNo;
 	}
 
 }

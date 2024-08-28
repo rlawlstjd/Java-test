@@ -63,9 +63,26 @@ class movie3{
 	String title; 
 	int time ; 
 	String genre;
-	movie3(String genre){
-		this.title= "Hi"; 
+	
+	movie3(){
+		this.title= "only"; 
 		this.time = 130;
+		this.genre= "드라마";
+	}
+	
+	movie3(String title){
+		this.title= title; 
+		this.time = 130;
+		this.genre= "드라마";
+	}
+	movie3(String title, String genre){
+		this.title= title;
+		this.genre= genre;
+		this.time = 130;
+	}
+	movie3(String title, String genre, int time){
+		this.title= title; 
+		this.time = time;
 		this.genre= genre;
 	}
 	void printInfo() {
