@@ -7,7 +7,7 @@ public class Ex14CallByReferenceTest1 {
 		
 		
 	
-		Book20.modifyPrice(book.price);
+		Book20.modifyPrice(book);
 		System.out.println("수정된 금액: "  + book.price);
 	
 	
@@ -24,9 +24,9 @@ class Book20 {
 		this.price = price ;
 	}
 	
-	static int modifyPrice (int price) {
-		price += 5000 ; 
-		return price;
+	static void modifyPrice (Book20 book) {
+		book.price += 1000 ;
+		
 	}
 }
 /*

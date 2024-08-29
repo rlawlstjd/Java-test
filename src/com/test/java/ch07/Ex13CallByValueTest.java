@@ -9,7 +9,7 @@ public class Ex13CallByValueTest {
 		book.price = Book21.modifyPrice(book.price);
 		
 		System.out.println(book.price);
-	}
+	} 
 
 }
 

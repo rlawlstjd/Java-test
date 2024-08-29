@@ -13,6 +13,7 @@ public class Ex01InheritanceTest {
 		size.height = 200 ; 
 		
 		size.printSize();
+		size.printInfo();
 	
 	}
 }
@@ -32,7 +33,7 @@ class Size extends Phone {
 	int height; 
 	
 	void printSize() {
-		System.out.println("가로길이: " + width + "mm, 세로길이" + height + "mm");
+		System.out.println("가로길이: " + width + "mm, 세로길이" + height + "mm, " + brand);
 	}
 }
 	
