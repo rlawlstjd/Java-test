@@ -13,7 +13,7 @@ class Book51 {
 	String author; 
 	
 	Book51 (String title, String author){
-		this.title= "설국열차" ;
+		this.title= title ;
 		this.author = author; 
 	}
 	
