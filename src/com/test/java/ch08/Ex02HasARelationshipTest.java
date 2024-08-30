@@ -29,7 +29,10 @@ public class Ex02HasARelationshipTest {
 class Order {
 	 Customer order ; 
 	 Customer[] foods; 
-	 int price ; 
+	 int price ;
+	 Food[] foods2;
+	 
+	 
 	 
 	 void putMenu(Customer food) {
 		 this.order = food ; 
@@ -52,6 +55,12 @@ class Order {
 			 System.out.println(foods[i].print());
 		 }
 	 }
+}
+
+class Food {
+	String type;
+	String regdate;
+	String flavor;
 }
 
 class Customer {
