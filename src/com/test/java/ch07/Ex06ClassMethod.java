@@ -21,7 +21,7 @@ public class Ex06ClassMethod {
 		b5.genBookNo3();
 		Book5 b6 = new Book5();
 		b6.genBookNo3();
-		
+		System.out.println(b6.bookNo);
 		Book5 b7 = new Book5();
 		Book5.genBookNo2(b7);
 		System.out.println(b7.bookNo);
