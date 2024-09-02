@@ -11,19 +11,19 @@ public class Ex03SuperTest {
 	
 	}
 }
-class Book5 {
+class Book3 {
 	String author ; 
 	String title ; 
 	int price ;
 	
-	Book5(String author, String title, int price){
+	Book3(String author, String title, int price){
 		this.author= author ; 
 		this.title = title ; 
 		this.price = price ;
 		
 	}
 }
-class EBook3 extends Book5{
+class EBook3 extends Book3{
 	String fontcolor ; 
 	
 	EBook3(){

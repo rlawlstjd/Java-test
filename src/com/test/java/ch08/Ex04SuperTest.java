@@ -27,10 +27,19 @@ class Movie {
 
 class Parasite extends Movie {
 	int spector ; 
+	int price;
+	String title;
 	
 	Parasite() {
 		super ("봉준호", "기생충", 13000);
 		this.spector = 100000; 
+	}
+	
+	void init(int price, String title) {
+		System.out.println("지역변수" + price);
+		System.out.println("인스턴스변수" + this.price);
+		System.out.println("부모인스턴스변수" + super.price);
+		System.out.println(director);
 	}
 	
 	void printInfo () {

@@ -6,6 +6,11 @@ public class Ex05OverridingTest {
 		b.printInfo();
 		
 		b.printAllInfo();
+		
+		Book51 b2 = new Book51("ㅌㅌㅌ", "ㅌ1");
+		b2.setTitle("티티티");
+		b2.printInfo();
+		
 	}
 }
 class Book51 {
@@ -32,8 +37,9 @@ class EBook51 extends Book51{
 	}
 	
 	void setTitle (String title ) {
-		super.setTitle(title);
-		this.title = "미나리";
+		//super.setTitle(title);
+		//this.title = "미나리";
+		this.title = "[이북]"+title;
 	}
 	
 	void printInfo() {
