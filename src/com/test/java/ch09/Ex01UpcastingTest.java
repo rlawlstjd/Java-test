@@ -47,8 +47,6 @@ class Book1 {
 		return voiceActor;
 	}
 	
-	
-	
 }
 class EBook1 extends Book1{
 	private String fontColor;

@@ -11,7 +11,7 @@ public class Ex02Polymorphism {
 		ComicBook cbook = new ComicBook();
 		cbook.setTitle("만화로 배우는 자바");
 		
-		AudioBook ab = new AudioBook();
+		AudioBook2 ab = new AudioBook2();
 		ab.setTitle("엘컴퓨터 모음집");
 		
 		
@@ -80,7 +80,7 @@ class ComicBook extends Book2 {
 	}
 }
 
-class AudioBook extends Book2 {
+class AudioBook2 extends Book2 {
 	String voicActor; 
 	
 	public String getTitle() {

@@ -20,8 +20,9 @@ public class Ex04Polymorphism {
 
 		System.out.println(b1.equalsProduct(b2));
 		System.out.println(b1.equalsProduct(b3));
-		int higherPrice = b1.compareProduct(b2);
-		System.out.println("더 높은 가격:" + higherPrice);
+		
+		Book4 higherPriceBook = b1.compareProduct(b2);
+		System.out.println("더 높은 가격의 책 제목: " + higherPriceBook.getTitle());
 	}
 }
 class Product {
@@ -29,8 +30,8 @@ class Product {
 		return this == p;
 	}
 	
-	public int compareProduct(Product p) {
-		return 0; 
+	public Product compareProduct(Product p) {
+		return this; 
 	}
 	
 	
@@ -73,12 +74,12 @@ class Book4 extends Product {
 		return result; 
 	}
 	
-	public int compareProduct(Product p) {
+	public Book4 compareProduct(Product p) {
 		if (!(p instanceof Book4))
-			return this.price ; 
+			return this;
 		
 		Book4 bp = (Book4)p ; 
-		return Math.max(this.price, bp.price);
+		return this.price >= bp.price ? this : bp;
 	}
 }
 /*
