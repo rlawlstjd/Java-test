@@ -15,7 +15,7 @@ public class Ex02Polymorphism {
 		ab.setTitle("엘컴퓨터 모음집");
 		
 		
-		Cart cart = new Cart();
+		Cart9 cart = new Cart9();
 		cart.add(book);
 		cart.add(ebook);
 		cart.add(cbook);
@@ -90,7 +90,7 @@ class AudioBook2 extends Book2 {
 	
 }
 
-class Cart {
+class Cart9 {
 	private Book2[] books = new Book2[10];
 	private int index = 0;
 	
