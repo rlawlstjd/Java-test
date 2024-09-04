@@ -30,10 +30,10 @@ public class Ex05AbstractClass {
 				ab.setAuthor("엘컴퓨터학원");
 				ab.setPrice(50000);
 				ab.setVolumeLevel(50);
+				ab.print();
 				
 				
-				
-				Cart2 cart = new Cart2 (); 
+				Cart cart = new Cart (); 
 				cart.add(ab);
 				cart.add(eb);
 				cart.add(pb);
@@ -93,7 +93,7 @@ public class Ex05AbstractClass {
 
 			@Override
 			public void print() {
-				System.out.println(title + ", " + getAuthor() + ", " + getPrice() + ", " + type);
+				System.out.println(  title + "," + getAuthor() + "," + getPrice() + ","+ type);
 			}
 			
 		}
@@ -168,12 +168,12 @@ public class Ex05AbstractClass {
 				return price;
 			}	
 			public void print() {
-				System.out.println(title + ", " + getAuthor() + ", " + getPrice() + ", " + volumeLevel);
+				System.out.println("제목: "+  title + ", 저자: " + getAuthor() + ", 가격: " + getPrice() + ", 볼륨: " + volumeLevel);
 			}
 				
 		}
 		
-		class Cart2 {
+		class Cart {
 			Book5[] books = new Book5 [10];
 			int index = 0 ; 
 			
