@@ -56,8 +56,8 @@ public class Ex06Interface {
 }
 
 class Cart2 {
-	OrderItem[] items;  			//OrderItem[] items = new OrderItem[10];
-	int index;							//int index = 0;  ????
+	OrderItem[] items;  			
+	int index;						
 	
 	
 	public Cart2() {
@@ -259,9 +259,6 @@ class OrderService {
 			if (items[i] == null)
 				break;
 			System.out.println("상품명: " + items[i].getOrderName() + "\n가격: " + items[i].getOrderPrice() + "\n주문 데이터베이스에 저장되었습니다.\n");
-		
-		
-		
 		}
 	}
 	
