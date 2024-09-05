@@ -2,12 +2,12 @@ package com.test.java.ch10;
 
 public class Ex03LocalClass {
 	public static void main(String[] args) {
-		System.out.println(EBook3.validatePrice(45000));
+		System.out.println(EBook3.validatePrice(47000));
 	
 		System.out.println();
 		
 		EBook3 eb = new EBook3();
-		eb.setPrice(50000);
+		eb.setPrice(60000);
 		System.out.println(eb.getPrice());
 	}
 
@@ -42,7 +42,7 @@ class EBook3 {
 		
 		Price p = new Price(price);
 		int taxPrice = p.getTaxPrice();
-		System.out.println(taxPrice); ///클래스 내에서도 출력이 가능한가? 
+		System.out.println(taxPrice); 
 		
 		float dollarPrice = p.getDollarPrice();
 		System.out.println(dollarPrice);

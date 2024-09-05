@@ -40,7 +40,7 @@ class Book22{
 		}	
 		ValidAuthorName validator = new ValidAuthorName();
 	      
-	        return validator.isValid(author);
+	    return validator.isValid(author);
 	}
 }
 /*
