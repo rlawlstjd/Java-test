@@ -6,13 +6,13 @@ public class Ex02EnumTest {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);
 		
-		Movie m = new Movie () ; 
-		m.setGenre(Genre.DRAMA);
-		System.out.println(m.genre);
+		Book11 b = new Book11 () ; 
+		b.setGenre(Genre.DRAMA);
+		System.out.println(b.genre);
 	}
 }
 
-class Movie {
+class Book11 {
 	private	String title; 
 	private	String author; 
 	public Genre genre;

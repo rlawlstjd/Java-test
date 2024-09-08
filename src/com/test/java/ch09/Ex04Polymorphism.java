@@ -68,7 +68,7 @@ class Book4 extends Product {
 		if(!(p instanceof Book4))
 			return false; 
 		
-		Book4 book = (Book4)p;
+		Book4 book = (Book4)p; // 다운캐스팅 
 		boolean result = title.equals(book.title) && author.equals(book.author);
 		
 		return result; 

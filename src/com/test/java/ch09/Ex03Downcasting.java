@@ -15,7 +15,7 @@ public class Ex03Downcasting {
 			book = new EBook3();
 			book.setTitle("자바 알고리즘");
 			System.out.println(book.getTitle());
-			//book.setFontColor("블랙");
+			book.setFontColor("블랙");
 			ebook = (EBook3)book;		// 다운캐스팅
 			ebook.setFontColor("블랙");
 			System.out.println(ebook.getFontColor());
@@ -31,6 +31,7 @@ public class Ex03Downcasting {
 
 	class Book3 {
 		private String title;
+		private String fontColor;
 		
 		public String getTitle() {
 			return title;
@@ -38,6 +39,10 @@ public class Ex03Downcasting {
 		public void setTitle(String title) {
 			this.title = title;
 		}
+		public void setFontColor(String color) {
+			this.fontColor = color;
+		}
+		
 		
 	}
 

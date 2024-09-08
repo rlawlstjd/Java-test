@@ -1,6 +1,6 @@
 package com.test.java.ch11;
 
-public class Ex03Country {
+public enum Ex03Country {
 	KOREA(82, 1.1f), 
 	USA(1, 1.2f),
 	UK(44, 1.3f),
