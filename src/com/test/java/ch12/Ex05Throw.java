@@ -10,7 +10,7 @@ public class Ex05Throw {
 				user = LoginService.form(); 
 				LoginService.login(user); 
 				
-				if (user.isLogin()) {
+				if (user.isLogin()) { //false?
 						LoginService.success(user);
 						break;
 				}
@@ -77,7 +77,7 @@ class LoginService {
 			System.out.println(user.getId() + " 님 환영합니다.");  
 		}
 		
-		public static void increaseCount() {
+		public static void increaseCount() { // 클래스 이름과 ? 
 			count++;
 			System.out.println("로그인 시도" + count + "회"); 
 		}

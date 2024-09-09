@@ -14,7 +14,7 @@ public class Ex01TryCatch {
 		} catch (Exception e) {
 			System.out.println("숫자만 입력 가능 합니다."); 
 			
-			//e.printstackTrace(); 
+			e.printStackTrace(); 
 		}
 	
 		System.out.println("프로그램이 종료됩니다.");
