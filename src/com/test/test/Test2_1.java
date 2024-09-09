@@ -1,127 +1,128 @@
 package com.test.test;
 
+import java.util.Scanner;
+
 public class Test2_1 {
 	public static void main(String[] args) {
-		Book2 book = new Book2();
-		book.setTitle("자바 기본문법");
-		
-		EBook2 ebook = new EBook2();
-		ebook.setTitle("자바 알고리즘");
-		
-		ComicBook cbook = new ComicBook();
-		cbook.setTitle("만화로 배우는 자바");
-		
-		
-		
-		Cart cart = new Cart();
-		cart.add(book);
-		cart.add(ebook);
-		cart.add(cbook);
-		
-		
-		cart.printList();
-
-		book.setVolume(50);
-		System.out.println(book.getVolume());
-		
+		while (true) {
+			User2 user = null ; 
+			
+			user = LoginService2.form();
+			
+			try {
+				LoginService2.login(user);
 	
-	}
-
-}
-
-class Book2 {
-	protected String title;
-	private int volume; 
-	
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	void setVolume (int volume) {
-		this.volume = volume ; 
-	}
-	
-	int getVolume () {
-		return volume; 
-	}
-	
-	
-}
-
-class EBook2 extends Book2 {
-	private String fontColor;
-
-	public String getFontColor() {
-		return fontColor;
-	}
-	public void setFontColor(String fontColor) {
-		this.fontColor = fontColor;
-	}
-	
-	@Override
-	public String getTitle() {
-		return "[e북]" + title;
-	}
-	
-}
-
-class ComicBook extends Book2 {
-	private boolean color;
-
-	public boolean isColor() {
-		return color;
-	}
-	public void setColor(boolean color) {
-		this.color = color;
-	}
-	
-	@Override
-	public String getTitle() {
-		return "[만화책]" + title;
-	}
-}
-
-
-class AudioBook extends Book2{
-	public int volume;
-	
-	void setVolume (int volume) {
-		this.volume = volume ; 
-	}
-	
-	int getVolume () {
-		return volume; 
-	}
-	
-	@Override 
-	public String getTitle() {
-		return "[오디오북]" + title; 
-	}
-}
-	
-
-
-class Cart {
-	private Book2[] books = new Book2[10];
-	private int index = 0;
-	
-	public void add(Book2 book) {	// 다형성
-		books[index] = book;
-		index++;
-	}
-	
-	public void printList() {
-		for (int i=0; i<books.length; i++) {
-			if (books[i] == null)
+			} catch (IDMismatchException2 e) {
+				System.out.println(e.getMessage());
+				System.out.println("아이디 찾기를 원하시면 클릭해 주세요");
+			
+			} catch (PasswordMismatchException2 e) {
+				System.out.println(e.getMessage());
+				System.out.println("비밀번호 찾기를 원하시면 클릭해 주세요.");
+			
+			} finally {
+				LoginService2.increaseCount(); 
+			}	
+			
+			if (user.isLogin()) {
+				LoginService2.success(user);
 				break;
-			System.out.println(books[i].getTitle());
-			// (1) System.out.println(books[i].getFontColor());
+			}
+			
+			System.out.println("로그인에 실패하였습니다.");
+		}
+		
+		System.out.println("1. 회원정보");
+		System.out.println("2, 커뮤니티");
+		System.out.println("3. 쇼핑"); 
+		System.out.println("4. 로그아웃");  
+		
+	}
+}
+
+class LoginService2 {
+	private static final String DB_ID = "admin"; 
+	private static final String DB_PW = "1234"; 
+	private static int count = 0 ; 
+	
+	public static User2 form() {
+		User2 user = new User2(); 
+		Scanner scan = new Scanner(System.in); 
+		
+		System.out.println("-로그인 화면-");
+		System.out.println("아이디를 입력하세요."); 
+		user.setId(scan.nextLine());
+		System.out.println("비밀번호를 입력하세요.");
+		user.setPassword(scan.nextLine());
+		
+		return user; 
+	}
+	
+	public static void success(User2 user) {
+		System.out.println(user.getId()+ "님 환영합니다.");
+	}	
+	
+	public static void increaseCount() {
+		count++; 
+		System.out.println("로그인 시도 " + count + "회");
+	}
+	
+	
+	public static void login (User2 user) throws IDMismatchException2, PasswordMismatchException2{
+		if(!DB_ID.equals(user.getId())) {
+			throw new IDMismatchException2("잘못된 아이디를 입력하였습니다.");
+			
+		} else if (!DB_PW.equals(user.getPassword())) {
+			throw new PasswordMismatchException2("잘못된 비밀번호를 입력하였습니다.");
+			
+		} else {
+			user.setLogin(true);
 		}
 	}
 }
+
+class User2 {
+	private String id; 
+	private String password; 
+	private boolean login; 
+	
+	public void setId(String id) {
+		this.id= id; 
+	}
+	
+	public String getId() {
+		return id; 	
+	}
+	
+	public void setPassword (String password) {
+		this.password= password;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setLogin (boolean login) {
+		this.login = login ;
+	}
+	
+	public boolean isLogin () {
+		return login;
+	}
+}
+
+class IDMismatchException2 extends Exception {
+	public IDMismatchException2(String message) {
+		super(message);
+	}
+}
+
+class PasswordMismatchException2 extends Exception {
+	public PasswordMismatchException2 (String message) {
+		super (message);
+	}
+}
+
 /*AudioBook 클래스를 추가하세요.
 카트에 오디오북을 담으세요.
 카트의 리스트 출력 시 오디오북은 [오디오북]책제목의 형식으로 출력되도록 코딩하세요. 

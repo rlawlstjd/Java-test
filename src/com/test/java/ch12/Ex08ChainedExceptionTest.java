@@ -2,9 +2,9 @@ package com.test.java.ch12;
 
 import java.util.Scanner;
 
-public class Ex07ReThrowTest {
+public class Ex08ChainedExceptionTest {
 	public static void main(String[] args) {
-        Berverage berverage = new Berverage();
+        Berverage1 berverage = new Berverage1();
         Scanner scan = new Scanner(System.in);
 
         while (true) {
@@ -23,10 +23,14 @@ public class Ex07ReThrowTest {
             try {
                 berverage.selectBerverage(choice, amount);
                 System.out.println("음료가 나왔습니다.");
+                
             } catch (InvalidBerverageException e) {
                 System.out.println("예외 발생: " + e.getMessage());
+                System.out.println("원인: " + e.getCause()); // Chained Exception의 원인 출력
+                
             } catch (InsufficientFundsException e) {
                 System.out.println("예외 발생: " + e.getMessage() + " 추가로 " + e.getAmountNeeded() + "원이 필요합니다.");
+                System.out.println("원인: " + e.getCause()); // Chained Exception의 원인 출력
             }
         }
     }
@@ -63,13 +67,12 @@ class Berverage { // 자판기 클래스
             }
 
         } catch (InvalidBerverageException e) {
-            // 예외 처리 후 다시 던지기 (rethrow)
-            System.out.println("InvalidBeverageException 처리: " + e.getMessage());
-            throw e;
+            // Chained Exception으로 InvalidBerverageException을 다시 던질 때, 원인 예외를 포함
+            throw new InvalidBerverageException("음료 선택 오류", e);
+
         } catch (InsufficientFundsException e) {
-            // 예외 처리 후 다시 던지기 (rethrow)
-            System.out.println("InsufficientFundsException 처리: " + e.getMessage());
-            throw e;
+            // Chained Exception으로 InsufficientFundsException을 다시 던질 때, 원인 예외를 포함
+            throw new InsufficientFundsException("금액 부족 오류", e.getAmountNeeded());
         }
     }
 }
@@ -77,16 +80,27 @@ class Berverage { // 자판기 클래스
 
 // 예외 클래스
 class InvalidBerverageException extends Exception {
-    InvalidBerverageException(String message) {
+    public InvalidBerverageException(String message) {
         super(message);
+    }
+
+    // Chained Exception을 처리하는 생성자
+    public InvalidBerverageException(String message, Throwable cause) {
+        super(message, cause);
     }
 }
 
 class InsufficientFundsException extends Exception {
     private int amountNeeded;
 
-    InsufficientFundsException(String message, int amountNeeded) {
+    public InsufficientFundsException(String message, int amountNeeded) {
         super(message);
+        this.amountNeeded = amountNeeded;
+    }
+
+    // Chained Exception을 처리하는 생성자
+    public InsufficientFundsException(String message, int amountNeeded, Throwable cause) {
+        super(message, cause);
         this.amountNeeded = amountNeeded;
     }
 
@@ -96,5 +110,5 @@ class InsufficientFundsException extends Exception {
 }
 /*
 문제 1.
-자판기 프로그램에 re throw를 적용해 주세요.
+자판기 프로그램에 연결 예외를 적용해 주세요.
 */
