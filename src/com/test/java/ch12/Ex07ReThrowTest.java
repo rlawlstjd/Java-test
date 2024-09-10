@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ex07ReThrowTest {
 	public static void main(String[] args) {
-        Berverage berverage = new Berverage();
+        Berverage5 berverage = new Berverage5();
         Scanner scan = new Scanner(System.in);
 
         while (true) {
@@ -23,9 +23,9 @@ public class Ex07ReThrowTest {
             try {
                 berverage.selectBerverage(choice, amount);
                 System.out.println("음료가 나왔습니다.");
-            } catch (InvalidBerverageException e) {
+            } catch (InvalidBerverageException3 e) {
                 System.out.println("예외 발생: " + e.getMessage());
-            } catch (InsufficientFundsException e) {
+            } catch (InsufficientFundsException3 e) {
                 System.out.println("예외 발생: " + e.getMessage() + " 추가로 " + e.getAmountNeeded() + "원이 필요합니다.");
             }
         }
@@ -33,12 +33,12 @@ public class Ex07ReThrowTest {
 }
 
 
-class Berverage { // 자판기 클래스
+class Berverage5 { // 자판기 클래스
     private static final int apple_flavor = 1000;
     private static final int grape_flavor = 1200;
     private static final int mango_flavor = 1500;
 
-    public void selectBerverage(int choice, int amount) throws InvalidBerverageException, InsufficientFundsException {
+    public void selectBerverage(int choice, int amount) throws InvalidBerverageException3, InsufficientFundsException3 {
         try {
             int price;
 
@@ -53,20 +53,20 @@ class Berverage { // 자판기 클래스
                     price = mango_flavor;
                     break;
                 default:
-                    throw new InvalidBerverageException("잘못된 음료 번호입니다.");
+                    throw new InvalidBerverageException3("잘못된 음료 번호입니다.");
             }
 
             if (amount < price) {
-                throw new InsufficientFundsException("잔액이 부족합니다.", price - amount);
+                throw new InsufficientFundsException3("잔액이 부족합니다.", price - amount);
             } else if (amount > price) {
                 System.out.println("거스름돈은 " + (amount - price) + "원 입니다.");
             }
 
-        } catch (InvalidBerverageException e) {
+        } catch (InvalidBerverageException3 e) {
             // 예외 처리 후 다시 던지기 (rethrow)
             System.out.println("InvalidBeverageException 처리: " + e.getMessage());
             throw e;
-        } catch (InsufficientFundsException e) {
+        } catch (InsufficientFundsException3 e) {
             // 예외 처리 후 다시 던지기 (rethrow)
             System.out.println("InsufficientFundsException 처리: " + e.getMessage());
             throw e;
@@ -76,16 +76,16 @@ class Berverage { // 자판기 클래스
 
 
 // 예외 클래스
-class InvalidBerverageException extends Exception {
-    InvalidBerverageException(String message) {
+class InvalidBerverageException3 extends Exception {
+    InvalidBerverageException3(String message) {
         super(message);
     }
 }
 
-class InsufficientFundsException extends Exception {
+class InsufficientFundsException3 extends Exception {
     private int amountNeeded;
 
-    InsufficientFundsException(String message, int amountNeeded) {
+    InsufficientFundsException3(String message, int amountNeeded) {
         super(message);
         this.amountNeeded = amountNeeded;
     }

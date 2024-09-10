@@ -6,9 +6,9 @@ public class Ex05ThrowTest {
 	public static void main(String[] args) {
 	   Scanner scan = new Scanner(System.in);
 
-        VendingMachine vendingMachine = new VendingMachine();
+       VendingMachine vendingMachine = new VendingMachine();
 
-        while (true) {
+       while (true) {
             System.out.println("1. 사과 (1000원)");
             System.out.println("2. 포도 (1200원)");
             System.out.println("3. 망고 (1500원)");
@@ -34,7 +34,7 @@ public class Ex05ThrowTest {
     }
 }
 
-// 자판기 클래스
+
 class VendingMachine {
     private static final int APPLE_PRICE = 1000;
     private static final int GRAPE_PRICE = 1200;
@@ -65,7 +65,7 @@ class VendingMachine {
     }
 }
 
-// 사용자 정의 예외 클래스
+
 class InvalidBeverageException extends RuntimeException {
     public InvalidBeverageException(String message) {
         super(message);
