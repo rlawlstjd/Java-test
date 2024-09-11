@@ -1,6 +1,6 @@
 package com.test.java.ch13;
 
-public class Ex02Equlas {
+public class Ex02Equals {
 	public static void main(String[] args) {
 		Book3 b1 = new Book3("자바 컬렉션", "엘컴퓨터학원", 2);
 		Book3 b2 = new Book3("자바 알고리즘", "엘컴퓨터학원", 7); 
