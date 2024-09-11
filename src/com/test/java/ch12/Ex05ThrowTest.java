@@ -40,7 +40,7 @@ class VendingMachine {
     private static final int GRAPE_PRICE = 1200;
     private static final int MANGO_PRICE = 1500;
 
-    public void selectBeverage(int choice, int amount) {
+    public void selectBeverage(int choice, int amount) throws InvalidBeverageException {
         int price;
 
         switch (choice) {
@@ -67,7 +67,8 @@ class VendingMachine {
 
 
 class InvalidBeverageException extends RuntimeException {
-    public InvalidBeverageException(String message) {
+
+	public InvalidBeverageException(String message) {
         super(message);
     }
 }
