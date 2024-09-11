@@ -33,7 +33,7 @@ public class Ex07ReThrowTest {
 }
 
 
-class Berverage5 { // 자판기 클래스
+class Berverage5 { 
     private static final int apple_flavor = 1000;
     private static final int grape_flavor = 1200;
     private static final int mango_flavor = 1500;
@@ -63,11 +63,11 @@ class Berverage5 { // 자판기 클래스
             }
 
         } catch (InvalidBerverageException3 e) {
-            // 예외 처리 후 다시 던지기 (rethrow)
+         
             System.out.println("InvalidBeverageException 처리: " + e.getMessage());
             throw e;
         } catch (InsufficientFundsException3 e) {
-            // 예외 처리 후 다시 던지기 (rethrow)
+          
             System.out.println("InsufficientFundsException 처리: " + e.getMessage());
             throw e;
         }
@@ -75,7 +75,7 @@ class Berverage5 { // 자판기 클래스
 }
 
 
-// 예외 클래스
+
 class InvalidBerverageException3 extends Exception {
     InvalidBerverageException3(String message) {
         super(message);

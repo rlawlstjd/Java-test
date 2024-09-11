@@ -35,13 +35,13 @@ public class Ex06ThrowsTest {
 }
 
 
-class Berverage { // 자판기 클래스 
+class Berverage { 
 	private static final int apple_flavor = 1000; 
 	private static final int grape_flavor = 1200; 
 	private static final int mango_flavor = 1500; 
 	
 	public void selectBerverage(int choice, int amount) throws  InvalidBerverageException,InsufficientFundsException{
-		int price ; // throw 쓰면 try catch 넘김 
+		int price ; 
 		
 		switch (choice) {
 			case 1: 
@@ -68,7 +68,7 @@ class Berverage { // 자판기 클래스
 }
 
 
-//예외 클래스 
+
 class InvalidBerverageException extends Exception {
 	InvalidBerverageException (String message){
 		super (message);
