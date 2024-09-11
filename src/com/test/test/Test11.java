@@ -4,112 +4,93 @@ import java.util.Scanner;
 
 public class Test11 {
 	public static void main(String[] args) {
-		while (true) {
-			User user = null; 
-		
-			user = loginService.form();
-			loginService.login(user);
-			
-			if (user.isLogin()) {
-				loginService.success(user);
-				break; 
-			}
-			System.out.println("로그인에 실패하였습니다.");
-		}
-		
-		System.out.println("1: 회원정보");
-		System.out.println("2: 커뮤니티");
-		System.out.println("3: 쇼핑");
-	}
-}
-class loginService{
-	private static final String DB_ID= "admin";
-	private static final String DB_PW= "1234";
-	private static final int count = 0 ; 
-	
-	public static User form() {
-		User user = new User();
-		
-		Scanner scan = new Scanner (System.in);
-		
-		System.out.println("-로그인 화면-"); 
-		System.out.println("아이디를 입력하세요.");
-		user.setId(scan.nextLine());
-		System.out.println("비밀번호를 입력하세요.");
-		user.setPassword(scan.nextLine());
-		
-		return user; 
-	}
-	
-	public static void success(User user) {
-		
-		System.out.println(user.getId() +"님 안녕하세요.");
-	}
-	
-	public static void login(User user) {
-		
-		try {
-			if(!DB_ID.equals(user.getId())) {
-				throw new IDMismatchException("아이디를 잘못 입력하셨습니다.");
-				
-			} else if (!DB_PW.equals(user.getPassword())) {
-				throw new PasswordMismatchException("비밀번호를 잘못 입력하셨숩나다.");
-			
-			} else {
-				user.setLogin(true);
-			}
-			
-		} catch (IDMismatchException e) {
-			System.out.println(e.getMessage());
-			System.out.println("아이디를 잊어버리셨나요?");
-		
-		} catch (PasswordMismatchException e) {
-			System.out.println(e.getMessage());
-			System.out.println("비밀번호를 잊어버리셨나요?");	
-		} 
-	}
+        VendingMachine vm = new VendingMachine();
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("--- 자판기 ---");
+            System.out.println("음료를 선택하세요.");
+            System.out.println("1: 사과맛 2: 포도맛 3: 망고맛");
+            int choice = scan.nextInt();
+
+            // 종료 조건
+            if (choice == 0) {
+                System.out.println("시스템을 종료합니다.");
+                break;
+            }
+
+            System.out.println("금액을 입력하세요:");
+            int money = scan.nextInt();
+
+            try {
+                vm.selectBeverage(choice, money);
+            } catch (InvalidBeverageException e) {
+                System.out.println("예외 발생: " + e.getMessage());
+            } catch (InsufficientFundsException e) {
+                System.out.println("예외 발생: " + e.getMessage());
+                System.out.println("추가로 " + e.getAmountNeeded() + "원이 필요합니다.");
+            }
+        }
+    }
 }
 
-class User {
-	private String id;
-	private String password; 
-	private boolean login; 
-	
-	public void setId(String id) {
-		this.id = id; 
-	}
-	
-	public String getId () {
-		return id; 
-	}
-	
-	public void setPassword(String password) {
-		this.password = password; 
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setLogin(boolean login) {
-		this.login = login ;
-	}
-	
-	public boolean isLogin() {
-		return login;
-	}
-	
+class VendingMachine {
+    private static final int APPLE_PRICE = 1000;
+    private static final int GRAPE_PRICE = 1200;
+    private static final int MANGO_PRICE = 1500;
+
+    public void selectBeverage(int choice, int money) {
+        int price;
+
+        switch (choice) {
+            case 1:
+                price = APPLE_PRICE;
+                System.out.println("사과맛을 구매하셨습니다.");
+                break;
+            case 2:
+                price = GRAPE_PRICE;
+                System.out.println("포도맛을 구매하셨습니다.");
+                break;
+            case 3:
+                price = MANGO_PRICE;
+                System.out.println("망고맛을 구매하셨습니다.");
+                break;
+            default:
+                // 잘못된 음료 번호인 경우 예외를 발생시킵니다.
+                throw new InvalidBeverageException("잘못된 음료 번호를 입력하셨습니다.");
+        }
+
+        // 금액이 부족한 경우 예외를 발생시킵니다.
+        if (money < price) {
+            throw new InsufficientFundsException("금액이 부족합니다.", price - money);
+        }
+
+        // 잔돈을 계산합니다.
+        if (money > price) {
+            System.out.println("거스름돈은 " + (money - price) + "원 입니다.");
+        }
+    }
 }
 
-class IDMismatchException extends Exception{
-	public IDMismatchException (String message) {
-		super(message);
-	}
+// 잘못된 음료 번호 예외
+class InvalidBeverageException extends RuntimeException {
+    public InvalidBeverageException(String message) {
+        super(message);
+    }
 }
-class PasswordMismatchException extends Exception{
-	public PasswordMismatchException (String message) {
-		super(message);
-	}
+
+// 금액 부족 예외
+class InsufficientFundsException extends RuntimeException {
+    private final int amountNeeded;
+
+    public InsufficientFundsException(String message, int amountNeeded) {
+        super(message);
+        this.amountNeeded = amountNeeded;
+    }
+
+    public int getAmountNeeded() {
+        return amountNeeded;
+    }
 }
 
 /*
