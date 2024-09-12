@@ -50,7 +50,7 @@ public class Ex01ObjectClass {
 	        return "제목: " + title + ", 저자: " + author;
 	    }
 	    
-	    public static void print(Book2 o) {
+	   // static void print(Book2 o) {
 	        // Book2 타입으로 받은 객체에 대해 title과 author 출력
 	        System.out.println("제목: " + o.title + ", 저자: " + o.author);
 	    }

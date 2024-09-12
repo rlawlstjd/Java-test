@@ -6,11 +6,11 @@ public class Ex03StringUtils {
 	public static void main(String[] args) {
 		String s1 = "엘컴퓨터학원"; 
 		String s2 = "엘컴퓨터학원"; 
-		System.out.println(s1.compareTo(s2));
+		System.out.println(s1.compareTo(s2)); // 0 
 		s2 = "자바 기본문법"; 
-		System.out.println(s1.compareTo(s2));
+		System.out.println(s1.compareTo(s2)); // 음수 작으면
 		s2 = "가나다라"; 
-		System.out.println(s1.compareTo(s2)); 
+		System.out.println(s1.compareTo(s2));  // 크면 양수 
 		System.out.println(); 
 		
 		s1 = "엘컴퓨터학원"; 
