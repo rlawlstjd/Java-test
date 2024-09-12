@@ -31,12 +31,11 @@ class Movie {
 	public boolean equals (Object o) {
 		if (!(o instanceof Movie)) 
 			return false; 
-			Movie m = (Movie) o ; 
+		Movie m = (Movie) o ; 
 		
 		return title.equals(m.title) && author.equals(m.author); 
 		
 	}
-	
 }
 /*
 문제 1.

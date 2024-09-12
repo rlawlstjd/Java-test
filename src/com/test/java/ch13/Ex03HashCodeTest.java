@@ -41,9 +41,6 @@ class Drama {
 			
 		return title.equals(d.title) && actor.equals(d.actor);
 	}
-	
-	
-	
 }
 /*
 문제 1.
