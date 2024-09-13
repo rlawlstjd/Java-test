@@ -9,10 +9,11 @@ public class Ex01WrapperClassTest {
 		Integer intgB = Integer.valueOf(b);
 		
 		int sum  = intgA + intgB ; 
+		//int sum = intgA.intValue() + intgB.intValue();
 		
 		System.out.println(sum);
 		
-		System.out.println(intgA.compareTo(intgB)> 0 ? intgA : intgB);
+		System.out.println(intgA.compareTo(intgB) > 0 ? intgA : intgB);
 		
 		System.out.println("최소값" + Integer.min(intgA, intgB));
 		System.out.println("최대값" + Integer.max(intgA, intgB));

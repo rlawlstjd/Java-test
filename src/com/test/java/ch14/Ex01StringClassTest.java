@@ -11,8 +11,8 @@ public class Ex01StringClassTest {
 		
 		System.out.println(a==b); 
 		System.out.println(a.equals(b));
-		System.out.println(aa==bb); // 주소를 비교 
-		System.out.println(aa.equals(bb)); // 내용을 비교 
+		System.out.println(aa==bb); 
+		System.out.println(aa.equals(bb)); 
 		
 	
 	

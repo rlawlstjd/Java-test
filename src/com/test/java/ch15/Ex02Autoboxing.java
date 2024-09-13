@@ -5,7 +5,7 @@ public class Ex02Autoboxing {
 		Integer intg = 3;
 		System.out.println(intg);
 		
-		Integer intg2 = Integer.valueOf(3);
+		Integer intg2 = Integer.valueOf(3); //정적 메소드 static method ; 
 		System.out.println(intg2.intValue());
 		
 		System.out.println();

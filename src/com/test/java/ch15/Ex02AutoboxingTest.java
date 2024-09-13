@@ -2,9 +2,12 @@ package com.test.java.ch15;
 
 public class Ex02AutoboxingTest {
 	public static void main(String[] args) {
-		int intgA = 3; 
-		int intgB = 7; 
-		int sum = intgA + intgB; 
+		Integer intgA = Integer.valueOf(3);
+		Integer intgB = Integer.valueOf(7);
+		
+		int sum = intgA + intgB;
+		//int sum = intgA.intValue() + intgB.intValue();
+		 
 		
 		System.out.println(sum);
 		
