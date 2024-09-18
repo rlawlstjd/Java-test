@@ -100,7 +100,7 @@ class Cart9 {
 	}
 	
 	public void printList() {
-		for (int i=0; i<books.length; i++) {
+		for (int i=0; i<index; i++) {
 			if (books[i] == null)
 				break;
 			System.out.println(books[i].getTitle());
