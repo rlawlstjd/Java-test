@@ -24,8 +24,6 @@ public class Ex01ListTest {
 		Book1 book = new Book1("김", "진성");
 		System.out.println(book);
 		
-		
-		
 		List<Book1> books = new ArrayList<Book1>(Arrays.asList(arrBook));
 		
 		Book1.printAllBooksWithForeach(books);
@@ -58,9 +56,21 @@ class Book1{
 	}
 	
 	public static void removeWithIteraotr(List<Book1> books) {
-		Iterator<Book1> it = books.iterator(); it.hasNext();
+		/*Iterator<Book1> it = books.iterator(); 
+		it.hasNext();
 		
 		while (it.hasNext()) {
+			Book1 book = it.next();
+			
+			if (!book.author.equals("엘컴퓨터학원")) {
+				it.remove();
+				System.out.println("삭제: " + book);
+			}
+		}
+		System.out.println(books.toString());*/
+		
+		
+		for (Iterator<Book1> it = books.iterator(); it.hasNext(); ) {
 			Book1 book = it.next();
 			
 			if (!book.author.equals("엘컴퓨터학원")) {
