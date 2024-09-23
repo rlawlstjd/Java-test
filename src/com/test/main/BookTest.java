@@ -1,48 +1,138 @@
 package com.test.main;
 
-import com.test.book.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+
 
 public class BookTest {
 	public static void main(String[] args) {
-		Book b = new Book ();
-		Book.print(b);
-		Book b1 = new Book("자바문법");
-		Book.print(b1);
-		Book b2 = new Book ("파이썬 문법",5000);
-		Book.print(b2);
-		Book b3 = new Book ("sql",30000,"엘컴퓨터학원");
-		Book.print(b3);
+		String[] arrSubjects = { "자바", "파이선", "자바", "알고리즘", "스프링", "자료구조", "자바스크립트", "데이터베이스", "스프링", "스프링", "C", "람다" };
+		System.out.println(Arrays.toString(arrSubjects));
+		System.out.println(); 
+		
+		Student s1 = new Student("a");		
+		s1.addSubject("자바");
+		s1.addSubject("알고리즘");
+		s1.addSubject("파이썬");
+		s1.addSubject("스프링");
+		
+		Student s2 = new Student("b"); 
+		s2.addSubject("자바");
+		s2.addSubject("데이터베이스");
+		s2.addSubject("스프링");
+		
+		Student s3 = new Student("c");
+		s3.addSubject("자바");
+		s3.addSubject("스프링");
+		s3.addSubject("자바스크립트");
+		
+		Course course = new Course();
+		course.setStudents(s1,s2,s3);
+		
+		System.out.println("-모든 과목-"); 
+		course.setSubjects(arrSubjects);
+		Set<String>subject = course.getSubjects(); 
+		System.out.println(subject);
+		
+		System.out.println("-정렬된 과목-");
+		List<String> oSubject = course.getOrderedSubjects();
+		System.out.println(oSubject);
+		
+		System.out.println("- 학생들이 수강 중인 모든 과목 (합집합)");
+		Set<String> rSubject = course.getRegisteredSubjects();
+		System.out.println(rSubject);
+		
+		System.out.println("-모둔 학생들이 수강 (교집합) ");
+		Set<String> bSubject = course.getBasicSubjects();
+		System.out.println(bSubject);
+	
+		System.out.println("- 모든 학생들이 듣지 않는 수업 (여집합)");
+		Set<String> ySubject = course.getCanceledSubjects();
+		System.out.println(ySubject);\
 	
 	}
 }
-class Book{
-	String title; 
-	int price; 
-	String author; 
+
+class Course{
+	private Set<String> subjects; 
+	private List<Student> students; 
 	
-	Book(){
-		this("제목입력", 0, "저자입력");
-	}
-	Book(String title){
-		this(title, 0, "저자입력");
-	}
-	Book(String title, int price){
-		this(title, price, "저자입력");
-	}
-	Book(String title, int price, String author){
-		this.title = title; 
-		this.price = price; 
-		this.author= author; 
+	public List<String> getOrderedSubjects() {
+		List<String> oSubject = new ArrayList<>(subjects);
+		Collections.sort(oSubject);
+		return oSubject;
 	}
 	
-	void printInfo() {
-		System.out.printf("제목: %s%n가격: %d%n저자: %s%n%n",title, price, author);
-
+	public Set<String> getCanceledSubjects(){
+		Set<String> rSubject = getRegisteredSubjects();
+		Set<String> allStudent = new HashSet<>(subjects);
+		
+		allStudent.removeAll(rSubject);
+		
+		return allStudent;
 	}
-	static void print (Book book) {
-		System.out.printf("제목: %s%n가격: %d%n저자: %s%n%n",book.title, book.price, book.author);
-
+	
+	
+	public Set<String> getBasicSubjects(){
+		Set<String> bSubject = null ; 
+		for (Student student : students ) {
+			if (bSubject == null) {
+				bSubject = new HashSet<>();
+			}
+			bSubject.retainAll(student.getSubjects());
+		}
+		return bSubject; 
 		
 	}
 	
+	public Set<String> getRegisteredSubjects(){
+		Set<String> rSubject = new HashSet<>(); 
+		for(Student student : students) {
+			rSubject.addAll(student.getSubjects());
+		}
+		return rSubject;
+	}
+	
+	public void setStudents(Student... arrstudent) {
+		students = new ArrayList<>();
+		Collections.addAll(students, arrstudent); 
+		
+	}	
+	
+	public void setSubjects (String[] subject) {
+		List<String> list = new ArrayList<>(); 
+		Collections.addAll(list, subject);
+		subjects = new HashSet<>(list);
+	}
+	
+	public Set<String> getSubjects(){
+		return subjects;
+	}
+	
+	
+
 }
+
+class Student {
+	private String name; 
+	private Set <String> subjects;
+	
+	Student (String sudent){
+		this.name = name; 
+		subjects = new HashSet<>(); 
+	}
+	
+	public void addSubject(String subject) {
+		subjects.add(subject);		
+	}
+	
+	public Set<String> getSubjects(){
+		return subjects;
+	}
+}
+	

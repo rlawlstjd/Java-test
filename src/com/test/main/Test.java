@@ -1,108 +1,88 @@
 package com.test.main;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Test {
 	public static void main(String[] args) {
-		List<Music> musicList = new ArrayList<>(); 
-		musicList.add(new Music ("숨", "박효신"));
-		musicList.add(new Music ("어디에도", "이수"));
-		musicList.add(new Music ("보고싶다", "김범수")); 
+		Book book = new Book ("자바 컬렉션");
+		book.addPage(new Page(0,"표지"));
+		book.addPage(new Page(1,"목차"));
+		book.addPage(new Page(2,"ArrayList"));
+		book.addPage(new Page(3,"Queue"));
+		book.addPage(new Page(4,"Stack"));
+		book.addPage(new Page(5,"LinkedList"));
 		
-		Player.play(musicList);
-		Player.recommendedSong(musicList);
-		Player.play(musicList);
-		System.out.println("\n\n\n");
+		book.nextPage(); 
+		book.view(); 
+		book.nextPage(); 
+		book.view(); 
+		book.nextPage(); 
+		book.view(); 
 		
+		System.out.println();
 		
-		List<Movie> movieList = new ArrayList<Movie> ();
-		movieList.add(new Movie("미나리", "봉준호"));
-		movieList.add(new Movie("설국열차", "봉준호")); 
-		movieList.add(new Movie("자바", "엘컴퓨터")); 
-		
-		Player.play(movieList);
-		
-		Player.play(new Movie("나", "엘컴퓨터학원"));
-		Player.<Music>play(new Music("나를", "전상근")); 
-		System.out.println(); 
-		
-		
-	}
-}
-interface Content {
-	public abstract String getTitle();
-	public abstract String getHuman(); 
-}
-class vu {
-	
-}
-
-class Player {
-	public static void play (List <? extends Content> playList ) {
-		for (Content c : playList) {
-			System.out.println(c.getTitle()+ " , " +c.getHuman());
-		}
-	}
-	
-	public static void recommendedSong (List<? super Music> playList) {
-		Music music = new Music("정류장", "장범준");
-		playList.add(music);
-	}
-	
-	public static <T extends Content> void play (T contents) {
-		System.out.println(contents.getTitle());
+		book.prevPage(); 
+		book.view(); 
+		book.prevPage(); 
+		book.view(); 
+		book.prevPage(); 
+		book.view();
 		
 	}
 }
 
-
-class Music implements Content{
-	String songTitle; 
-	String songWriter; 
-	String human;
+class Book {
+	private String title; 
+	private List<Page> pageList;
+	private Stack<Page> pageStack;
+	private int currentPageNo;
 	
-	Music(String songTitle, String songWriter){
-		this.songTitle = songTitle;
-		this.human = songWriter;
+	public void nextPage() {
+		pageStack.push(pageList.get(currentPageNo++));
 	}
 	
-	@Override
-	public String getHuman() {
-		return human;
+	public void prevPage() {
+		Page page =pageStack.pop();
+		currentPageNo = page.getNo(); 
 	}
 	
-	@Override
-	public String getTitle() {
-		return songTitle; 
+	public void view () {
+		System.out.println(pageList.get(currentPageNo));
 	}
 	
-	public String getSongWriter() {
-		return songWriter;
+	Book (String title){
+		this.title = title;
+		this.pageList = new LinkedList<>();
+		this.pageStack = new Stack<>(); 
+	}
+	
+	public void addPage(Page p) {
+		pageList.add(p);
 	}
 }
 
-class Movie implements Content{
-	String movieTitle; 
-	String author;
-	String human; 
+class Page  {
+	private int no ; 
+	private String content; 
 	
-	Movie (String movieTitle, String author){
-		this.movieTitle= movieTitle; 
-		this.human = author;
+	public int getNo() {
+		return no;
 	}
 	
-	@Override
-	public String getHuman() {
-		return human; 
+	Page(int no , String content){
+		this.no = no ; 
+		this.content = content;
 	}
 	
-	
-	@Override
-	public String getTitle () {
-		return movieTitle;
+	@Override 
+	public String toString() {
+		return no + "페이지 -" + content;
 	}
-	
 	
 }
-

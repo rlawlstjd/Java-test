@@ -52,6 +52,8 @@ public class Ex02Set {
 		System.out.println("- 모든 학생들이 수강 중이지 않은 과목 (여집합)");
 		Set<String> cSubjects = course.getCanceledSubjects();
 		Course.print(cSubjects);
+		
+		
 	}
 
 }
