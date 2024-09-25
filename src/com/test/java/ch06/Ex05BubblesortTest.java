@@ -7,18 +7,16 @@ public class Ex05BubblesortTest {
 		
 		int [] a = {10, 5, 7, 25, 37, 8} ;
 		
-		for (int aa=0; aa<a.length-1; aa++) {
-			for (int bb=aa+1; bb<a.length; bb++) {
-				if (a[aa]<a[bb]) {
-					int tmp = a[aa]; 
-					a[aa] = a[bb]; 
-					a[bb] = tmp ; 
+		for (int i=0; i<a.length-1; i++) {
+			for (int j=i+1; j<a.length; j++) {
+				if (a[i]<a[j]) {
+					int tmp = a[i]; 
+					a[i] = a[j]; 
+					a[j] = tmp ; 
 				}
 			}
 		} 
 		System.out.println(Arrays.toString(a));
-	
-	
 	}
 }
 /*

@@ -7,12 +7,12 @@ import java.util.Stack;
 public class Ex06Stack {
 	public static void main(String[] args) {
 		Book book = new Book ("자바 컬렉션");
-		book.addPage(new Page(0, "표지"));
-		book.addPage(new Page(1, "목차"));
-		book.addPage(new Page(2, "ArrayList"));
-		book.addPage(new Page(3, "Queue"));
-		book.addPage(new Page(4, "Stack"));
-		book.addPage(new Page(5, "LinkedList"));
+		book.addPage(new Page(1, "표지"));
+		book.addPage(new Page(2, "목차"));
+		book.addPage(new Page(3, "ArrayList"));
+		book.addPage(new Page(4, "Queue"));
+		book.addPage(new Page(5, "Stack"));
+		book.addPage(new Page(6, "LinkedList"));
 		
 		book.nextPage();
 		book.view();
@@ -84,6 +84,8 @@ class Book {
 class Page {
 	private int no; 
 	private String contents; 
+	
+	
 	public Page(int no, String contents) {
 		this.no = no ; 
 		this.contents = contents;

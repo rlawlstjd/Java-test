@@ -24,9 +24,8 @@ public class Ex04ShuffleTest {
 		for(int a= 0; a<6; a++) {
 			System.out.printf("%d\t", number[a]); 
 		}
-	
 	}
-		
+}	
 
 	
 	
@@ -84,7 +83,7 @@ public class Ex04ShuffleTest {
 			number1 += aa+1 ; 
 		}System.out.println(number1);*/ 
 	
-	}
+	
 	
 /*
 문제 1.

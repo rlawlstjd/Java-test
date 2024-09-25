@@ -4,26 +4,45 @@ import java.util.Scanner;
 
 public class Ex07WhileTest {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner (System.in);
-		boolean insert = true ; 
+		Scanner s = new Scanner (System.in);
+		boolean power = true;
+		int cola = 500; 
+		int soda = 300; 
+		int fanta = 200; 
+		int money = 1000; 
 		
-		while (insert) {
-			System.out.printf("동전을 넣어주세요"); 
-			int coin = scan.nextInt();
+		while (power) {
+			System.out.printf("번호를 누르세요"); 
+			int n = s.nextInt(); 
 			
-			if(coin > 500) {
-				System.out.printf("콜라를 구입할 수 있습니다.");
-			}else if (coin > 300) {
-				System.out.printf("사이다를 구입할 수 있습니다."); 
-			}else if (coin > 200) {
-				System.out.printf("환타를 구입할 수 있습니다.");
-			}else {
-				System.out.printf("잔액이 부족합니다.") ; 
+			if (n == 1) {
+				System.out.println("콜라를 구매하셨습니다.");
+				money -= cola;
+				if ( money < cola) {
+					System.out.println("잔액이 부족합니다.");
+					power = false;
+				}
+			} else if (n == 2) {
+				System.out.println("사이다를 구매하셨습니다.");
+				money -= soda;
+				if(money < soda) {
+					System.out.println("잔액이 부족합니다.");
+					power = false; 
+				}
+			} else if ( n == 3) {
+				System.out.println("환타를 구매하셨습니다."); 
+				money -= fanta;
+				if ( money < fanta) {
+					System.out.println("잔액이 부족합니다.");
+					power = false; 
+				}
+			} else {
+				System.out.println("잘못된 번호 입니다.");
 			}
+			
+			System.out.println("현재 잔액은" + money + "입니다."); 
+
 		}
-		
-		
-		
 	}
 }
 /*

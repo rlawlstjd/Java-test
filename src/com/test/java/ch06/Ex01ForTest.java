@@ -43,8 +43,11 @@ public class Ex01ForTest {
 			for (int d=0; d<e[c].length; d++) {
 				if (e[c][d]>=60) {
 					System.out.printf("합격%n");
+					System.out.println(e[c][d]);
+					System.out.println();
 				}else {
 					System.out.printf("불합격%n");
+					System.out.println(); 
 				}
 			}
 			

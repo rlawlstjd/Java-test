@@ -2,8 +2,8 @@ package com.test.java.ch06;
 
 public class Ex06WhileTest {
 	public static void main(String[] args) {
-			
 		int i = 2 ; 
+		
 		while (i <=9 ) {
 			int j = 1 ; 
 			while (j<=9) {
@@ -12,12 +12,7 @@ public class Ex06WhileTest {
 			}
 			i++; 
 			System.out.println();
-			
-		
 		}
-	
-	
-	
 	}
 }
 		
