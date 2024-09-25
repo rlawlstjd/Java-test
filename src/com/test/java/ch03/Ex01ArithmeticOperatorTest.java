@@ -16,9 +16,6 @@ public class Ex01ArithmeticOperatorTest {
 		
 		System.out.printf("총 금액은 %d원 입니다.", total); 
 		
-		
-		
-		
 	}
 }
 /*

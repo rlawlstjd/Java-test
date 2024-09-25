@@ -2,13 +2,13 @@ package com.test.java.ch02;
 
 public class Ex03TypeCastingTest {
 	public static void main (String[]args) {
+		
 		long a = 300l ; 
 		int b ; 
 		
 		a = (int)300 ; 
 		
 		System.out.println(a); 
-		
 		
 	}
 }

@@ -10,9 +10,7 @@ public class Ex02UnaryOperatorTest {
 		int a2 = 30 ; 
 		a2 = -a2 ; 
 		System.out.println(a2); 
-		
-		
-		
+	
 	}
 }
 /*

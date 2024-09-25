@@ -3,18 +3,13 @@ package com.test.java.ch03;
 public class Ex05RelationalOperatorTest {
 	public static void main (String[]args) {
 		
-	int a = 300 ; 
-	int b = 500 ; 
-	int c = 600 ; 
-	int tv = 200 ; 
+		int a = 300 ; 
+		int b = 500 ; 
+		int c = 600 ; 
+		int tv = 200 ; 
+		
+		System.out.printf("%d<%d || %d>%d && %d<%d, (%b)%n", tv, a, tv, b, tv, c, tv<a||(tv>b&&tv<c)); 
 	
-	System.out.printf("%d<%d || %d>%d && %d<%d, (%b)%n", tv, a, tv, b, tv, c, tv<a||(tv>b&&tv<c)); 
-	
-		
-		
-		
-		
-		
 	}
 }
 /*

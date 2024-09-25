@@ -4,9 +4,11 @@ public class Ex01ForTest {
 	public static void main(String[] args) {
 		
 		int number = 2; 
+		
 		for (int a=1; a<=9; a++) {
 			System.out.printf("%dx%d=%d\t",number,a, number*a); 
 		}
+		
 		System.out.println();
 		
 		/*int [][] s = {
@@ -29,7 +31,9 @@ public class Ex01ForTest {
 			for (int i=0; i<s[b].length; i++) {
 				System.out.printf("학생 %d의 중간고사 성적은 %d\t", b+1, s[b][i]);
 			}
+			
 			System.out.printf("%n");
+		
 		}
 		
 		int [][] e = {
@@ -50,11 +54,7 @@ public class Ex01ForTest {
 					System.out.println(); 
 				}
 			}
-			
 		}
-	
-	
-	
 	}
 }
 /*

@@ -16,7 +16,9 @@ public class Ex05BubblesortTest {
 				}
 			}
 		} 
+		
 		System.out.println(Arrays.toString(a));
+	
 	}
 }
 /*

@@ -30,10 +30,5 @@ public class Ex07Scanner {
 		balance  = balance + salary ; 
 		System.out.printf("%n현재 잔액은 %d원 입니다.", balance); 
 		
-		
-		
-		
-		
-		
 	}
 }

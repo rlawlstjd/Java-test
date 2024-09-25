@@ -22,8 +22,5 @@ public class Ex03IfElse {
 		
 		System.out.printf("회원님의 레벨은 %d이며 %s입니다.%n", level, name); 
 		
-		
-		
-		
 	}
 }

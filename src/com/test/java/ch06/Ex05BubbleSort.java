@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Ex05BubbleSort {
 	public static void main(String[] args) {
+		
 		int []arr = {9, 7, 2, 20, 5}; 
 		System.out.println(Arrays.toString(arr)); 
 		
@@ -17,7 +18,9 @@ public class Ex05BubbleSort {
 					arr[j] = tmp ;
 				} 
 			}
-		}System.out.println(Arrays.toString(arr));
+		}
+		
+		System.out.println(Arrays.toString(arr));
 	
 	}
-	}
+}

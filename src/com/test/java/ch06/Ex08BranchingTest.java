@@ -2,20 +2,21 @@ package com.test.java.ch06;
 
 public class Ex08BranchingTest {
 	public static void main(String[] args) {
-	 int i = 1 ; 
-	 int sum = 0 ; 
-	 
-	 
-	 while (sum<=50) {
-		 if (i%2 ==0) {
-			 sum+=i ; 
+		 int i = 1 ; 
+		 int sum = 0 ; 
 		 
-		 }i++; 
 		 
+		 while (sum<=50) {
+			 if (i%2 ==0) {
+				 sum+=i ; 
+			 
+			 }i++; 
+		 }	
+		 
+		 System.out.printf("sum이 50을 초과할 때의 i의 값은 %d입니다.%n", i-1); 
 	
-	 }	System.out.printf("sum이 50을 초과할 때의 i의 값은 %d입니다.%n", i-1); 
-	 }
-	 }
+	}
+}
 	 
 	 
 	 

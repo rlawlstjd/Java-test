@@ -14,13 +14,7 @@ public class Ex07ConditionalOperatorTest {
 		//System.out.printf("%s%n", result);
 		
 		System.out.printf("%s%n",number < 0 ? "음수" : number > 0 ? "양수" : "0" ) ; 
-		
-				
-		
-		
-		
-		
-		
+	
 	}
 }
 /*

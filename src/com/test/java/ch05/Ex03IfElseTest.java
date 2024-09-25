@@ -33,7 +33,6 @@ public class Ex03IfElseTest {
 		if (isChecked) {
 			System.out.printf("입력하신 숫자의 계절은 %s 입니다", season);
 		}
-		
 	}
 }
 /*

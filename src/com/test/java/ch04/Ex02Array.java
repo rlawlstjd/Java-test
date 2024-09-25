@@ -56,8 +56,6 @@ public class Ex02Array {
 		System.out.println("1차원 배열의 길이: " + arr[0].length); 
 		System.out.println("1차원 배열의 길이: " + arr[1].length); 
 		System.out.println("1차원 배열의 길이: " + arr4[2].length); 
-		
-		
-
 	
-}}
+	}
+}

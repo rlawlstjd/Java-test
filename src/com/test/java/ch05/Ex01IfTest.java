@@ -14,8 +14,6 @@ public class Ex01IfTest {
 			
 			System.out.printf("%s회원님 안녕하세요.", name ); 
 		
-		
-		
 	}
 }
 /*

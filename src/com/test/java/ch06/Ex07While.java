@@ -28,10 +28,6 @@ public class Ex07While {
 				System.out.printf("잘못된 명령어를 입력하였습니다.%n", code);
 			}
 			
-			
 		}
-	
-	
-	
 	}
 }

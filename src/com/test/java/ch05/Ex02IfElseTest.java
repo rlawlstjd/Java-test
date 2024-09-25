@@ -18,8 +18,6 @@ public class Ex02IfElseTest {
 		
 		System.out.printf("%s님 안녕하세요.",name); 
 	
-		
-		
 	}
 }
 /*

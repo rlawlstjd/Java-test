@@ -9,8 +9,6 @@ public class Ex05LiteralTest {
 		System.out.println(b); 
 		System.out.println(c); 
 		
-		
-		
 	}
 }
 /*

@@ -13,9 +13,7 @@ public class Ex03PrintlnTest {
 		
 		System.out.println("월급 " + 300 + "이 입금되었습니다."); 
 		System.out.println("현재 잔액은 " + (2000-600+300) + "원 입니다."); 
-		
-		
-		
+	
 	}
 }
 /* 

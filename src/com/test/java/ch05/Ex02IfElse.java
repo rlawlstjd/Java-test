@@ -2,6 +2,7 @@ package com.test.java.ch05;
 
 public class Ex02IfElse {
 	public static void main (String[]args) {
+		
 		int level = 3; 
 		String name = "익명"; 
 		
@@ -19,9 +20,5 @@ public class Ex02IfElse {
 		
 		System.out.printf("회원님의 레벨은 %d이며 %s입니다. %n", level, name); 
 		 
-		
-		
-		
-		
 	}
 }

@@ -36,15 +36,7 @@ public class Ex05SwitchTest {
 			default :
 				System.out.printf("잘못 입력하셨습니다.");
 			   
-			  
 		}
-		
-		
-	
-		
-	
-	
-	
 	}
 }
 /*

@@ -8,9 +8,6 @@ public class Ex08AssignmentOperatorTest {
 		
 		System.out.printf("%d", balance); 
 		
-		
-		
-		
 	}
 }
 /*

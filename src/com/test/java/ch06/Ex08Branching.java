@@ -30,6 +30,5 @@ public class Ex08Branching {
 		System.out.println("-----------"); 
 		System.out.println("잔액은 " + balance + "원 입니다."); 
 	
-	
 	}
 }

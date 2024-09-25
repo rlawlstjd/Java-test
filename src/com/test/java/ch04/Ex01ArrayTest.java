@@ -10,14 +10,7 @@ public class Ex01ArrayTest {
 		
 		System.out.printf("%d%n", a[2]);
 		
-		
-		
-		
-		System.out.printf("%d%n", a[0]>a[1] ? a[0]:a[1]  );
-		
-		
-		
-		
+		System.out.printf("%d%n", a[0]>a[1] ? a[0]:a[1] );
 		
 	}
 }

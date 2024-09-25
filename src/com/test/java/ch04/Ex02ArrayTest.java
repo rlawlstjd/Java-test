@@ -11,9 +11,6 @@ public class Ex02ArrayTest {
 		
 		System.out.printf("%d", a[0][0]+a[1][0]+a[2][0]); 
 		
-		
-		
-		
 		String [][] b = {
 				{"라디오","티비"},
 				{"시리얼","우유","핸드폰"}
@@ -21,11 +18,7 @@ public class Ex02ArrayTest {
 		
 		System.out.println("둘리가 담은 상품은 " + b[0][0] + "," + b[0][1]);
 		System.out.printf("또치가 담은 상품은 %s, %s", b[1][0], b[1][1]); 
-	
-		
-		
-		
-		
+
 	}
 }
 /*

@@ -8,7 +8,9 @@ public class Ex02nestedForTest {
 			for (int b=1; b<=9; b++) {
 				System.out.printf("%dx%d=%d\t", a, b, a*b); 
 			} 
+			
 			System.out.println();
+		
 		}
 		
 		System.out.printf("%n%n%n%n");
@@ -18,7 +20,6 @@ public class Ex02nestedForTest {
 			for (int b2=2; b2<=9; b2++) {
 				System.out.printf("%dx%d=%d\t", b2, a2, a2*b2 );
 			} System.out.println(); 
-			
 		}
 	
 		int [][] g = {
@@ -33,10 +34,10 @@ public class Ex02nestedForTest {
 				sum += g[a3][b3] ; 
 				
 			}
-		}System.out.printf("3명의 회원이 구매한 모든 제품들의 금액은 %d", sum); 
+		}
 		
-		
-		
+		System.out.printf("3명의 회원이 구매한 모든 제품들의 금액은 %d", sum); 
+	
 	}
 }
 /*

@@ -47,9 +47,5 @@ public class Ex03TypeCasting {
 		System.out.println(name + "의 나이는 " + age + "살 이고 혈액형은 " 
 				+ bloodType + "형이며 키는 " + height + "이다.") ; 
 		
-		
-		
-		
-		
 	}
 }

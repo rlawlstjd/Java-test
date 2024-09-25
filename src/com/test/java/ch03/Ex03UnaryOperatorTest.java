@@ -6,10 +6,8 @@ public class Ex03UnaryOperatorTest {
 		int a = 5;
 		--a ; 
 		--a; 
+		
 		System.out.println(a); 
-		
-		
-		
 		
 	}
 }

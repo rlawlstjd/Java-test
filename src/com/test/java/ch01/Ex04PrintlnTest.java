@@ -31,8 +31,6 @@ public class Ex04PrintlnTest {
 		balance = balance + salary ; 
 		System.out.println("현재 잔액은 " + balance + "원 입니다."); 
 		
-		
-		
 	}
 }
 /* 

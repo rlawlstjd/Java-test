@@ -77,21 +77,5 @@ public class Ex01PrimitiveDataType {
 		str = "1~0, a=z, A~Z !@##$%"; 
 		System.out.println(str); 
 		
-		
-		
-		//가나다라마삿사사사사사
-		
-		
-		
-		
-		
-		
-		
-
-
-		
-		
-		
-		
 	}
 }

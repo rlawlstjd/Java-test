@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class Ex07ScannerTest {
 	public static void main (String [] args) {
 		Scanner scan = new Scanner (System.in); 
-		
 	
-		
 		System.out.printf("슈퍼에 있는 사탕의 개수를 입력하세요.%n"); 
 		int candy = scan.nextInt(); 
 		
@@ -24,11 +22,6 @@ public class Ex07ScannerTest {
 		
 		System.out.printf("슈퍼에 남아있는 사탕의 재고는 %d개 입니다.", candy); 
 	
-		
-		
-		
-		
-		
 	}
 }
 /* 

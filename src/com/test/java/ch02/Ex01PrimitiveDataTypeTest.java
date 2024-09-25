@@ -7,7 +7,6 @@ public class Ex01PrimitiveDataTypeTest {
 		float f = 7.77f ; 
 		boolean b = true; 
 		
-		
 		System.out.printf("i는 %f, f는 %f, b는 %b", i, f, b); 
 		
 	}

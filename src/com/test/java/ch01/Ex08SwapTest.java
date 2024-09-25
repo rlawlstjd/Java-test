@@ -14,7 +14,6 @@ public class Ex08SwapTest {
 		
 		System.out.printf("a의 값은 %d이고 b의 값은 %d이고 c의 값은 %d입니다.", a,b,c); 
 		
-		
 	}
 }
 /*

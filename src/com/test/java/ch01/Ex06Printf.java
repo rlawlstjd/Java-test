@@ -19,7 +19,5 @@ public class Ex06Printf {
 		balance = balance + salary ; 
 		System.out.printf("%n현재 잔액은 %d원 입니다.", balance); 
 		
-		
-		
 	}
 }

@@ -13,6 +13,5 @@ public class Ex08Swap {
 		j = tmp ; 
 		System.out.printf("i의 값은 %d이고 j의 값은 %d입니다. %n%n", i, j );
 		
-		
 	}
 }

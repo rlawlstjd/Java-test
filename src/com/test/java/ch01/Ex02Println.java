@@ -7,6 +7,5 @@ public class Ex02Println {
 		System.out.println(" 3 + 7 = " + 3+7 ); 
 		System.out.println(" 3 + 7 = " + (3+7) );
 		
-		
 	}
 }

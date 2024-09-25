@@ -26,9 +26,6 @@ public class Ex06PrintfTest {
 		candy = candy + refund ; 
 		System.out.printf("현재 사탕의 재고는 %d개 입니다.", candy); 
 		
-		
-		
-		
 	}
 }
 /* 

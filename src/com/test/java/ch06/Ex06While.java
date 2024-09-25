@@ -14,6 +14,5 @@ public class Ex06While {
 			System.out.println("tv  1대를 생산하였습니다.");
 			i++;
 		}
-	
 	}
 }

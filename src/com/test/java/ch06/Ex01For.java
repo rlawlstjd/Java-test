@@ -2,6 +2,7 @@ package com.test.java.ch06;
 
 public class Ex01For {
 	public static void main(String[] args) {
+	
 		for (int i= 1; i<=3; i++) {
 			System.out.println("i는 " + i + "입니다."); 
 			
@@ -31,10 +32,6 @@ public class Ex01For {
 		}
 		System.out.println("1에서 10 중 짝수의 합은 = " + evenSum); 
 		System.out.println("1에서 10 중 홀수의 합은 = " + oddSum); 
-		
-		
-	
-	
 	
 	}
 }

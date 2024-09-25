@@ -7,7 +7,6 @@ public class Ex02PtintlnTest {
 		
 		System.out.println("10 - 7 은 " + (10-7) + "입니다.");
 		
-		
 	}
 }
 

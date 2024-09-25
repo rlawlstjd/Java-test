@@ -11,5 +11,6 @@ public class Ex03Max {
 			}
 		}
 	System.out.println("최댓값은 " + max + " 입니다."); 
+	
 	}
 }

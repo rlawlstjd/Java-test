@@ -7,7 +7,6 @@ public class Ex02LiteralTypeCastingTest {
 		
 		System.out.printf("%f", f); 
 		
-		
 	}
 }
 /*
