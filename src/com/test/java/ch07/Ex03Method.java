@@ -68,11 +68,5 @@ class Book2 {
 		System.out.println("price: $" + getDollarPrice());
 		System.out.println("---------------");
 		
-		
-	
-		
-		
-		
-		
 	}
 }

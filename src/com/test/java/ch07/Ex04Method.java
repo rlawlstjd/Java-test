@@ -3,7 +3,9 @@ package com.test.java.ch07;
 public class Ex04Method {
 	public static void main(String[] args) {
 		Book3 book = new Book3();
+		
 		int bookPrice = book.getPrice();
+		
 		System.out.println("세금 포함된 책의 가격: " + bookPrice);
 		
 		book.price = 50000;
@@ -20,8 +22,8 @@ public class Ex04Method {
 		
 		book.setTitle("자바문법");
 		System.out.println("책이름: " + book.title);
+	
 	}
-
 }
 
 class Book3 {
@@ -60,5 +62,4 @@ class Book3 {
 		this.title = title;
 		
 	}
-
 }
