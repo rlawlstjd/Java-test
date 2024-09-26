@@ -43,28 +43,24 @@ public class Ex01BookApp {
 						bookCount++; 
 						break ; 
 					
-				case 2: 
-					System.out.println ("책의 목록을 확인합니다."); 
-					for (int i=0; i<bookCount; i++) {
+					case 2: 
+						System.out.println ("책의 목록을 확인합니다."); 
+						for (int i=0; i<bookCount; i++) {
 						System.out.printf("제목: %s, 저자: %s, 가격: %d", arrTitle[i], arrAuthor[i], arrPrice[i]);
 						System.out.println(); 
-					}
-					
-					
-					
-					break ; 
-				case 0 : 
-					run = false ; 
-					break ; 
+						}
+						break ; 
+				
+					case 0 : 
+						run = false ; 
+						break ; 
 					
  					
 				}
 				 if (!run)
-						break ; 
+					break ; 
 		}
-	System.out.println("프로그램이 종료됩니다.");
+		System.out.println("프로그램이 종료됩니다.");
 	
 	}
-	
-	
 }

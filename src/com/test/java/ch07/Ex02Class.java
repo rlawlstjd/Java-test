@@ -1,4 +1,4 @@
-package com.test.java.ch07;
+	package com.test.java.ch07;
 
 public class Ex02Class {
 	public static void main(String[] args) {
@@ -29,17 +29,13 @@ public class Ex02Class {
 		for (int i=0; i<a.length; i++) {
 			System.out.printf("제목: %s, 저자: %s, 가격: %d%n", a[i].title, a[i].author, a[i].price); 
 		}
-		
-		
-		
-		
 	}
 }
 
- class Book {
+class Book {
 	String title ; 
 	 String author ; 
 	 int price; 
- } 
+} 
 	
 
