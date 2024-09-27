@@ -14,6 +14,6 @@ public class Ex04Shuffle {
 			arr[n] = tmp ; 
 		}
 	System.out.println(Arrays.toString(arr));  
-	
+  	
 	}
 }

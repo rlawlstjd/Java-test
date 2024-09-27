@@ -11,22 +11,34 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Test {
 	public static void main(String[] args) {	
-		Book4.tax = 1.2f; 
-		
-		Book4 b1 = new Book4() ; 
-		b1.title = "자바문법";
-		b1.price = 50000; 
-		
-		Boook4 b2 = new Book4(); 
-		b2.title = "c문법";
-		b2.price = 40000; 
-		
-		b1.printInfo(); 
-		b2.printInfo();
-		System.out.println();
+		Book20 b = new Book20 ("자바문법", "엘컴퓨터학원", 50000); 
+		Book20.modifyPrice(b);
+		b.printInfo();
+	
+	
 	}
 }
-class Book4 {
-	private String title; 
-	private String price;
+
+class Book20 {
+	String title; 
+	String author; 
+	int price; 
+	
+	Book20 (String title, String author, int price){
+		this.title = title; 
+		this.author = author; 
+		this.price = price; 
+	}
+	
+	static void modifyPrice (Book20 b) {
+		b.price *= 1.2f;
+	}
+	
+	void printInfo() {
+		System.out.println("제목: " + title + "저자: " + author + "가격: " + price);
+	}
 }
+/*
+문제 1.
+call by reference 를 이용해 책의 금액을 수정하는 메소드를 코딩하세요. 
+*/

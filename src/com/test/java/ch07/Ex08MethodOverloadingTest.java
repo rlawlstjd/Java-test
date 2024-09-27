@@ -4,85 +4,49 @@ import java.util.Scanner;
 
 public class Ex08MethodOverloadingTest {
 	public static void main(String[] args) {
-	
-		//문제 1번
-		/*Car car = new Car () ; 
-		car.setInfo ("모르쉐") ;
-		car.setInfo1 ("엘컴퓨터학원");
-		car.setInfo (300);
+		Car car = new Car();
+		car.setCompany("현대");
+		car.setName("소나타");
+		car.setMaxSpeed(240);
 		
-		car.printInfo() ;  */
+		Car car2 = new Car(); 
+		car2.setInfo("기아", "k5", 250);
 		
-		
-		//문제 2 번 
-		Car car = new Car () ;
-		car.setInfo("모르쉐", 300, "엘컴퓨터학원");
 		System.out.println(car.getInfo());
+		System.out.println(car2.getInfo());
 		
-	
-	
-	
-	
-	
 	}
 }
 
-/*class Car {
-	String name ; 
-	String company; 
-	int rate; 
-		
-	void setInfo (String name) {
-		this.name = name ; 
-	}
-	
-	void setInfo (int rate) {
-		this.rate = rate ; 
-	}
-	
-	void setInfo1 (String company) {
-		this.company = company ; 
-	}
-	
-	void printInfo () {
-		System.out.println("자동차 이름: " +this.name);           //왜 한 줄에서 모두 사용이 안되는가?
-		System.out.println("최고속도: " +  this.rate + "km/h");
-		System.out.println("자동차 회사: " +this.company );
-		 
-	}
-}*/
-	
 class Car {
-	String name ; 
-	String company; 
-	int rate; 
+	private int maxSpeed; 
+	private String name; 
+	private String company; 
 	
-	void setInfo(String name) {
-		this.name = name;
-	}
 	
-	void setInfo(int rate) {
-		this.rate = rate;
-	}
-	
-	void setInfo(String name, int rate) {
-		this.name = name;
-		this.rate = rate;
-	}
-	
-	void setInfo (String name, int rate, String company) {
-		this.name = name; 	
-		this.rate = rate; 
-		this.company = company;
-		
-		//System.out.println("자동차 이름: " +this.name + ", " + this.rate + "km/h, " + this.company);
+	public void setInfo(String s, String n, int m) {
+		this.company = s; 
+		this.name = n; 
+		this.maxSpeed = m; 
 	}
 	
 	
-	String getInfo() {
-		return "이름: " + name  + "\n속도: " + rate + "\n회사: " + company + "\n";
+	public void setCompany(String c) {
+		this.company = c;
 	}
-} 
+	
+	public void setName (String n) {
+		this.name = n;
+	}
+	
+	public void setMaxSpeed (int s) {
+		this.maxSpeed = s; 
+	}
+	
+	public String getInfo() {
+		return "기업: " + company + "모델명: " + name + "최고 속도: " + maxSpeed;
+	}
+}
 /*
 문제 1.
 자동차 정보 자동차이름(문자열), 최대속도(정수), 자동차회사(문자열) 를 저장하는 클래스를 만들고

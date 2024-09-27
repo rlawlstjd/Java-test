@@ -2,49 +2,52 @@ package com.test.java.ch07;
 
 public class Ex10ThisConstructureTest {
 	public static void main(String[] args) {
-		drama m = new drama () ; 
-		drama.printInfo(m);
+		Movie m = new Movie(); 
+		Movie.movieInfo(m);	
 		
-		drama m2 = new drama ("미나리"); 
-		drama.printInfo(m2);
+		Movie m2 = new Movie("베테랑");
+		Movie.movieInfo(m2);
 		
-		drama m3 = new drama ("미나리","박정민"); 
-		drama.printInfo(m3);
+		Movie m3 = new Movie("비기어게인", "마크"); 
+		Movie.movieInfo(m3);
 		
-		drama m4 = new drama ("미나리","박정민","드라마");
-		drama.printInfo(m4);
-	
-	
+		Movie m4 = new Movie("커버넌트", "제이크", "존"); 
+		Movie.movieInfo(m4);
+		
 	
 	}
 }
 
-class drama {
+class Movie {
 	String title; 
 	String actor; 
-	String genre; 
+	String director;
 	
-	drama(){
-		this ("제목입력", "배우입력", "장르입력");
-	}	
-	
-	drama(String title){
-		this (title, "배우입력", "장르입력"); 
+	Movie (){
+		this("트랜스포머", "크리스", "조시");
 	}
 	
-	drama(String title, String actor){
-		this (title, actor, "장르입력");
-	}
-
-	drama(String title, String actor, String genre){
-			this.title = title ; 
-			this.actor = actor ; 
-			this.genre = genre ; 
+	Movie (String title){
+		this(title, "황정민", "류승완");
 	}
 	
-	static void printInfo(drama drama) {
-		System.out.printf("제목: %s%n배위: %s%n장르: %s%n%n%n",drama.title, drama.actor, drama.genre);
+	Movie (String title, String actor){
+		this(title, actor, "존 카니");
 	}
+	
+	Movie (String title, String actor, String director){
+		this.title = title; 
+		this.actor = actor; 
+		this.director = director; 
+	}
+	
+	public static void movieInfo(Movie m) {
+		System.out.println("영화제목: " + m.title + ", 배우: " + m.title + ", 감독: " + m.director);
+	}
+	
+	/*public void printInfo() {
+		System.out.println("영화제목: " + title + ", 배우: " + title + ", 감독: " + director);
+	}*/
 }
 
 /*

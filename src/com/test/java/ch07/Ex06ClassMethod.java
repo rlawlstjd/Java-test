@@ -1,71 +1,47 @@
 package com.test.java.ch07;
 
 public class Ex06ClassMethod {
-	
-
-	public static void main(String[] args) {
-		Book5 b1 = new Book5();
+	public static void main(String[] args) {	
+		Book5 b1 = new Book5(); 
 		b1.bookNo = Book5.generateBookNo();
-		System.out.println(b1.bookNo);
+		System.out.println("b1.bookNo");
 		
 		System.out.println();
 		
-		Book5 b2 = new Book5();
-		b2.bookNo = Book5.generateBookNo();
+		Book5 b2 = new Book5(); 
+		b2.bookNo = Book5.generateBookNo(); 
 		System.out.println(b2.bookNo);
-		
-		float dollar = b2.getDollarPrice();
-		System.out.println(dollar);
-		
-		Book5 b5 = new Book5();
-		b5.genBookNo3();
-		Book5 b6 = new Book5();
-		b6.genBookNo3();
-		System.out.println(b6.bookNo);
-		Book5 b7 = new Book5();
-		Book5.genBookNo2(b7);
-		System.out.println(b7.bookNo);
+	
+		Book5 b3 = new Book5(); 
+		b3.price = 50000; 
+		System.out.println(b3.getDollarPrice());
 	}
-
 }
 
-class Book5 {
-	String title;
-	int bookNo;
-	int price ; 
+class Book5{
+	String title; 
+	int price; 
+	static int bookNo;
+	
 	
 	static int generateBookNo() {
-		return (int)(Math.random()*9000)+1000;
+		return (int)(Math.random()*9000)+1000; //1000부터  8999 까지  Math.random() 0부터 0.99999 숫자 .
 	}
 	
-	static int genBookNo() {
-		 return (int)(Math.random()*9000)+1000;
-		
+	 static int genBookNo(){
+		 bookNo = (int)(Math.random()*9000)+1000; 
+		 return bookNo; 
 	}
-	float getDollarPrice() {
-		float dollarPrice = price / 1000f ; 
-		return dollarPrice ; //return ? 
-	}
+	 
+	public float getDollarPrice() {
+		float dollarPrice = price / 1100f; 
+		return dollarPrice;
 	
-	static void genBookNo2(Book5 book) {
-		book.bookNo = (int)(Math.random()*9000)+1000;
-		//return bookNo;
 	}
-	
-	int genBookNo3() {
-		bookNo = (int)(Math.random()*9000)+1000;
-		return bookNo;
-	}
-
 }
-
-
 /*
 문제 1.
-	주석처리된 코드의 오류를 수정하세요.
-
-문제 2.
-책의 가격을 달러로 변환하여 리턴하는 클래스 메소드를 작성하세요.
-1달러=1000원으로 가정합니다. 
+책 클래스에 카테고리를 저장할 수 있는 속성(변수)을 추가하세요.
+카테고리를 "문화" 에서 "도서"로 변경해 주세요.
+카테고리 변경 시 모든 인스턴스에 동일하게 적용되도록 코딩 후 적용된 결과를 출력하세요. 
 */
-	

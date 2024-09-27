@@ -3,7 +3,7 @@ package com.test.java.ch07;
 public class Ex05ClassVariableTest {
 	public static void main(String[] args) {
 		//Book01.category ="문화"; 
-		Book01.category ="도서";
+		Book01.category ="도서"; // static  이용 변경. 
 		
 		Book01 b = new Book01 () ; 
 		b.title = "무한도전";
@@ -24,11 +24,6 @@ public class Ex05ClassVariableTest {
 		b2.printInfo();
 		b3.printInfo();
 		
-	
-	
-	
-	
-	
 	}
 }
 
@@ -37,13 +32,11 @@ class Book01{
 	String author ; 
 	int price ; 
 	
-	static String category ; 
-	
+	static String category = "문화";
 
 	void printInfo() {
-		System.out.printf("책이름: %s%n가격: %d%n저자: %s%n카테고리: %s%n", title, price, author, category); 
+		System.out.printf("책이름: %s 가격: %d 저자: %s 카테고리: %s%n", title, price, author, category);
 	}
-	
 }
 /*
 문제 1.

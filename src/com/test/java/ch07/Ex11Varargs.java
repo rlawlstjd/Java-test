@@ -4,40 +4,37 @@ import java.util.Arrays;
 
 public class Ex11Varargs {
 	public static void main(String[] args) {
-	Book12 book1 = new Book12(); 
-	book1.title = "자바 문법"; 
-	book1.author = "엘컴퓨터학원"; 
-	book1.setTag("컴퓨터", "IT", "프로그램 언어", "자바");
-	
-	Book12.printInfo(book1); 
-	
-	Book12 book2 = new Book12(); 
-	book2.title = "c 문법" ; 
-	book2.author = "엘코딩"; 
-	book2.setTag("IT", "프로그램 언어");
-	
-	
-	Book12.printInfo(book2);
-	
-	//는 왜 안되는가 ? book2.printInfo();
-	
-	
+		Book12 book1 = new Book12(); 
+		book1.title = "자바 문법";
+		book1.author = "엘컴퓨터학원";
+		book1.setTag("컴퓨터", "IT", "프로그램 언어", "자바");
+		
+		Book12.printInfo(book1);
+		
+		Book12 book2 = new Book12(); 
+		book2.title = "c문법"; 
+		book2.author = "엘코딩"; 
+		book2.setTag("IT", "프로그램 언어");
+		
+		Book12.printInfo(book2);
+		
 	}
 }
-class Book12 {
-	String title; 
-	String author;  
-	String []tag ; 
-	 
-	void setTag(String...p) {
-		tag = new String[p.length]; 
-		for (int i=0; i<tag.length; i ++) {
-			tag[i] = p[i] ; 
+
+class Book12{
+	String title ; 
+	String author; 
+	String[] tag; 
+	
+	void setTag (String...strings) {
+		tag = new String[strings.length];
+		for (int i=0; i<tag.length; i++) {
+			tag[i] = strings[i]; 
 		}
 	}
 	
-	static void printInfo(Bookk book) {
-		System.out.printf("제목: %s%n저자: %s%n", book.title, book.author); 
-		System.out.printf("카테고리: %s%n", Arrays.toString(book.tag));
+	static void printInfo(Book12 book) {
+		System.out.printf("제목: %s%n저자: %s%n", book.title, book.author);
+		System.out.printf("카테고리: %s%n%n", Arrays.toString(book.tag));
 	}
 }

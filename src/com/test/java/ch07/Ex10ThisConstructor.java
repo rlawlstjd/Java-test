@@ -13,8 +13,10 @@ public class Ex10ThisConstructor {
 		
 		Book11 b4 = new Book11 ("자바문법", 5000, "엘컴퓨터학원");
 		Book11.printInfo(b4);
+	
 	}
 }
+
 class Book11 {
 	String title; 
 	int price ; 

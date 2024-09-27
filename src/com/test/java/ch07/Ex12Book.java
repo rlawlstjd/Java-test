@@ -11,9 +11,9 @@ public class Ex12Book {
 		
 	}
 	
-	static void generateBookNo(int bookNo) {
+	static int generateBookNo(int bookNo) {
 		bookNo = (int)(Math.random()*9000)+1000;
-		
+		return bookNo;
 	}
 	
 	static void generateBookNo(Ex12Book book) {
