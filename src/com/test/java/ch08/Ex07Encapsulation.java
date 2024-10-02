@@ -13,11 +13,10 @@ public class Ex07Encapsulation {
 		book2.setAuthor("엘컴퓨터학원");
 		book2.setPrice(3000);
 		Book6.printInfo(book2);
-		
-	
 	
 	}
 }
+
 class Book6 {
 	private String title; 
 	private String author; 

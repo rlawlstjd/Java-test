@@ -2,7 +2,7 @@ package com.test.java.ch08;
 
 public class Ex11staticBlock {
 	public static void main(String[] args) {
-Cart2.print();
+		Cart2.print();
 		
 		Book9 b1 = new Book9();
 		Book9 b2 = new Book9("자바 초기화 블럭");
@@ -14,7 +14,6 @@ Cart2.print();
 		
 		Cart2.print();
 	}
-
 }
 
 class Cart2 {

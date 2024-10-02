@@ -5,7 +5,7 @@ public class Ex01InnerClass {
 		EBook book = new EBook();
 		book.setTitle("자바 알고리즘");
 		book.setAuthor("엘컴퓨터학원");
-		book.setTax(1.1f);
+		book.setTax(1.2f);
 		book.setCountry(EBook.TaxCalculator.USA);
 		book.setPrice(50000);
 		book.print();
@@ -37,7 +37,7 @@ class EBook {
 		public static final int KOREA = 1;
 		public static final int USA = 2;
 		public static final int UK = 3;
-		
+	
 		void setTotalPrice() {
 			switch (country) {
 				case KOREA:

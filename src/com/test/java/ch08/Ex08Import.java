@@ -20,10 +20,10 @@ public class Ex08Import {
 		System.out.println(c.get(Calendar.DATE));
 		
 		System.out.println(PI);
-		System.out.println(random());
+		System.out.println(((int)(random()*10000))+1000);
 		System.out.println(round(3.14));
+	
 	}
-
 }
 /*
 문제 1.

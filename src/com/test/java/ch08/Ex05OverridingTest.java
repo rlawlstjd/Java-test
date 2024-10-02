@@ -13,6 +13,7 @@ public class Ex05OverridingTest {
 		
 	}
 }
+
 class Book51 {
 	String title; 
 	String author; 
@@ -26,7 +27,7 @@ class Book51 {
 		this.title = title;
 	}
 	void printInfo() {
-		System.out.printf("종이책의 재목은: %s%n",title);
+		System.out.printf("종이책의 제목은: %s%n",title);
 	}
 	
 }
@@ -52,11 +53,6 @@ class EBook51 extends Book51{
 	}
 	
 }
-
-
-
-
-
 /*
 문제 1.
 제목 설정 메소드를 부모클래스와 자식클래스에 모두 작성하고 자식클래스의 제목 설정 메소드는 제목에 [이북]이 추가되도록 작성하세요.

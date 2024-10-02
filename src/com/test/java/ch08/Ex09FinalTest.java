@@ -47,15 +47,12 @@ class Book88 {
 		System.out.printf("책의 제목: %s", title);
 		return title;
 		
-		
 	}
-	
 }
 
 class EBook66 extends Book77 {
 
 }
-
 
 class EBook77 extends Book88 {
 	String fontColor;

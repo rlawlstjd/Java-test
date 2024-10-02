@@ -2,36 +2,32 @@ package com.test.java.ch08;
 
 public class Ex03SuperTest {
 	public static void main(String[] args) {
-		EBook3 eb = new EBook3 (); 
-		System.out.println("제목: "+ eb.title + "책의 가격은" + eb.price + "책의 저자는" + eb.author + "글자 색깔은"+ eb.fontcolor);
-		
-	
-	
+		PaperBook1 p = new PaperBook1 (15, 30); 
+		System.out.println("책의 제목: [" + p.title + "]" + ", 저자: [" + p.author + "]");
 
-	
 	}
 }
-class Book3 {
-	String author ; 
-	String title ; 
-	int price ;
+
+class Book31{
+	String title; 
+	String author; 
 	
-	Book3(String author, String title, int price){
-		this.author= author ; 
+	Book31(String title, String author){
 		this.title = title ; 
-		this.price = price ;
-		
+		this.author = author; 
 	}
 }
-class EBook3 extends Book3{
-	String fontcolor ; 
+
+class PaperBook1 extends Book3{
+	int width; 
+	int height; 
 	
-	EBook3(){
-		super("엘컴퓨터학원", "c문법책", 100);
-		this.fontcolor = "brown";
-	
+	PaperBook1(int w, int h){
+		super("홍길동전", "허균");
+		this.width = w; 
+		this.height = h;
 	}
-		
+	
 }
 
 

@@ -5,9 +5,7 @@ public class Ex06Interface {
 		Book6 book1 = new Book6();
 		book1.setTitle("자바 알고리즘");
 		book1.setAuthor("엘컴퓨터학원");
-		book1.setPrice(3000);
-		book1.setStockedDate("2024-09-03");
-		book1.setReleasedDate("2024-09-05");
+		book1.setPrice(50000);
 		
 		EBook5 eb = new EBook5();
 		eb.setTitle("자바 기본문법");
@@ -47,18 +45,13 @@ public class Ex06Interface {
 		
 		//printService = book1;		// error
 		//printService.printInfo();
-		WareHouse warehouse = new WareHouse();
-		warehouse.addStock(book1);
-		
-		warehouse.printStock();
 	}
 
 }
 
 class Cart2 {
-	OrderItem[] items;  			
-	int index;						
-	
+	OrderItem[] items;
+	int index;
 	
 	public Cart2() {
 		items = new OrderItem[10];
@@ -80,13 +73,12 @@ interface OrderItem {
 	public abstract int getOrderPrice(); 
 }
 
-class Book6 implements OrderItem, Stocked {
+class Book6 implements OrderItem {
 	String title;
 	String author;
 	int price;
 	
-	String releasedDate;
-	String stockedDate;
+	
 	
 	public String getTitle() {
 		return title;
@@ -113,13 +105,6 @@ class Book6 implements OrderItem, Stocked {
 			return;
 		this.price = price;
 	}
-	
-	public void setStockedDate(String date) {
-		this.stockedDate = date ; 
-	}
-	public void setReleasedDate(String date) {
-		this.releasedDate = date; 
-	}
 
 	@Override
 	public String getOrderName() {
@@ -131,15 +116,6 @@ class Book6 implements OrderItem, Stocked {
 		return getPrice();
 	}
 	
-	@Override 
-	public String getStockedDate() {
-		return stockedDate;
-	}
-	
-	@Override
-	public String getReleasedDate() {
-		return releasedDate;
-	}
 }
 
 class EBook5 extends Book6 implements PrintService {
@@ -284,38 +260,6 @@ interface PrintServiceForPrinter extends PrintService {
 	}
 }
 
-
-interface Stocked extends OrderItem {	
-	public abstract String getStockedDate();
-	public abstract String getReleasedDate(); 
-}
-
-
-class WareHouse {
-	private Stocked[] stockItems = new Stocked [10];
-	private int index =0;
-	
-	
-	public void addStock(Stocked item) {
-		if (index < stockItems.length) {
-			stockItems[index]  = item; 
-			index++; 
-		}else {
-			System.out.println("창고가 가득 찼습니다.");
-		}
-	}
-	
-	public void printStock() {
-		System.out.println("창고에 저장된 재고 정보");
-		for (int i=0; i<index; i++) {
-			Stocked item = stockItems[i]; 
-			System.out.printf("상품명: %s, 가격: %d, 입고일자: %s, 출고일자: %s%n",
-				item.getOrderName(), item.getOrderPrice(),
-				item.getStockedDate(), item.getReleasedDate());
-
-		}
-	}
-}
 /*
 문제 1.
 상품들을 창고에 저장하고 창고에 저장된 상품들을 출력하세요.

@@ -1,19 +1,24 @@
 package com.test.java.ch08;
 
 import static java.lang.Math.*;
-import com.test.java.ch07.Ex00000;
+
+import java.util.Calendar;
+
 
 public class Ex08ImportTest {
 	public static void main(String[] args) {
-		floor(3.14);
-		double sum = PI;
-	//	float pi = (float)floor(PI);
-		//System.out.println("pi의 정수 부분:" + (int)pi);
-	
-		Parasite p1 = new Parasite();
+		java.util.Date d = new java.util.Date();
+		System.out.println(d.toString());
 		
-		Ex00000 e1 = new Ex00000();
-		//com.test.java.ch08.Book3 b1 = new com.test.java.ch08.Book3(); 
+		Calendar c = Calendar.getInstance();
+		System.out.println(c.get(Calendar.DATE));
+		
+		System.out.println(PI);
+		System.out.println(((int)(random()*10000))+1000);
+		System.out.println(round(3.14));
+		System.out.println(floor(PI));
+		
+	
 	}
 }
 /*

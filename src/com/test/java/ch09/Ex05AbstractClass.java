@@ -33,7 +33,7 @@ public class Ex05AbstractClass {
 		ab.print();
 		
 		
-		Cart cart = new Cart (); 
+		Cart3 cart = new Cart3 (); 
 		cart.add(ab);
 		cart.add(eb);
 		cart.add(pb);
@@ -173,7 +173,7 @@ class AudioBook5 extends Book5 {
 		
 }
 
-class Cart {
+class Cart3 {
 	Book5[] books = new Book5 [10];
 	int index = 0 ; 
 	
@@ -187,8 +187,6 @@ class Cart {
 			
 			System.out.printf("책의 제목: %s  책의 저자:  %s  금액: %d%n", books[i].getTitle(), books[i].getAuthor(), books[i].getPrice());
 		}
-			
-		
 	}
 }
 

@@ -8,6 +8,7 @@ public class Ex03Super {
 	
 	}
 }
+
 class Book3 {
 	String title ; 
 	String author ;

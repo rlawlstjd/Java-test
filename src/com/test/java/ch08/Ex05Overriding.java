@@ -12,6 +12,7 @@ public class Ex05Overriding {
 	
 	}
 }
+
 class Book05{
 	String title ; 
 	String author ; 
@@ -28,7 +29,7 @@ class Book05{
 	
 	void setPrice() {
 	
-}
+	}
 }
 
 class EBook5 extends Book05 {
@@ -48,4 +49,10 @@ class EBook5 extends Book05 {
 		super.printPrice();
 		printPrice(); 
 	}
+	
+	/*@Override
+	 * void setPrice (){
+	 * 
+	 * }
+	 * */
 }
