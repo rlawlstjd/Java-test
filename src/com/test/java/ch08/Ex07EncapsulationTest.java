@@ -10,6 +10,7 @@ public class Ex07EncapsulationTest {
 		
 	}
 }
+
 class Movie1{
 	private String director;
 	private String title; 

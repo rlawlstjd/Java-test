@@ -2,49 +2,49 @@ package com.test.java.ch08;
 
 public class Ex04SuperTest {
 	public static void main(String[] args) {
-		Parasite m = new Parasite () ; 
-		m.printInfo();
-	
+		EvCar c = new EvCar(); 
+		c.name = "소나타";
+		c.price = 5000; 
+		c.door = 4; 
 		
+		c.carInfo();
 		
+		EvCar c2 = new EvCar(); 
+		c2.setName("그랜져");
+		c2.setPrice(6000);
+		c.door = 4; 
 		
 	
 	}
 }
 
-class Movie {
-	String director ; 
-	String title ; 
-	int price ; 
-	
-	Movie (String director, String title, int price) {
-		this.director = director;
-		this.title = title;
-		this.price = price ; 
-	}
-	
+class Car {
+	String name ; 
+	int price; 
 }
 
-class Parasite extends Movie {
-	int spector ; 
-	int price;
-	String title;
+class EvCar extends Car {
+	int door; 
+	String name; 
+	int price; 
 	
-	Parasite() {
-		super ("봉준호", "기생충", 13000);
-		this.spector = 100000; 
+	public void carInfo() {
+		System.out.println("모델명: " + name + ", 가격: " + price + "문 갯수: " + door);
 	}
 	
-	void init(int price, String title) {
-		System.out.println("지역변수" + price);
-		System.out.println("인스턴스변수" + this.price);
-		System.out.println("부모인스턴스변수" + super.price);
-		System.out.println(director);
+	public void setName(String n) {
+		super.name = n;
+		this.name = n + "입니다";
+		System.out.println("일반차의 이름: " + super.name );
+		System.out.println("전기차의 이름: " + this.name );
 	}
 	
-	void printInfo () {
-		System.out.printf("영화제목: %s%n영화감독: %s%n티켓가격: %d%n", title, director, price);
-	}	
+	public void setPrice(int p) {
+		super.price = p + 1000;
+		price = p; // 자식클래스에 price 변수 없으면 부모클래스에 덮어 씌어버림.
+		System.out.println("일반차의 가격: " + super.price);
+		System.out.println("전기차의 가격: " + price); 
+	}
 }
 /*
 문제 1.

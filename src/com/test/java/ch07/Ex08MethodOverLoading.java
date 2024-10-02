@@ -14,8 +14,8 @@ public class Ex08MethodOverLoading {
 			
 		System.out.println(book.setInfo());
 		System.out.println(book.getInfo());
+	
 	}
-
 }
 
 class Book7 {
@@ -30,7 +30,7 @@ class Book7 {
 	void setInfo(String title, int price) {
 		this.title = title;
 		this.price = price;
-		this.author = "안녕하세요"; 
+		
 	}
 		
 	void setInfo(String title, int price, String author) {
@@ -49,7 +49,7 @@ class Book7 {
 		
 	String getInfo() {
 		return "제목: " + title + "\n가격: " + price + "\n저자: " + author + "\n";
-	}
-		
+	}	
 }
-
+/* 메소드 오버로딩.... 코드의 가독성을 높이며 
+ * */

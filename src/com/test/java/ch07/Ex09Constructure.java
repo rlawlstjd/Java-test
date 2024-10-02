@@ -22,9 +22,9 @@ public class Ex09Constructure {
 		
 		//Book10 b6 = new Book10("김진성", 400000, "엘컴퓨터학원"); 
 		//b6.printInfo();
-	
 	}
 }
+
 class Book8 {
 	String title; 
 	int price ; 
@@ -53,30 +53,29 @@ class Book9 {
 }
 
 class Book10 {
-		String title ; 
-		int price ; 
-		String author ; 
-		
-		Book10(String title){
-			this.title = title; 
-			this.price = 30000 ; 
-			this.author =  "엘컴퓨터학원"; 
-		}
-		
-		Book10(String title, int price) {
-			this.title = title; 
-			this.price = price ; 
-			this.author = "엘컴퓨터학원"; 
-		}
-		
-		Book10(String title, int price, String author) {
-			this.title = title; 
-			this.price = price; 
-			this.author = author; 
-		}
-		
-		void printInfo() {
-			System.out.printf("제목: %s%n가격: %s%n저자: %s%n%n", title, price, author); 
-		}
-		
+	String title ; 
+	int price ; 
+	String author ; 
+	
+	Book10(String title){
+		this.title = title; 
+		this.price = 30000 ; 
+		this.author =  "엘컴퓨터학원"; 
+	}
+	
+	Book10(String title, int price) {
+		this.title = title; 
+		this.price = price ; 
+		this.author = "엘컴퓨터학원"; 
+	}
+	
+	Book10(String title, int price, String author) {
+		this.title = title; 
+		this.price = price; 
+		this.author = author; 
+	}
+	
+	void printInfo() {
+		System.out.printf("제목: %s%n가격: %s%n저자: %s%n%n", title, price, author); 
+	}
 }

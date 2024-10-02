@@ -21,7 +21,7 @@ public class Ex04Polymorphism {
 		System.out.println(b1.equalsProduct(b2));
 		System.out.println(b1.equalsProduct(b3));
 		
-		Book4 higherPriceBook = b1.compareProduct(b2);
+		Book4 higherPriceBook = (Book4) b1.compareProduct(b2);
 		System.out.println("더 높은 가격의 책 제목: " + higherPriceBook.getTitle());
 	}
 }
@@ -74,10 +74,11 @@ class Book4 extends Product {
 		return result; 
 	}
 	
-	public Book4 compareProduct(Product p) {
+	@Override
+	public Product compareProduct(Product p) {
 		if (!(p instanceof Book4))
 			return this;
-		
+		//this 라 함은? 
 		Book4 bp = (Book4)p ; 
 		return this.price >= bp.price ? this : bp;
 	}

@@ -4,63 +4,58 @@ import java.util.Arrays;
 
 public class Ex01InheritanceTest {
 	public static void main(String[] args) {
-		SmartPhone sm = new SmartPhone () ; 
-		sm.brand = "삼성";
-		sm.modelName = "갤럭시 23";
-		sm.price = 50000 ;
-		sm.function = new String[] {"인터넷", "AI", "스마트 월렛"};
-		
-		sm.printInfo();
-		sm.smartInfo();
+		Tablet t = new Tablet (); 
+		t.width = 18; 
+		t.height = 29; 
+		t.printSize(); 
+		System.out.println(); 
 		
 		
-		FeaturePhone fp = new FeaturePhone () ; 
-		fp.brand = "노키아";
-		fp.modelName = "3210";
-		fp.price = 3200;
-		fp.keyboard = true ;
+		Phone p = new Phone (); 
+		p.width = 7; 
+		p.height = 15;
+		p.printSize(); 
+		System.out.println(); 
 		
-		fp.printInfo();
-		fp.featureInfo();
-		
-		
-		
-		}
-	}
-class Phone {
-	String brand; 
-	String modelName ; 
-	int price ;
+		p.setAlramTime(10);
+		System.out.println(p.getAlramTime());
 	
-	void printInfo() {
-		System.out.printf("브랜드: %s%n모델명: %s%n가격(세금포함): %d%n", brand, modelName, getPrice());
-	}
-	
-	int getPrice() {
-		int taxPrice = (int)(price*1.1f);
-		return taxPrice;
 	}
 }
 
-class SmartPhone extends Phone {
-	String[] function ;
-	
-	void smartInfo () {
-		System.out.printf("스마트폰의 기능: %s%n%n", Arrays.toString(function));
+class Device {
+	String modelName; 
+	int price; 
+		
+	public void printInfo() {
+		System.out.printf("모델명: " + modelName + "가격: " + price );
 	}
-} 
+	
 
-class FeaturePhone extends Phone {
-	boolean keyboard ; 
-	
-	void featureInfo() {
-		System.out.printf("물리적 자판기의 유무: %b%n", keyboard);
-	}
 }
-	
-	
-	
 
+class Tablet extends Device {
+	int width; 
+	int height; 
+	
+	public void printSize() {
+		System.out.printf("가로길이: " + width + "세로길이: " + height);
+	}
+	
+}
+
+class Phone extends Tablet {
+	int alramTime;
+	
+	public void setAlramTime(int t) {
+		this.alramTime = t; 
+	}
+	
+	public int getAlramTime() {
+		return alramTime; 
+	}
+	
+}
 /*
 문제 1.
 생각나는 개체를 클래스로 만들되 부모 자식 클래스로 나누어 주세요.

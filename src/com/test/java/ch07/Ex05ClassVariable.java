@@ -26,7 +26,6 @@ public class Ex05ClassVariable {
 		b1.printInfo();
 		b2.printInfo();
 	}
-
 }
 
 class Book4 {
@@ -38,5 +37,4 @@ class Book4 {
 		String message = "책이름: " + title + ", 책가격: " + ((int)(price*tax)) + ", 세율: " + tax;
 		System.out.println(message);
 	}
-
 }

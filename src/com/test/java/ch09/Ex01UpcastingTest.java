@@ -2,30 +2,28 @@ package com.test.java.ch09;
 
 public class Ex01UpcastingTest {
 	public static void main(String[] args) {
-		Book1 book = null; 
-		book = new Book1();
+		Book11 book = null; 
+		book = new Book11();
 		book.setTitle("자바 기본문법");
 		System.out.println(book.getTitle());
 		
-		book = new EBook1();			// 업캐스팅
+		book = new EBook11();			// 업캐스팅
 		book.setFontColor("블랙");
 		System.out.println(book.getFontColor());
 		book.setTitle("자바 자료구조");
 		System.out.println(book.getTitle());
-	
 		
 		book = new AudioBook (); 
-		book.setVoiceActor("엘컴퓨터학원");
-		System.out.println(book.getVoiceActor());
+		book.setVolume(15);
+		System.out.println(book.getVolume());
+		
 	}
-	
-
 }
 
-class Book1 {
+class Book11 {
 	private String title;
-	private String fontColor; 
-	private String voiceActor;
+	private String fontColor;
+	private int volume;
 	
 	public String getTitle() {
 		return title;
@@ -33,22 +31,24 @@ class Book1 {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public void setFontColor(String fontColor) {
-		this.fontColor = fontColor; 		
+	
+	public void setFontColor(String title) {
 	}
+	
 	public String getFontColor() {
-		return fontColor;
+		return fontColor; 
 	}
 	
-	public void setVoiceActor (String voiceActor) {
-		this.voiceActor = voiceActor; 
-	}
-	public String getVoiceActor () {
-		return voiceActor;
+	public void setVolume(int v) {
 	}
 	
+	public String getVolume () {
+		return "," + volume; 
+	}
 }
-class EBook1 extends Book1{
+
+
+class EBook11 extends Book11{
 	private String fontColor;
 
 	public String getFontColor() {
@@ -65,20 +65,20 @@ class EBook1 extends Book1{
 	}
 }
 
-class AudioBook extends Book1 {
-	private String voiceActor ;
+class AudioBook extends Book11{
+	private int volume; 
 	
-	public void setVoiceActor (String voiceActor) {
-		this.voiceActor = voiceActor;
-		super.setVoiceActor(voiceActor);
- 	}
-	
-	public String getVoiceActor () {
-		return voiceActor;
+	@Override
+	public void setVolume (int v) {
+		this.volume = v; 
+		
 	}
-	
+	@Override
+	public String getVolume () {
+		return "설정한 볼륨은: " + volume + "입니다." ; 
+		
+	}
 }
-
 
 /*
 문제 1.

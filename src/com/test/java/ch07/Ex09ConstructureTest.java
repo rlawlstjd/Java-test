@@ -2,100 +2,54 @@ package com.test.java.ch07;
 
 public class Ex09ConstructureTest {
 	public static void main(String[] args) {
-		movie m = new movie ("미나리", 120, "드라마") ; 
-		m.printInfo();
+		Car car = new Car();
+		car.setCompany("현대");
+		car.setName("소나타");
+		car.setMaxSpeed(240);
 		
-		movie1 m1 = new movie1(); 
-		m1.printInfo();
+		Car car2 = new Car(); 
+		car2.setInfo("기아", "k5", 250);
 		
-		movie2 m2 = new movie2(120);
-		m2.printInfo();
+		System.out.println(car.getInfo());
+		System.out.println(car2.getInfo());
 		
-		movie3 m3 = new movie3("드라마"); 
-		m3.printInfo();
-	}
-}
-class movie {
-	String title; 
-	int time; 
-	String genre;
-	public Object actor; 
-	
-	movie(String title, int time, String genre) {
-		this.title = title ; 
-		this.time = time ; 
-		this.genre = genre ; 
-	}
-	
-	void printInfo() {
-		System.out.printf("영화제목: %s%n상영시간: %d%n장르: %s%n", title, time, genre);
-	}
-	
-	
-}
-class movie1{
-	String title; 
-	int time ; 
-	String genre; 
-	movie1(){
-		this.title= "미나리1";
-		this.time= 60 ; 
-		this.genre= "드라마"; 
-	}
-	void printInfo () {
-		System.out.printf("영화제목: %s%n상영시간: %d%n장르: %s%n", title, time, genre);
-	}
-}
-class movie2{
-	String title; 
-	int time ; 
-	String genre;
-	movie2(int time){
-		this.title="only"; 
-		this.time = time ;
-		this.genre = "드라마";
-	}
-	void printInfo() {
-		System.out.printf("영화제목: %s%n상영시간: %d%n장르: %s%n", title, time, genre);
-	}
-}
-class movie3{
-	String title; 
-	int time ; 
-	String genre;
-	
-	movie3(){
-		this.title= "only"; 
-		this.time = 130;
-		this.genre= "드라마";
-	}
-	
-	movie3(String title){
-		this.title= title; 
-		this.time = 130;
-		this.genre= "드라마";
-	}
-	movie3(String title, String genre){
-		this.title= title;
-		this.genre= genre;
-		this.time = 130;
-	}
-	movie3(String title, String genre, int time){
-		this.title= title; 
-		this.time = time;
-		this.genre= genre;
-	}
-	void printInfo() {
-		System.out.printf("영화제목: %s%n상영시간: %s%n장르: %s%n", title, time, genre); 
 	}
 }
 
+class Car {
+	private int maxSpeed; 
+	private String name; 
+	private String company; 
+	
+	
+	public void setInfo(String s, String n, int m) {
+		this.company = s; 
+		this.name = n; 
+		this.maxSpeed = m; 
+	}
+	
+	
+	public void setCompany(String c) {
+		this.company = c;
+	}
+	
+	public void setName (String n) {
+		this.name = n;
+	}
+	
+	public void setMaxSpeed (int s) {
+		this.maxSpeed = s; 
+	}
+	
+	public String getInfo() {
+		return "기업: " + company + "모델명: " + name + "최고 속도: " + maxSpeed;
+	}
+}
 /*
 문제 1.
-영화 제목(문자열), 상영시간(정수), 장르(문자열) 속성을 가진 클래스를 만들고 
-생성자를 이용하여 속성을 설정한 뒤 출력하세요.
+자동차 정보 자동차이름(문자열), 최대속도(정수), 자동차회사(문자열) 를 저장하는 클래스를 만들고
+각각의 속성을 설정하는 메소드를 작성 후 출력하세요.
 
 문제 2.
-생성자 오버로딩을 이용해 생성자 세개를 추가하고
-각각의 생성자를 이용하여 3개의 인스턴스를 생성후 정보를 출력하세요.  
+속성을 설정하는 메소드를 오버로딩을 사용하여 작성 후 출력하세요. 
 */

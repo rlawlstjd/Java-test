@@ -14,8 +14,6 @@ public class Ex04Super {
 		eb.author = "엘컴퓨터학원";
 		System.out.println(eb.getAuthor());
 	
-		
-		
 		System.out.println(eb.title);
 	}
 
