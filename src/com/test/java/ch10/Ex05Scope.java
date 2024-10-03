@@ -2,7 +2,7 @@ package com.test.java.ch10;
 
 public class Ex05Scope {
 	static int iv = 2; 
-	
+	static int k = 7;
 	public static void main(String[] args) {
 		
 		System.out.println("메소드 호출 전");
@@ -14,8 +14,8 @@ public class Ex05Scope {
 		//System.out.printf("j = %d%n", j);
 		//System.out.printf("k = %d%n", k);
 		System.out.println();
-		int k = 7;
-		testScope(5, 0);
+	
+		testScope(5);
 		System.out.println(k);
 		System.out.println("메소드 호출 후");
 		
@@ -28,7 +28,7 @@ public class Ex05Scope {
 		//System.out.println();
 	}
 		
-	public static void testScope(int param ,int k ) {
+	public static void testScope(int param ) {
 		System.out.println("메소드 시작");
 		
 		

@@ -5,7 +5,7 @@ public class Ex02StaticNestedClassTest {
 		Book33 book = new Book33();
         book.printInfo();
         
-        int discountedPrice = Book33.getPrice(Book33.price, "august");
+        int discountedPrice = Book33.Discount.getDiscount("october", 10000);
         System.out.println("할인된 가격: " + discountedPrice);
     }
 }
@@ -18,28 +18,26 @@ class Book33 {
     static class Discount {
         private static float discount;
 
-        public static float getDiscount(String season) {
+        public static int getDiscount(String season, int price) {
             switch (season) {
                 case "august":
-                    return 0.25f;
+                    discount = 0.25f;
+                    break;
                 case "september":
-                    return 0.3f;
+                    discount = 0.3f;
+                    break;
                 case "october":
-                    return 0.35f;
+                    discount = 0.35f;
+                    break;
                 default:
-                    return 0f;
+                    discount = 0f;
+                    break; 
             }
+            
+            return (int) (price - ( price * discount ));
         }
     }
 
-    static int getPrice(int price, String season) {
-        float discount = Discount.getDiscount(season);
-        if (discount == 0f) {
-            return price;
-        } else {
-            return (int) (price - (price * discount));
-        }
-    }
 
     Book33() {
         title = "자바강의";

@@ -41,7 +41,7 @@ class EBook2 {
 					tax = 1.3f;
 			}
 			
-			// (1) 
+			
 			//System.out.println(EBook2.this.price);
 			EBook2 eb = new EBook2 ();
 			System.out.println(eb.price);
