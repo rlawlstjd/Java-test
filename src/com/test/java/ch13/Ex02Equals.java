@@ -35,8 +35,19 @@ public class Ex02Equals {
 		
 		System.out.println(s1 == s2);
 		System.out.println(s1.equals(s2)); 
-	}
 	
+		Movie1 m = new Movie1("설국열차", 150); 
+		Movie1 m1 = new Movie1("미나리", 120); 
+		Movie1 m2 = new Movie1("미나리", 120);
+		
+		System.out.println(m);
+		System.out.println(m1);
+		System.out.println(m2);
+	
+		System.out.println(m.equals(m1)); 
+		System.out.println(m1.equals(m2)); 
+		
+	}
 }
 
 class Book3 {
@@ -80,5 +91,31 @@ class Book4 {
 	@Override 
 	public String toString() {
 		return "Book4 [title=" + title + ", author=" + author + ", edition=" + edition + "]";
+	}
+}
+
+class Movie1 {
+	String title; 
+	int time ; 
+	
+	Movie1(String title, int time){
+		this.title = title; 
+		this.time = time; 
+	}
+	
+	public String toString() {
+		return "제목: " + title + "상영 시간: " + time; 
+	}
+	
+	
+	public boolean equals(Object obj) {
+		if (! (obj instanceof Movie1)) {
+			return false;
+		}
+		
+		Movie1 m = (Movie1)obj; 
+		
+		return title.equals(m.title)&& time == m.time; 
+		
 	}
 }

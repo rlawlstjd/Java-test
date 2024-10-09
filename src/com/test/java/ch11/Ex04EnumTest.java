@@ -9,7 +9,7 @@ public class Ex04EnumTest {
 		Book23 b = new Book23 () ; 
 		b.setGenre(Genre2.HORROR);
 		System.out.println(b.genre);
-		System.out.println(b.getGenre().getGenre1());
+		System.out.println(b.genre.getGenre1());
 	
 	}
 }

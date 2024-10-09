@@ -13,7 +13,7 @@ public class Ex01WrapperClassTest {
 		
 		System.out.println(sum);
 		
-		System.out.println(intgA.compareTo(intgB) > 0 ? intgA : intgB);
+		System.out.println(intgA.compareTo(intgB) > 0 ? intgA : intgz);
 		
 		System.out.println("최소값" + Integer.min(intgA, intgB));
 		System.out.println("최대값" + Integer.max(intgA, intgB));

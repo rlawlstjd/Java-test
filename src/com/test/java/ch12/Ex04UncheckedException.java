@@ -9,7 +9,7 @@ public static void main(String[] args) {
 		
 		File f = new File("./src/com/lcomputerstudy/books/java/ch12/hello.txt");
 		
-		f.createNewFile();	// Checked Exception
+		//f.createNewFile();	// Checked Exception
 		
 		int[] arr = {3, 7, 5};
 		System.out.println(arr[5]);		// Unchecked Exception

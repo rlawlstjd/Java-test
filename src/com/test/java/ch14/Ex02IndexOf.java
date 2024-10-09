@@ -13,7 +13,7 @@ public class Ex02IndexOf {
 		for (int i=0; i <s2.length(); i ++) {
 			char ch = s2.charAt(i); 
 			
-			if (filter.indexOf(ch)== -1) { //필터에 ch값이 없다면 결과에 ch값을 담는다. 
+			if (filter.indexOf(ch)== -1) { //필터에 ch값이 없다면 결과에 ch값을 담는다. 문자열에 없음 == -1 ; 
 				result += String.valueOf(ch);
 			}
 		}

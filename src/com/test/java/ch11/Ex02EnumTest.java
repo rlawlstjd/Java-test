@@ -4,30 +4,48 @@ import java.util.Scanner;
 
 public class Ex02EnumTest {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner (System.in);
-		
-		Book11 b = new Book11 () ; 
-		b.setGenre(Genre.DRAMA);
-		System.out.println(b.genre);
+		Movie m = new Movie(); 
+		m.setGenre(Genre.valueOf("drama"));
+		m.setTitle("미나리");
+		m.print(m);
 	}
 }
-
-class Book11 {
-	private	String title; 
-	private	String author; 
-	public Genre genre;
+class Movie {
+	String title; 
+	Genre genre; 
 	
-	public void setGenre (Genre genre) {
-		this.genre = genre; 
-	} 
-	public Genre getGenre () {
-		return genre; 
+	void print(Movie m) {
+		System.out.println("제목: " + m.getTitle()); 
+		System.out.println("장르: " + m.getGenre() + " " + genre.getGenreName());
 	}
 	
+	void setTitle (String title) {
+		this.title = title;
+	}
+	String getTitle() {
+		return title;
+	}
+	void setGenre(Genre g) {
+		this.genre = g; 
+	}
+	Genre getGenre() {
+		return genre;
+	}
 }
-
-enum Genre{
-	HORROR, DRAMA, THRILLER, ACTION
+enum Genre {
+	drama("드라마"), 
+	fiction("픽션"), 
+	horro("공포");
+	
+	public final String genreName; 
+	
+	Genre(String a){
+		this.genreName  = a; 
+	}
+	
+	String getGenreName() {
+		return genreName; 
+	}
 }
 
 /*

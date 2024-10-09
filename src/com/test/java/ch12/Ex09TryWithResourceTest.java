@@ -4,18 +4,80 @@ import java.util.Scanner;
 
 public class Ex09TryWithResourceTest {
 	public static void main(String[] args) {
+		Book3 b1 = new Book3 ("자바 컬렉션", "엘컴퓨터학원", 2); 
+		Book3 b2 = new Book3 ("자바 알고리즘", "엘컴퓨터학원", 7); 
+		Book3 b3 = new Book3 ("자바 알고리즘", "엘컴퓨터학원", 7); 
 		
-		try(Scanner scan = new Scanner (System.in)) {
-			System.out.print("입력할 문자열을 적으세요.");
-			String text = scan.nextLine(); 
-			System.out.println("입력한 문자열: " + text);
-		}
+		System.out.println(b1);
+		System.out.println(b2);
+		System.out.println(b1.equals(b2)); 
+		System.out.println(); 
+		
+		System.out.println(b2);
+		System.out.println(b3);
+		System.out.println(b2.equals(b3));
+		System.out.println(); 
+		
+		Book4 b4 = new Book4("자바 컬렉션", "엘컴퓨터학원", 2); 
+		Book4 b5 = new Book4 ("자바 알고리즘", "엘컴퓨터학원", 7); 
+		Book4 b6 = new Book4 ("자바 알고리즘", "엘컴퓨터학원", 7); 
+		
+		System.out.println(b4); 
+		System.out.println(b5); 
+		System.out.println(b4.equals(b5));
+		System.out.println(); 
+		
+		System.out.println(b5);
+		System.out.println(b6);
+		System.out.println(b5.equals(b6)); 
+		System.out.println(); 
+	
 	}
 }
-/*
-문제 1.
-Scanner 의 nextLine 메소드를 이용하여 입력받은 문자열을 출력하는 코드를 작성하세요.
-스캐너는 사용후 scanner.close() 와 같이 자원을 반납하여야 합니다.
-반납하지 않으면 경고가 뜨게 됩니다.
-try with resources 문법으로 스캐너의 자원을 자동 반납하도록 코딩하세요. 
-*/
+
+class Book3 {
+	private String title ; 
+	private String author; 
+	private int num;
+	
+	Book3(String title, String author, int num){
+		this.title = title; 
+		this.author = author; 
+		this.num = num; 
+	}
+	
+	@Override 
+	public String toString () {
+		return "제목: " + title + ", 저자: " + author; 
+	}
+}
+
+class Book4 {
+	private String title ;
+	private String author; 
+	private int num; 
+	
+	Book4(String title, String author, int num){
+		this.title = title; 
+		this.author = author;; 
+		this.num = num; 
+	}
+	
+	@Override 
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Book4)) {
+			return false;
+		}
+		
+		Book4 book = (Book4) obj; 
+		//int 는 equlas 를 쓸 수 없음 . 
+		return title.equals(book.title)&& author.equals(book.author)&& num == book.num;
+	}
+	
+	
+	@Override
+	public String toString () {
+		return "제목 : " + title + ", 저자: " + author; 
+	}
+	
+}

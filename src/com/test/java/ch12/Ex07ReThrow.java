@@ -31,13 +31,10 @@ public class Ex07ReThrow {
 		System.out.println("2. 커뮤니티"); 
 		System.out.println("3. 쇼핑");
 		System.out.println("4. 로그아웃");
-		
-		
-		
-		
 	
 	}
 }
+
 class LoginService3{
 	private static final String DB_ID = "admin";
 	private static final String DB_PW = "1234";
@@ -76,6 +73,7 @@ class LoginService3{
 		System.out.println("- 로그인 화면 -"); 
 		System.out.print("아이디를 입력하세요.");
 		user.setId(scan.nextLine());
+		System.out.println("비밀번호를 입력하세요."); 
 		user.setPassword(scan.nextLine());
 		
 		return user ; 

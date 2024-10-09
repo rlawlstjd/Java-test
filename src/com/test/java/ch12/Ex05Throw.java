@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Ex05Throw {
 	public static void main(String[] args) {
 		while (true) {
-				User user = null ; 
+				User user = new User(); 
 				
-				user = LoginService.form(); 
+				user= LoginService.form(); 
 				LoginService.login(user); 
 				
 				if (user.isLogin()) { //false?
