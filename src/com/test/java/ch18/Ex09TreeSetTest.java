@@ -1,20 +1,12 @@
-package com.test.main;
+package com.test.java.ch18;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.NavigableSet;
-import java.util.Stack;
 import java.util.TreeSet;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collections;
 
-
-public class TestSub {
+public class Ex09TreeSetTest {
 	 public static void main(String[] args) {
 		 Integer[] r = {11,23,32,45,51,67,73,84,98,100}; 
 		 

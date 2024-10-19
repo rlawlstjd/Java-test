@@ -1,89 +1,82 @@
 package com.test.main;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.InputMismatchException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.ConcurrentModificationException;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Queue;
 import java.util.Scanner;
-import java.io.*;
-import java.util.Objects; 
+import java.util.Set;
+import java.util.Stack;
+
+import javax.swing.plaf.SliderUI;
+import java.util.concurrent.ConcurrentLinkedQueue; 
 
 public class Test {
 	public static void main(String[] args) {
-		Calendar now = Calendar.getInstance(); 
+		AlarmService alarm = new AlarmService();
+		alarm.addAlarm(new Alarm("월", 1));
+		alarm.addAlarm(new Alarm("화", 2));
+		alarm.addAlarm(new Alarm("수", 3));
+		alarm.addAlarm(new Alarm("목", 4));
+		alarm.addAlarm(new Alarm("금", 5));
 		
-		int year = now.get(Calendar.YEAR); 
-		System.out.println(year);
+		alarm.checkAlarm(); 
+		alarm.checkAlarm(); 
+		alarm.checkAlarm(); 
 		
-		int month = now.get(Calendar.MONTH) +1 ; 
-		System.out.println(month);
+		System.out.println();
 		
-		int day = now.get(Calendar.DATE); 
-		System.out.println(day);
+		alarm.viewAlarm();
 		
-		int hour12 = now.get(Calendar.HOUR);
-		System.out.println(hour12);
-		
-		int hour24 = now.get(Calendar.HOUR_OF_DAY); 
-		System.out.println(hour24);
-		
-		int minute = now.get(Calendar.MINUTE);
-		System.out.println(minute);
-		
-		int second = now.get(Calendar.SECOND); 
-		System.out.println(second);
-		
-		int millisecond = now.get(Calendar.MILLISECOND);
-		System.out.println(millisecond);
-		
-		int ampm = now.get(Calendar.AM_PM);
-		String strAmpm = ampm == 0 ? "AM" : "PM"; 
-		System.out.println(ampm + ", " + strAmpm);
-		
-		String[] strDayOfWeek = {"", "일", "월", "화", "수", "목", "금", "토"}; 
-		int dayOfWeek = now.get(Calendar.DAY_OF_WEEK);
-		System.out.println(dayOfWeek + ", " + strDayOfWeek[dayOfWeek]);
-		
-		String strDateTime = year + "-" + month + "-" + day + " " + hour12 + ":" + minute + ":" + second + "." + millisecond
-				+ " " + strAmpm + " " + strDayOfWeek[dayOfWeek] + "요일";
-		
-		System.out.println(strDateTime);
-		System.out.println(); 
-		
-		Calendar start = Calendar.getInstance(); 
-		Calendar end = Calendar.getInstance(); 
-		end.set(2030, 9, 7, 0, 0, 0);
-		System.out.println(start.getTime());
-		System.out.println(end.getTime());
-		
-		long diffMilli = end.getTimeInMillis() - start.getTimeInMillis(); 
-		System.out.println(diffMilli + " 밀리초"); 
-		long diffSecond = diffMilli / (1000) ; 
-		System.out.println(diffSecond + " 초"); 
-		long diffMinute = diffMilli / (60 * 1000); 
-		System.out.println(diffMinute + " 분");
-		long diffHour = diffMilli / (60 * 60 * 1000); 
-		System.out.println(diffHour + " 시간"); 
-		long diffDay = diffMilli / (24 * 60 * 60 * 1000 ); 
-		System.out.println(diffDay + "일");
-		long diffYear = diffMilli / (365L * 24 * 60 * 60 * 1000); 
-		System.out.println(diffYear + "년"); 
-		System.out.println(); 
-		
-		System.out.print(diffDay / 365 + " 년 "); 
-		System.out.println(diffDay % 365 + " 일 차이"); 
-		System.out.println(); 
-		
-		Calendar today = Calendar.getInstance(); 
-		System.out.println(today.getTime().toString()); 
-		
-		today.add(Calendar.DATE, 1); 
-		System.out.println(today.getTime().toString()); 
-		
-		today.add(Calendar.DATE,  -1); 
-		System.out.println(today.getTime().toString()); 
-		
-		today.set(Calendar.DATE, 22) ; 
-		System.out.println(today.getTime().toString()); 
-		
+	}
+}
+
+class Alarm {
+	private int time ; 
+	private String date; 
+	
+	Alarm (String date, int time){
+		this.date = date;
+		this.time = time;
+	}
+	
+	public String toString() {
+		return date + "요일 " + time + "시"; 
+	}
+	
+}
+
+class AlarmService{
+	private List<Alarm> listAlarm ;
+	private Deque<Alarm> dequeAlarm ;
+	
+	AlarmService(){
+		listAlarm = new LinkedList<>(); 
+		dequeAlarm = new ArrayDeque<>(); 
+	}
+	
+	public void addAlarm(Alarm a) {
+		listAlarm.add(a);
+		dequeAlarm.push(a);
+	}
+	
+	public void viewAlarm() {
+		for(Alarm alarm : listAlarm) {
+			System.out.println(alarm);
+		}
+	}
+	
+	public void checkAlarm() {
+		Alarm alarm = dequeAlarm.pop();
+		System.out.println(alarm);
 	}
 }

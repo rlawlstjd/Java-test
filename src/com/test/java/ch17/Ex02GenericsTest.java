@@ -4,78 +4,83 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.test.main.Cart;
+import com.test.main.Pen;
+import com.test.main.Tv;
+
 public class Ex02GenericsTest {
 	public static void main(String[] args) {
-		Pencil[] pencil = {
-							new Pencil("모나미", 500),
-							new Pencil("오나미", 400), 
-							new Pencil("나미", 300)
+		Pen[] pens = {
+				new Pen("빨간색", 500), 
+				new Pen("주황색", 400),
+				new Pen("노란색", 300)
 		};
 
+		Tv[] tvs = {
+				new Tv("올레드", 5000),
+				new Tv("커브드", 6000),
+				new Tv("UHD", 7000)
+		}; 
+
+
+		Cart<Pen> cart = new Cart<>(pens);
+		cart.printAllItems();
+		System.out.println();
 		
-		Box<Pencil> items = new Box<Pencil>(pencil);
-		items.printAllItems();
-		System.out.println(); 
+		Cart<Tv> cart2 = new Cart<>(tvs);
+		cart.printAllItems();
+		System.out.println();
 		
-		
-		
-		Tv [] tv = {
-					new Tv("삼성", 5000), 
-					new Tv("엘지", 5500),
-					new Tv("샤오미", 3000)
-		};		
-		
-		Box<Tv> items1 = new Box<Tv>(tv); 
-		
-		items1.printAllItems();
+		System.out.println(cart.get(2));
 	}
 }
-class Pencil {
-	String model; 
-	int price; 
-	
-	Pencil(String model, int price){
-		this.model = model; 
-		this.price = price; 
+
+class Pen {
+	private String color; 
+	private int price; 
+
+
+	Pen(String color, int price){
+		this.color = color;
+		this.price = price;
 	}
 	
 	@Override 
 	public String toString() {
-		return "modle: " + model + ", price: " + price ;
+		return "색깔: " + color + ", 가격: " + price;
 	}
 }
 
 class Tv {
-	String model; 
-	int price; 
+	private String modelName; 
+	private int price; 
 	
-	Tv(String model, int price){
-		this.model = model; 
+	Tv(String modelName, int price){
+		this.modelName = modelName; 
 		this.price = price; 
 	}
 	
-	@Override 
+	@Override
 	public String toString() {
-		return "modle: " + model + ", price: " + price ;
+		return "모델명: " + modelName + ", 가격: " + price; 
 	}
-
 }
 
-class Box<T>{
-	private List<T> items ; 
+class Cart<T> {
+	private List<T> items;
 	
-	public Box() {
-		items = new ArrayList<>();
+	Cart(T[] arr){
+		items = new ArrayList<>(Arrays.asList(arr)); 
 	}
 	
-	public Box(T[]arr) {
-		items = new ArrayList<>(Arrays.asList(arr));
-	}
-	
-	public void printAllItems () {
-		for(T item : items) {
+	public void printAllItems() {
+		for (T item : items) {
 			System.out.println(item);
 		}
+	}
+	
+	public T get(int index) {
+		return items.get(index);
 	}
 }
 

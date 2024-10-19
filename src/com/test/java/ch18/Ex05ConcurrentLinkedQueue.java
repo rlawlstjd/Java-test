@@ -1,6 +1,5 @@
 package com.test.java.ch18;
 
-import java.awt.print.Paper;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;

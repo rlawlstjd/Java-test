@@ -5,67 +5,66 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class Ex07DequeTest {
-	public static void main(String[]args) {
-		Alram alram = new Alram ();
-		alram.addAlram(new AlramService(1,"10시"));
-		alram.addAlram(new AlramService(2,"11시"));
-		alram.addAlram(new AlramService(3,"12시"));
-		alram.addAlram(new AlramService(4,"13시"));
+	public static void main(String[] args) {
+		AlarmService alarm = new AlarmService();
+		alarm.addAlarm(new Alarm("월", 1));
+		alarm.addAlarm(new Alarm("화", 2));
+		alarm.addAlarm(new Alarm("수", 3));
+		alarm.addAlarm(new Alarm("목", 4));
+		alarm.addAlarm(new Alarm("금", 5));
 		
-		alram.prevAlram();
-		alram.viewAlram();
-		alram.prevAlram();
-		alram.viewAlram();
-		alram.prevAlram();
-		alram.viewAlram();
+		alarm.checkAlarm(); 
+		alarm.checkAlarm(); 
+		alarm.checkAlarm(); 
+		
+		System.out.println();
+		
+		alarm.viewAlarm();
+		
 	}
 }
 
-class Alram {
-	private List<AlramService> alramList;
-	private Deque<AlramService> alramStack;
-	private int checkAlram ;
+class Alarm {
+	private int time ; 
+	private String date; 
 	
-	Alram (){
-		alramList = new LinkedList<>();
-		alramStack = new ArrayDeque<>();
+	Alarm (String date, int time){
+		this.date = date;
+		this.time = time;
 	}
 	
-	public void addAlram (AlramService t) {
-		alramList.add(t);
-		alramStack.push(alramList.get(checkAlram++));
+	public String toString() {
+		return date + "요일 " + time + "시"; 
 	}
 	
-	public void prevAlram() {
-		AlramService a = alramStack.pop();
-
-	}
-	
-	public void viewAlram () {
-		AlramService a = alramStack.peek();
-		System.out.println(a.getAlamNo());
-	}
 }
 
-class AlramService{
-	private int AlramNo;
-	private String alramTime;
+class AlarmService{
+	private List<Alarm> listAlarm ;
+	private Deque<Alarm> dequeAlarm ;
 	
-	public int getAlamNo() {
-		return AlramNo;
+	AlarmService(){
+		listAlarm = new LinkedList<>(); 
+		dequeAlarm = new ArrayDeque<>(); 
 	}
 	
-	public String getAlramTime() {
-		return alramTime;
+	public void addAlarm(Alarm a) {
+		listAlarm.add(a);
+		dequeAlarm.push(a);
 	}
 	
-	AlramService(int n ,String t){
-		this.AlramNo = n;
-		this.alramTime = t;
+	public void viewAlarm() {
+		for(Alarm alarm : listAlarm) {
+			System.out.println(alarm);
+		}
 	}
 	
-
+	public void checkAlarm() {
+		Alarm alarm = dequeAlarm.pop();
+		System.out.println(alarm);
+	}
 }
 /*문제 1.
 스마트폰의 알림기능은 마지막 알림부터 확인할 수 있습니다.
