@@ -1,13 +1,15 @@
-package com.test.main;
+package com.test.java.ch18;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
-public class TestSub {
-	 public static void main(String[] args) {
+public class Ex14ComparatorTest {
+	public static void main(String[] args) {
 		 List<Student> students = new ArrayList<Student>(); 
 		 Collections.addAll(students, new Student("A", 1), new Student("C", 3), new Student("B", 2), new Student("D", 4));
 		 Collections.sort(students);
@@ -26,6 +28,7 @@ public class TestSub {
 		 });
 		 System.out.println(students); 
 		 System.out.println(); 
+		 
 		 
 		 System.out.println("< 가격 내림차순 >");
 		 PriorityQueue<Book> pqUp = new PriorityQueue<>();
