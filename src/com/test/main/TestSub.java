@@ -1,125 +1,114 @@
 package com.test.main;
 
+import java.security.KeyStore.Entry;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Random;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
+import java.util.function.DoubleSupplier;
+import java.util.function.Function;
+import java.util.function.IntSupplier;
+import java.util.function.IntToLongFunction;
+import java.util.function.LongSupplier;
+import java.util.function.ObjIntConsumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
+import java.util.function.UnaryOperator;
 
 public class TestSub {
 	 public static void main(String[] args) {
-		 List<Student> students = new ArrayList<Student>(); 
-		 Collections.addAll(students, new Student("A", 1), new Student("C", 3), new Student("B", 2), new Student("D", 4));
-		 Collections.sort(students);
-		 System.out.println(students); 
-		 System.out.println(); 
-		 
-		 Collections.sort(students, new Comparator<Student>() {
-			 @Override
-			 public int compare(Student s1, Student s2) {
-				 int result = Integer.valueOf(s1.getNo()).compareTo(s2.getNo()) * -1;
-				 if ( result == 0) {
-					 return s1.getName().compareTo(s2.getName()) * -1; 
-				 }
-				 return result; 
+		 System.out.println("< 익명클래스 >");
+		 Supplier<Integer> as = new Supplier<Integer>() {
+			 @Override 
+			 public Integer get() {
+				 return (int)(Math.random()*10); 
 			 }
-		 });
-		 System.out.println(students); 
+		 }; 
+		 System.out.println(as.get());
+		 
+		 System.out.println("< Supplier >"); // Supplier - return만 get() 파라미터 없음 . 
+		 Supplier<Integer> s = () -> (int)(Math.random()*10);
+		 System.out.println(s.get());
 		 System.out.println(); 
 		 
-		 System.out.println("< 가격 내림차순 >");
-		 PriorityQueue<Book> pqUp = new PriorityQueue<>();
-		 Collections.addAll(pqUp, new Book("채식주의자", 98000), new Book("잡식주의자", 30000), new Book("육식주의자", 22000), new Book("금식", 40000));
-		 while (!pqUp.isEmpty()) {
-			 System.out.println(pqUp.poll());
-		 }
+		 System.out.println("< IntSupplier >"); 
+		 IntSupplier is = () -> {
+			 Random random = new Random(); 
+			 return random.nextInt(10); 
+		 }; 
+		 System.out.println(is.getAsInt());
+		 
+		 System.out.println("< DoubleSupplier >"); 
+		 IntSupplier is1 = () -> {
+			return  (int)(Math.random()*1000); 
+		 };
+		 System.out.println(is1.getAsInt()); 
+		 
+		 System.out.println("< Consumer >");// Consumer - 파라미터만 있음. return 하지않음.
+		 Consumer<Integer> c = i -> System.out.println(i);
+		 c.accept(7);
+		 System.out.println();
+		 
+		 System.out.println("< BiConsumer >"); 
+		 BiConsumer<String, Integer> s1 = (name, num) -> System.out.println(name + ": "+ num); 
+		 s1.accept("A", 7);
+		 
+		 System.out.println("< Function >"); // Supplier + Consumer =  Function
+		 Function<Integer, Double> f = i -> i/2.0; // Integer을 받고 Double 타입으로 리턴
+		 System.out.println(f.apply(5));
 		 System.out.println(); 
 		 
-		 System.out.println("< 가격 오름차순 >");
-		 PriorityQueue<Book> pqDown = new PriorityQueue<>(new Comparator<Book>() {
-			 @Override
-			 public int compare(Book b1, Book b2) {
-				 return Integer.valueOf(b1.getPrice()).compareTo(b2.getPrice());
-			 }
-		 }); 
+		 System.out.println("< ToIntFunction >");
+		 ToIntFunction<String> a2 = str -> Integer.parseInt(str);
+		 System.out.println(a2.applyAsInt("777"));
 		 
-		 Collections.addAll(pqDown, new Book("채식주의자", 98000), new Book("잡식주의자", 30000), new Book("육식주의자", 22000), new Book("금식", 40000));
-		 while(!pqDown.isEmpty()) {
-			 System.out.println(pqDown.poll());
-		 }
+		 System.out.println("< BiFunction >");
+		 BiFunction<Integer, Integer, Double> bf = (i1, i2) -> i1/ (double)i2; 
+		 System.out.println(bf.apply(5, 2)); 
+		 System.out.println(); 
+		 
+		 System.out.println("< IntToLongFunction >"); 
+		 IntToLongFunction it = i -> i*1000000000000L; 
+		 System.out.println(it.applyAsLong(7));
+		 System.out.println();
+		 
+		 System.out.println("< Predicate >"); 
+		 Predicate<Integer> p = i -> i == 20 ; 
+		 System.out.println(p.test(20));
+		 Predicate<Integer> p2 = i -> i < 10 ; 
+		 Predicate<Integer> p3 = i -> i < 20 ; 
+		 Predicate<Integer> pr = p.or(p2.negate().and(p3)); // or = ||  and = &&  negate() 반대. 
+		 System.out.println(pr.test(19));
+		 Predicate<String> p5 = Predicate.isEqual("ok");
+		 System.out.println(p5.test("ok"));
+		 System.out.println(); 
+		 
+		 System.out.println("< UnaryOperator >"); 
+		 UnaryOperator<Integer> u = i -> i*10;  //Integer 타입으로 받고 Integer타입으로 리턴 . 
+		 System.out.println(u.apply(7));
+		 System.out.println(); 
+		 
+		 System.out.println("< BooleanSupplier >"); 
+		 boolean bool = true; 
+		 BooleanSupplier b = () -> !bool; 
+		 System.out.println(b.getAsBoolean());
+		
+		 System.out.println("< ObjIntConsumer >");
+		 ObjIntConsumer<LocalDateTime> oi = (time, i) -> System.out.println(time.plusYears(i));
+		 oi.accept(LocalDateTime.now(), 5); 
+		 System.out.println(); 
 		 
 		
+		 
 	 }
 }
-
-class Book implements Comparable<Book> {
-	private String title; 
-	private int price; 
-	
-	public String getTitle() {
-		return title;
-	}
-	public int getPrice() {
-		return price;
-	}
-	
-	Book(String title, int price){
-		this.title = title;
-		this.price = price;
-	}
-	
-	@Override 
-	public int compareTo(Book b) {
-		return  Integer.valueOf(price).compareTo(b.price)* -1; 
-	}
-	@Override
-	public String toString() {
-		return "( " + title + "의 가격: " + price + "원 )"; 
-	}
-}
-
-class Student implements Comparable<Student> {
-	private String name; 
-	private int no; 
-	
-	Student (String name, int no){
-		this.name = name; 
-		this.no = no; 
-	}
-	public int getNo() {
-		return no; 
-	}
-	public String getName() {
-		return name; 
-	}
-	
-	@Override
-	public int compareTo(Student s) {
-		int result = name.compareTo(s.name);
-		if ( result == 0 ) {
-			return Integer.valueOf(no).compareTo(s.no)* -1; 
-		}
-		return result; 
-	}
-	@Override
-	public String toString() {
-		return "( " + no + "번 " + name + " )"; 
-	}
-	
-}
-
-/*
-문제 1.
-학생들을 Comparator 를 이용해 정렬하여 출력하세요.
-번호 내림차순, 이름 오름차순으로 정렬하여 출력하세요.
-
-문제 2.
-번호 내림차순, 이름 내림차순으로 정렬하는 Comparator 를 이용해 출력하세요.
-Comparator 는 익명클래스로 작성하세요.
-
-문제 3.
-PriorityQueue에 책들을 입력하세요.
-Queue에서 책의 가격이 높은 책 부터 제거되도록 코딩하세요.
-Comparable을 이용해 가격이 높은 책부터 제거되도록 작성하세요. 
-Comparator를 이용해 가격이 낮은 책부터 제거되도록 코딩하세요.
-*/
