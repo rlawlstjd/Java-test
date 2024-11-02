@@ -1,5 +1,6 @@
 package com.test.main;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,51 +14,23 @@ import java.util.function.*;
 
 public class Test {
 	public static void main(String[] args) {
-		/*Consumer -- 계열 
-		 * P Consumer 
-		 * Consumer <T>
-		 * BiConsuemr <T,U> 
-		 * 
-		 * Predicate 계열 
-		 * BiPredicate<T,U> 
-		 * Predicate<T>
-		 * 
-		 * Operator 계열 
-		 * UnaryOperator<T> 
-		 * BinaryOperator<T>
-		 * PUnaryOperator
-		 * PBinaryOpertor
-		 */
+		System.out.println("< 메서드 참조 >");
+		Function<String, Integer> f1 = str -> Integer.parseInt(str); // String으로 받아서 Integer로 반환.
+		System.out.println(f1.apply("777")); 
 		
-	Function<String, Integer> a = s -> Integer.parseInt(s);
-	System.out.println(a.apply("333"));
-	BiFunction<String, String, Integer> b = (i,j) -> Integer.parseInt(i) + Integer.parseInt(j);
-	System.out.println(b.apply("524", "369")); 
-	IntFunction<Double> c = i -> i/2.5; 
-	System.out.println(c.apply(3));
-	Function<String, Double> aa = s -> Double.parseDouble(s);
-	IntToDoubleFunction is = i -> i/(double)3; 
-	System.out.println(is.applyAsDouble(3325));
-	ToIntFunction<String> d = s -> Integer.parseInt(s);
-	System.out.println(d.applyAsInt("222"));
-	ToDoubleBiFunction<Integer, Integer> f = (i,j) -> i/(double)j ; 
-	System.out.println(f.applyAsDouble(1214, 234)); 
+		Function<String, Integer> f2 = Integer::parseInt; 
+		System.out.println(f2.apply("666"));
+		
+		System.out.println("< 메서드 참조를 이용한 배열 생성 >"); 
+		Function<Integer, int[]> f3 = s -> new int [s];
+		System.out.println(Arrays.toString(f3.apply(3)));
+		
+		Function<Integer, int[]> f4 = int[]::new ; 
+		System.out.println(Arrays.toString(f4.apply(4)));
+	
+		
+	
+	
+	
 	}
 }
-
-
-/*
-문제 1.
-BiPredicate
-BinaryOperator
-IntConsumer
-IntFunction
-IntPredicate
-IntUnaryOperator
-IntBinaryOperator
-IntToDoubleFunction
-ToIntFunction
-ToIntBiFunction
-
-위 함수형 인터페이스들을 이용해 람다식을 작성하고 출력하세요. 
-*/
