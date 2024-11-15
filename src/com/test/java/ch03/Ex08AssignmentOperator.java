@@ -20,7 +20,7 @@ public class Ex08AssignmentOperator {
 		sum %= 290 ; 
 		System.out.printf("sum %%= 290 (%d)%n", sum); 
 		
-		System.out.printf("%d", 10 &2)?
+		System.out.printf("%d", 10 &2);
 		
 	}
 }

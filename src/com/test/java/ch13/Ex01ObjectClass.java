@@ -8,7 +8,7 @@ public class Ex01ObjectClass {
 	    
 	    System.out.println("---");
 	    
-	    Book b1 = new Book();
+	    Book11 b1 = new Book11();
 	    System.out.println(b1.toString());
 	    
 	    System.out.println("---");
@@ -17,30 +17,27 @@ public class Ex01ObjectClass {
 	    
 	    System.out.println("---");
 	    
-	    Book2 b2 = new Book2("자바 기본문법", "엘컴퓨터학원");
+	    Book22 b2 = new Book22("자바 기본문법", "엘컴퓨터학원");
 	    System.out.println(b2);
 	    
 	    System.out.println("---");
 	    
 	    o = b2;
 	    System.out.println(o);
-	    
-	    if(o instanceof Book2) { 
-	        b2 = (Book2) o; // 다운캐스팅
-	        Book2.print(b2); // 다운캐스팅한 객체를 print 메소드에 전달
-	    }
+	 
 	}
+}
 
-	class Book {
+	class Book11 {
 	    private String title;
 	    private String author;
 	}
 
-	class Book2 {
+	class Book22 {
 	    private String title;
 	    private String author;
 	    
-	    public Book2(String title, String author) {
+	    public Book22(String title, String author) {
 	        this.title = title;
 	        this.author = author;
 	    }
@@ -50,10 +47,9 @@ public class Ex01ObjectClass {
 	        return "제목: " + title + ", 저자: " + author;
 	    }
 	    
-	   // static void print(Book2 o) {
-	        // Book2 타입으로 받은 객체에 대해 title과 author 출력
-	        System.out.println("제목: " + o.title + ", 저자: " + o.author);
-	    }
+	   public static void print(Object o) {
+		   //System.out.println("제목: " + o.title + ", 저자: " + o.author);
+	   }
 	}
 /*
 문제 1.

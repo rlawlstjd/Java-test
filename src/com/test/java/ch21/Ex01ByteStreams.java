@@ -11,11 +11,11 @@ import java.io.PrintStream;
 public class Ex01ByteStreams {
 
 	public static void main(String[] args) {
-		FileInputStream oldIn = null;
-		FileOutputStream oldOut = null;
+		FileInputStream oldIn = null; // 입력 // 인풋 스트림 
+		FileOutputStream oldOut = null;  // 외부 출력 아우풋 스트
 		try {
-			oldIn = new FileInputStream("./src/com/lcomputerstudy/books/java/ch21/test.txt");
-			oldOut = new FileOutputStream("./src/com/lcomputerstudy/books/java/ch21/out1-fileoutputstream1.txt");
+			oldIn = new FileInputStream("./src/com/test/java/ch21/TTEE.txt");
+			oldOut = new FileOutputStream("./src/com/test/java/ch21/out1-fileoutputstream1.txt");
 			
 			int c;
 			while ((c = oldIn.read()) != -1) {
@@ -35,8 +35,8 @@ public class Ex01ByteStreams {
 		System.out.println();
 		
 		try (
-			FileInputStream in = new FileInputStream("src/com/lcomputerstudy/books/java/ch21/test.txt");
-			FileOutputStream out = new FileOutputStream("src/com/lcomputerstudy/books/java/ch21/out1-fileoutputstream2.txt");
+			FileInputStream in = new FileInputStream("./src/com/test/java/ch21/TTEE.txt");
+			FileOutputStream out = new FileOutputStream("./src/com/test/java/ch21/out1-fileoutputstream2.txt");
 		) {
 			int c;
 			while ((c = in.read()) != -1) {
@@ -49,8 +49,8 @@ public class Ex01ByteStreams {
 		System.out.println();
 		
 		try (
-			BufferedInputStream in = new BufferedInputStream(new FileInputStream("src/com/lcomputerstudy/books/java/ch21/test.txt"));
-			BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("src/com/lcomputerstudy/books/java/ch21/out1-bufferedoutputstream.txt"));
+			BufferedInputStream in = new BufferedInputStream(new FileInputStream("src/com/test/java/ch21/TTEE.txt"));
+			BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("./src/com/test/java/ch21/out1-bufferedoutputstream.txt"));
 		) {
 			int c;
 			while ((c = in.read()) != -1) {
@@ -63,8 +63,8 @@ public class Ex01ByteStreams {
 		System.out.println();
 		
 		try (
-			BufferedInputStream in = new BufferedInputStream(new FileInputStream("src/com/lcomputerstudy/books/java/ch21/test.txt"));
-			PrintStream out = new PrintStream(new FileOutputStream("src/com/lcomputerstudy/books/java/ch21/out1-printstream.txt"));
+			BufferedInputStream in = new BufferedInputStream(new FileInputStream("src/com/test/java/ch21/TTEE.txt"));
+			PrintStream out = new PrintStream(new FileOutputStream("./src/com/test/java/ch21/out1-printstream.txt"));
 		) {
 			int c;
 			while ((c = in.read()) != -1) {

@@ -2,10 +2,11 @@ package com.test.java.ch12;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.BufferedReader;
 
 public class Ex09TryWithResource {
 	public static void main(String[] args) {
-	try1();
+		try1();
 		
 		System.out.println("\n\n----------\n");
 		
@@ -55,5 +56,4 @@ public class Ex09TryWithResource {
 			}
 		}
 	}
-
 }

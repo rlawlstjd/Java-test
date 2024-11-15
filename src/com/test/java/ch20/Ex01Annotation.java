@@ -16,9 +16,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-
+@Settings(version=1.1, author= {"A", "B"})
 public class Ex01Annotation {
 	public static void main(String[] args) {
+		
 		System.out.println("< Annotation 값 얻어 오기 >");
 		Settings settings = Ex01Annotation.class.getAnnotation(Settings.class);
 		System.out.println(settings.version());
@@ -144,6 +145,14 @@ class OldCar {
     Role[] value();
 }
 
+@Inherited
+@Target({ElementType.TYPE, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@interface Autowired {
+	String value();
+}
+
+	
 /*
  * <메타 어노테이션>
  * @Retention
@@ -164,8 +173,7 @@ class OldCar {
  * @Inherited
  * @Repeatable
  * @Documented
- */
-
+ *
 /*
 문제 1.
 필드에 @Autowired("원하는 내용") 어노테이션을 적용 할 경우 필드의 값을 value로 초기화하는 코드를 작성하세요. 

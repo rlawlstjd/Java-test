@@ -16,8 +16,8 @@ import java.util.Scanner;
 public class Ex02CharacterStreams {
 	public static void main(String[] args) {
 		try (
-				InputStreamReader in = new InputStreamReader(new FileInputStream("src/com/lcomputerstudy/books/java/ch21/test.txt"));
-				OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream("src/com/lcomputerstudy/books/java/ch21/out2-inputstreamwriter.txt"));
+				InputStreamReader in = new InputStreamReader(new FileInputStream("./src/com/test/java/ch21/TTEE.txt"));
+				OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream("./src/com/test/java/ch21/out2-inputstreamwriter.txt"));
 			) {
 				int c;
 				while ((c = in.read()) != -1) {
@@ -30,8 +30,8 @@ public class Ex02CharacterStreams {
 			System.out.println();
 		
 		try (
-			FileReader in = new FileReader("src/com/lcomputerstudy/books/java/ch21/test.txt");
-			FileWriter out = new FileWriter("src/com/lcomputerstudy/books/java/ch21/out2-filewriter.txt");
+			FileReader in = new FileReader("./src/com/test/java/ch21/TTEE.txt");
+			FileWriter out = new FileWriter("./src/com/test/java/ch21/out2-filewriter.txt");
 		) {
 			int c;
 			while ((c = in.read()) != -1) {
@@ -44,8 +44,8 @@ public class Ex02CharacterStreams {
 		System.out.println();
 		
 		try (
-			BufferedReader in = new BufferedReader(new FileReader("src/com/lcomputerstudy/books/java/ch21/test2.txt"));
-			BufferedWriter out = new BufferedWriter(new FileWriter("src/com/lcomputerstudy/books/java/ch21/out2-bufferedwriter.txt"));
+			BufferedReader in = new BufferedReader(new FileReader("./src/com/test/java/ch21/TTEE1.txt"));
+			BufferedWriter out = new BufferedWriter(new FileWriter("./src/com/test/java/ch21/out2-bufferedwriter.txt"));
 		) {
 			String line;
 			while ((line = in.readLine()) != null) {
@@ -59,8 +59,8 @@ public class Ex02CharacterStreams {
 		System.out.println();
 		
 		try (
-			BufferedReader in = new BufferedReader(new FileReader("src/com/lcomputerstudy/books/java/ch21/test2.txt"));
-			PrintWriter out = new PrintWriter(new FileWriter("src/com/lcomputerstudy/books/java/ch21/out2-printwriter.txt"));
+			BufferedReader in = new BufferedReader(new FileReader("./src/com/test/java/ch21/TTEE1.txt"));
+			PrintWriter out = new PrintWriter(new FileWriter("./src/com/test/java/ch21/out2-printwriter.txt"));
 		) {
 			String line;
 			while ((line = in.readLine()) != null) {
@@ -74,7 +74,7 @@ public class Ex02CharacterStreams {
 		
 		System.out.println("< FileReader -> Scanner >");
 		try (
-			Scanner s = new Scanner(new FileReader("src/com/lcomputerstudy/books/java/ch21/test2.txt"));
+			Scanner s = new Scanner(new FileReader("./src/com/test/java/ch21/TTEE1.txt"));
 		) {
 			while (s.hasNext()) {
 				System.out.println(s.next());
@@ -86,7 +86,7 @@ public class Ex02CharacterStreams {
 		
 		System.out.println("< BufferedReader -> Scanner >");
 		try (
-			Scanner s = new Scanner(new BufferedReader(new FileReader("src/com/lcomputerstudy/books/java/ch21/test2.txt")));
+			Scanner s = new Scanner(new BufferedReader(new FileReader("./src/com/test/java/ch21/TTEE1.txt")));
 		) {
 			while (s.hasNext()) {
 				System.out.println(s.next());

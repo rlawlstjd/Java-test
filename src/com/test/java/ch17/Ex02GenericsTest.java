@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.test.main.Cart;
-import com.test.main.Pen;
-import com.test.main.Tv;
 
 public class Ex02GenericsTest {
 	public static void main(String[] args) {
@@ -23,11 +20,11 @@ public class Ex02GenericsTest {
 		}; 
 
 
-		Cart<Pen> cart = new Cart<>(pens);
+		Cart1<Pen> cart = new Cart1<>(pens);
 		cart.printAllItems();
 		System.out.println();
 		
-		Cart<Tv> cart2 = new Cart<>(tvs);
+		Cart1<Tv> cart2 = new Cart1<>(tvs);
 		cart.printAllItems();
 		System.out.println();
 		
@@ -66,10 +63,10 @@ class Tv {
 	}
 }
 
-class Cart<T> {
+class Cart1<T> {
 	private List<T> items;
 	
-	Cart(T[] arr){
+	Cart1(T[] arr){
 		items = new ArrayList<>(Arrays.asList(arr)); 
 	}
 	

@@ -3,8 +3,6 @@ package com.test.java.ch07;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import com.test.main.BookTest;
-
 public class Ex04MethodTest {
 	public static void main(String[] args) {
 		BookTest b = new BookTest(); 
