@@ -6,11 +6,12 @@ public class Ex01CalendarTest {
 	public static void main(String[] args) {
 		
 		Calendar start = Calendar.getInstance();
-		start.set(2000,12,1,0,0,0);
+		start.set(2000,11,1,0,0,0);
 		
 		Calendar end = Calendar.getInstance(); 
-		end.set(2020, 5, 6, 0, 0, 0);
+		end.set(2020, 4, 6, 0, 0, 0);
 		
+		System.out.println(start.getTime()); 
 		
 		long diffMilli = end.getTimeInMillis() - start.getTimeInMillis();
 		long diffDay = diffMilli / (24 * 60 * 60  * 1000);

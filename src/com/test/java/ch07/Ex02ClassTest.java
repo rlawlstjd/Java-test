@@ -48,7 +48,6 @@ public class Ex02ClassTest {
 	
 					break;
 				case 0 : 
-					System.out.printf("시스텝을 종료합니다."); 
 					run = false ; 
 					break ; 
 					

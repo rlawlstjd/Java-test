@@ -1,6 +1,6 @@
 package com.test.book;
 
-public class Book {
+ class Book {
 	String title; 
 	String author; 
 	int price ; 

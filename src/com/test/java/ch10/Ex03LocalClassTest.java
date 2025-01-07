@@ -2,8 +2,8 @@ package com.test.java.ch10;
 
 public class Ex03LocalClassTest {
 	public static void main(String[] args) {
-		Book22 b = new Book22("Java Programing", "LCOM");
-		Book22 b1 = new Book22("Python Programing", "");
+		Book22 b = new Book22("Java Programing", "LC OM");
+		Book22 b1 = new Book22("Python Programing", " ");
 	
 		System.out.println("Author of book1 is valid: " + b.validAuthorName());
         System.out.println("Author of book2 is valid: " + b1.validAuthorName());

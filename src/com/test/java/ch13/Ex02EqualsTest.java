@@ -1,5 +1,7 @@
 package com.test.java.ch13;
 
+import java.util.Objects;
+
 public class Ex02EqualsTest {
 	public static void main(String[] args) {
 		Movie m = new Movie ();

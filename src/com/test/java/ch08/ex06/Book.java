@@ -1,6 +1,6 @@
 package com.test.java.ch08.ex06;
 
-public class Book {
+class Book {
 	public String title ; 
 	private String author; 
 	private int price; 
