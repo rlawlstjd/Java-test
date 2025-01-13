@@ -1,69 +1,115 @@
 package test;
 
-import java.io.IOException;
-import java.util.stream.Stream;
-import java.util.stream.*;
-import java.rmi.server.Skeleton;
-import java.util.Date;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Locale;
-import java.util.Map;
-import java.util.NavigableSet;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.ArrayDeque;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.ConcurrentModificationException;
+import java.util.List;
 import java.util.Objects;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.Optional;
+import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.Stack;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.BinaryOperator;
-import java.util.function.BooleanSupplier;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.IntBinaryOperator;
-import java.util.function.IntConsumer;
-import java.util.function.IntFunction;
-import java.util.function.IntPredicate;
-import java.util.function.IntSupplier;
-import java.util.function.IntToLongFunction;
-import java.util.function.IntUnaryOperator;
-import java.util.function.ObjIntConsumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.function.ToIntBiFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.UnaryOperator;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-import javax.swing.event.TreeSelectionListener;
+import javax.rmi.ssl.SslRMIClientSocketFactory;
+
 public class Test {
 	public static void main(String[] args) {
-		System.out.println("< of >"); 
-		Stream<String> stream = Stream.of("hi", "hello", "안녕하세요"); 
-		stream.forEach(str -> System.out.println(str + ","));
+		Scanner c = new Scanner(System.in); 
+
+		Stream<String> str = Stream.of("가", "나", "다"); 
+		str.forEach(a -> System.out.print(a + ", "));
 		System.out.println("\n"); 
 		
-	
+		// 1
+		Stream<Integer> a = Stream.generate(() -> (int)(Math.random()*100)).limit(10); 
+		a.forEach(s -> System.out.print(s + ","));
+		System.out.println("\n"); 
+		
+		
+		IntStream b = new Random().ints(1,101).limit(10); 
+		b.forEach(s -> System.out.print(s + ","));
+		System.out.println("\n"); 
+		
+		List<Car> cars = new ArrayList<>(); 
+		cars.add(new Car("소나타", 400));
+		cars.add(new Car("그렌져", 500)); 
+		cars.add(new Car("산타페", 600));
+		cars.add(new Car("산타페", 600)); 
+		cars.add(new Car("펠리세이드", 600)); 
+		cars.add(new Car("제네시스", 700)); 
+		cars.add(new Car("에쿠스", 800)); 
+		
+		//3
+		System.out.println("<스트림으로 변환>"); 
+		cars.stream().filter(s -> s.getPrice() > 500).forEach(System.out::print);
+		System.out.println("\n"); 
+		//4 
+		System.out.println("<중복제거>"); 
+		cars
+			.stream()
+			.distinct() // 이때 equals 와 hashCode 메소드를 오버라이딩 하지 않는다면 주소를 가지고 중복처리한다. 
+			.forEach(s -> System.out.println(s+ ","));
+		System.out.println("\n"); 
+		//5
+		
+		System.out.println("3출력"); 
+		cars
+			.stream()
+			.map(s -> s.getPrice())
+			.limit(3)
+			.forEach(s -> System.out.println(s + ","));
+		System.out.println("\n"); 
+		//6
+		cars
+			.stream()
+			.flatMap(s -> Arrays.asList(s.getName().split("")).stream())
+			.forEach(System.out::print);
+		System.out.println("\n"); 
+		//7
+		
+		
+		System.out.println("차량을 입력하세요") ; 
+		String targetName = "소나타"	; 
+		cars
+			.stream()
+			.filter(s -> s.getName().equals(targetName))
+			.forEach(System.out::print);
 	}
+}
+
+class Car {
+	private int price; 
+	private String name;
+	
+	public Car(String name, int price) {
+		this.price = price; 
+		this.name = name; 
+	}
+	public int getPrice() {
+		return price; 
+	}
+	public String getName() {
+		return name; 
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, price); 
+	}
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof Car)) {
+			return false; 
+		}
+		Car c = (Car)o; 
+		return price == c.getPrice() && name.equals(c.getName()); 
+	}
+	
+	@Override 
+	public String toString() {
+		return "모델명: " + name + ", 가격: " + price; 
+	}
+	
 }
