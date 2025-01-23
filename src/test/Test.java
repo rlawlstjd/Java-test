@@ -60,7 +60,6 @@ public class Test {
 					.stream()
 					.collect(Collectors.groupingBy(k -> k.getCategory())); // = EBook::getCategory
  	// *
-		s
 	
 	
 	}
