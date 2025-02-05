@@ -1,246 +1,234 @@
 package test;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType; 
+import java.lang.annotation.Inherited; 
+import java.lang.annotation.Repeatable; 
+import java.lang.annotation.Retention; 
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target; 
 
+import java.lang.reflect.Method;
+import java.util.ArrayList; 
+import java.util.Arrays; 
+import java.util.Date; 
+import java.util.HashMap; 
+import java.util.List; 
+import java.util.Map; 
+import java.util.Scanner; 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-import javax.rmi.ssl.SslRMIClientSocketFactory;
-
+@Settings(version=1.1, author={"A", "B"})
 public class Test {
 	public static void main(String[] args) {
-		// optioanl 클래스는'요소'의 null 체크를 선언현프로그래밍 방법으로 할 수 있게 해주는 것이 optional 클래스이다 \
-		// stream과 동작 매커니즘은 유사하지만, optional 클래스는 null 체크를 위한 wrapper 클래스이다. (용도 차이?)
+		// 어노테이션은 메타데이터를 설정할 수 있게 해준다
+		// 클래스에 대한 정보를 메타데이터라 한다. 
+		// 어노테이션은 리플렉션과 함께 자주 사용한다. 
+		//? 리플렉션 
 		
-		List<EBook> ebooks = new ArrayList<>(); 
-		ebooks.add(new EBook("자바 기본문법",50000, EBook.Category.LANG));
-		ebooks.add(new EBook("자바 알고리즘", 30000, EBook.Category.APP)); 
-		ebooks.add(new EBook("파이썬 기본문법", 35000, EBook.Category.LANG)); 
-		ebooks.add(new EBook("파이썬 기본문법", 33000, EBook.Category.LANG)); 
-		ebooks.add(new EBook("파이썬 기본문법", 33000, EBook.Category.LANG)); 
-		ebooks.add(new EBook("리눅스", 40000, EBook.Category.APP)); 
-		
-		System.out.println("< of (instance) >"); 
-		EBook eb = new EBook("AWS", 40000, EBook.Category.APP); 
-		Optional<EBook> opt = Optional.of(eb); 
-		//Optional.of를 통해 인스턴스를 optional 클래스에 담고 있다. 
-		System.out.println(opt.get()); 
-		// get메서드를 사용해서 Optional 인스턴스에 저장되어 있는 요소를 가져올 수 있다. 
+		System.out.println("<Annotation 값 얻어 오기 >"); 
+		Settings settings = Test.class.getAnnotation(Settings.class); 
+		// 클래스명.class를 입력할 경우 해당 어노테이션의 메타데이터를 가지고 있는 인스턴스를 return 한다. 
+		// getAnnotation 메서드는 해당 클래스에 적용된 어노테이션을 가져올 수 있다. 
+		// getAnnotation의 아규먼트로 어노테이션명. 클래스명 입력 시 가져오고자 하는 어노테이션을 가져올 수 있다. 
+		// Settings settings 와 같이 어노테이션 명을 타입으로 사용할 수 있다. 
+		System.out.println(settings.version()); 
+		// 어노테이션에 저장된 버전이 return 된다. 
+		System.out.println(Arrays.toString(settings.author())); 
+		// 어노테이션에 저장된 author이 return 된다. 
 		System.out.println(); 
 		
-		System.out.println("< of (null) >"); 
-		EBook eb2 = null; 
 		
-		try {
-			Optional<EBook> opt2 = Optional.of(eb2); 
-			
-		} catch(NullPointerException e) {
-			System.out.println("NullPointerException 발생"); 
+		System.out.println("< @Repeatable >"); 
+		Role[] arrRole = Car.class.getAnnotationsByType(Role.class); 
+		// getAnnotationByType 메서드는 해당 클래스에 적용된 어노테이션(아규먼트)을 배열로 가져올 수 있다. 
+		for (Role role : arrRole) {
+			System.out.println(role.value()); 
 		}
 		System.out.println(); 
 		
-		System.out.println("< ofNullable >");  // orElseThrow
-		Optional<EBook> opt3 = Optional.ofNullable(eb2); 
-		// ofNullable 메서드 사용시 Null 값인 요소를 담을 수 있다. 
+		System.out.println("< @Inherited >"); 
+		System.out.println(Arrays.toString(NewCar.class.getAnnotations())); 
+		// getAnnotations 메서드는 모든 어노테이션을 가져오는 메소드이다 
+		/*
+		 * NewCar 클래스는 어노테이션이 없으나 상속받고있는 Car클래스에 적용되어있는 어노테이션 RULE과 RULES가 @Inherited 하고있기에 
+		 * Car 에 적용되어있는 어노테이션이 상속되었으므로 NewCar에서 가져올 수 있다. 
+		 */
+		System.out.println(); 
 		
-
-		try {
-			opt3.get(); //다만 null이 담긴 요소를 가져오려할 때 예외가 발생하므로 예외처리 
-			// 꼭 get일 때 예외처리 하는 것이 아닌 아래에 있는 opt3.orElseThorw 문 등을 통해서 ofNullable 로 인스턴스를 받은 후 null 여부를 검사해도 된다
-		} catch (NoSuchElementException e) {
-			System.out.println("get메소드 호출 시 " + e.getMessage()); 
+		
+		System.out.println(" <@AutoWired> "); 
+		Car car = new Car(); 
+		
+		car.printAw();
+		
+		
+		Scanner s = new Scanner(System.in); 
+		Map<String, Method> handlerMapping = new HashMap<>(); 
+		
+		for (Method method : Car.class.getDeclaredMethods()) {
+			// Method 클래스는 java의 메서드 정보를 담는 메서드이다. (즉 , 하나의 메서드 정보가 method 클래스의 인스턴스가 된다. )
+			// getDeclaredMethods 메서드로 Car클래스의 모든 메서드를 배열로 return 한다. (메서드는 method 클래스이며 각 메서드들의 배열로 저장된다_
+			/*
+			 * 즉 getDeclaredMethods Car 클래스의 모든 메서드를 배열로 가져온 다음 , 
+			 * foreach문이기에 요소(메서드) 하나하나를 Method method에 옮긴다. (Method 클래스의 요소(메서드)에는 각 메소드들의 정보가 담겨있다.)
+			 * 
+			 */
+			RequestMapping requestMapping = method.getAnnotation(RequestMapping.class); 
+			/*
+			 * forEach 문으로 추출한 n 번째 메서드에 적용된 requestMapping 어노테이션을 requestMApping 인스턴스에 저장. 
+			 *  (n 번째 메서드에 RequestMapping 어노테이션이 적용되어 있지 않다면 null이 저장)
+			 */
+			if (requestMapping != null) {
+				handlerMapping.put(requestMapping.value(), method); 
+			}
+			// n번째 메서의 RequestMapping 어노테이션이 적용 중일 경우 어노테이션.value를 key값, 메서드를 value값으로 handlerMapping에 저장
 		}
-		System.out.println(); 
+		handlerMapping.forEach((k,v) -> System.out.println("command: " + k + ", method: " + v.getName())); 
+		// RequestMapping 어노테이션이 적용 중인 메서드만 저장된 handlerMapping 인스턴스의 내용(요소) 출력 
+		// Method 클래스의 getName메소드를 사용하면 해당 메서드의 이름을 return 한다. 
+	
 		
-		System.out.println("< isPresent >"); 
-		if (opt3.isPresent()) {
-			// isPresent 메서드를 사용하면 Null 여부를 boolean 타입으로 return 받을 수 있다.
-			System.out.println(opt3.get()); 
-		} else {
-			System.out.println("opt3는 null 입니다.");
+		while(true) {
+			System.out.println("명령어를 입력하세요(engine, name, quit): "); 
+			String command = s.nextLine(); 
+			try {
+				if (handlerMapping.get(command) != null) {
+					String returnStr = (String)handlerMapping.get(command).invoke(Car.class.newInstance()); 
+					// 입력받은 문자열이 key값인 value가 존재할(null이 아닐)경우 해당 value(여기선 value에 메소드가 저장되어있음)를 실행(invoke)시키고 있다. 
+					//invoke의 return 값이 String 타입이지만, 리턴이 Object 클래스이기에 (String)으로 다운캐스팅을 해주는 모습 
+					/*
+					 * invoke 메서드는 호출자가 Method 클래스의 인스턴스(메소드정보)이므로, 해당 인스턴스 즉, 인스턴스에 저장되어 있는 메서드를 실행(호출)시키는 메서드이다. 
+					 * 아규먼트에는 클래스명.class.newInstance()를 입력하면 된다, 
+					 */
+					System.out.println(returnStr); 
+				} else {
+					System.out.println("잘못된 명령어를 입력하였습니다."); 
+				}
+			} catch (Exception e) {
+				e.printStackTrace(); 
+			}
 		}
-		
-		EBook eb3 = opt3.isPresent() ? opt3.get() : new EBook("옵셔널", 30000, EBook.Category.LANG); 
-		// 삼항연산자를 통해 null 여부 체크 
-		// isPresent가 거짓일 경우 new EBook(~~);을 opt3에 return 
-		System.out.println(eb3); 
-		System.out.println();
-		
-		System.out.println("< orElse >"); 
-		EBook eb4 = opt3.orElse(new EBook("옵셔널", 30000, EBook.Category.LANG)); 
-		//orElse 메서드는 opt3가 null이 아니라면 opt3의 요소를 return하고 (아규먼트의 내요은 실행하지 않고), 
-		System.out.println(eb4); 
-		System.out.println(); 
-		
-		System.out.println("< orElseGet >"); 
-		EBook eb5 = opt3.orElseGet(() -> new EBook("옵셔널", 30000, EBook.Category.LANG)); 
-		// orElseGet 메서드는 호출자가 null일 경우 아규먼트인 람다식을 실행한다. (null 이 아닐 경우 opt3의 요소 return) ; 
-		// orElse 와 orElseGet은 호출자가 null일 경우 아규먼트의 내용을 저장하는 메서드 . 
-		System.out.println(eb5); 
-		System.out.println(); 
-		
-		System.out.println("< orElseThrow >"); 
-		
-		try {
-			opt3.orElseThrow(() -> new NullPointerException()); 
-			// orElseThrow 메서드는 호출자가 null 일 경우 특정 예외 (NullPointerException 뿐만 아니라)를 
-			// null이 아닐 경우 해당 try catch 코드 미실행 
-			// orElse와 orElseGet은 호출자가 null일 경우 아규먼트의 내용을 저장하는 메서드지만 orElseThrow는 호출자가 Null이라면 오류를 발생시키는 메서
-		} catch (NullPointerException e) {
-			System.out.println("NullPointerException 발생"); 
-		}	
-		System.out.println(); 
-		
-		System.out.println("< empty >"); 
-		Optional<EBook> opt4 = Optional.empty(); 
-		// Optional타입 인스턴스 '요소' 가 빈 값이란 것을 표현하고 싶다면, = null이 아닌 Optional.empty 메서드를 활용하여 빈 메모리를 생성하면 된다. 
-		// String a = ""; 와 같은 원리 
-		Optional<EBook> opt5 = null; 
-		System.out.println(opt4.orElse(new EBook("옵셔널", 30000, EBook.Category.LANG))); 
-		// opt4는 '요소'가 비어있지만 (null) , Optional.empty 메서드로 인스스의 메모리는 생성하였기에 메서드 호출은 가능하나, '요소의 내용' 이 비어있기에 (null) orElse 호출 시 아규먼트가 저장된다. 
-		// System.out.println(opt5.orelse(new EBook("옵셔널", 30000, EBook.Category.LANG))); 
-		// opt5는 = null로 표현되어 opt4와 동일하게 내용이 null일 것 같지만 = null ; 은 메모리 생성을 하지 않으므로 메서드 호출이 불가능하다. 
-		// 이전 예시(opt3)는 Optional 인스턴스의 메모리는 생성되었지만 'null인 요소'를 담고 있었기에 메서드 호출은 가능했지만 내용은 null이었던 것 
-		System.out.println(); 
-		
-		System.out.println("< OptionalInt >"); 
-		// OptionalInt 클래스 Int 타입만을 위한 Optional 클래스이다. 
-		// *OptionalInt 클래스는 Int타입을 위한 클래스이기에 제네릭스가 없다 
-		OptionalInt optInt = 
-				ebooks 
-						.stream()
-						.mapToInt(EBook::getPrice)
-						.max(); 
-		// stream의 최대값을 구하는 max 메서드는 OptionalInt 타입으로 return 한다. 
-		System.out.println(optInt.getAsInt()); 
-		// OptionalInt 클래스의 인스턴스의 요소를 가져올 때는 get이 아닌 getAsInt메서드를 사용해야 한다. 
-		System.out.println(); 
-		
-		
-		System.out.println("< flatMap, map >"); 
-		// stream의 flatMap과 map 메서드와 유사하지만 차이가 있음 
-		
-		Panel p = new Panel(); 
-		p.setType("IPS");
-		p.setType2("test");
-		Optional<Panel> panel = Optional.of(p); 
-		// Panel 타입의 인스턴스 p를 Optional에 저장하였다. 
-		// Optional은 static 메서드이므로 아규먼트로 하나만 던질 수 있기에 하나의 Optioanl 클래스에 하나의 요소만 저장할 수 있다. 
-		
-		Panel q = new Panel(); 
-		panel = Optional.of(q); 
-		
-		Screen s = new Screen(); 
-		s.setPanel(panel);
-		// s에 Optional 타입의 p를 Optional에 저장하였다. 
-		
-		Optional<Screen> screen = Optional.of(s); 
-		// 그 s를 또 Optional에 담았다 ( Optional<Screen> screen 인스턴스의 screen.panel의 값은 Optional의 값은 Optional<Panel> panel이다.) 
-		
-		Monitor monitor = new Monitor(); 
-		monitor.setScreen(screen);
-		
-		String panelType = 
-				Optional
-						.ofNullable(monitor)
-						.flatMap(Monitor::getScreen)
-						.flatMap(Screen::getPanel)
-						.map(Panel::getType)
-						.orElse("TN"); 
-		System.out.println(panelType); 
-		System.out.println(); 
-		
-		
-		System.out.println("< ifPresent >"); 
-		Optional<String> optPanelType = 
-				Optional
-					.ofNullable(monitor)
-					.flatMap(Monitor::getScreen)
-					.flatMap(Screen::getPanel)
-					.map(Panel::getType);
-		optPanelType.ifPresent(System.out::println);
+		//System.out.println("dddd"); // while에서 모든것이 이루어지고 끝나기 때문에 System.out.println(); 까지 도달할 수 없음. 
 	}
 }
-class Monitor {
-	private Optional<Screen> screen; 
+
+@Role("Manager") // = @Role(value = "Manager") value = 생략 
+@Role("User")
+class Car {
+	@SuppressWarnings("rawtypes")
+	private List tires = new ArrayList<>(); 
 	
-	public Optional<Screen> getScreen(){
-		return screen; 
+	@RequestMapping("name") // = (value = "name")
+	public String getName() {
+		return "자동차의 이름은 소나타입니다."; 
 	}
-	public void setScreen(Optional<Screen> screen) {
-		this.screen = screen; 
+	@RequestMapping("engine")
+	public String runEngine() {
+		return "엔진이 가동됩니다.";
+	}
+	@RequestMapping("quit")
+	public String quit() {
+		System.out.println("프로그램이 종료됩니다."); 
+		System.exit(0); 
+		return null; 
+	}
+	@SuppressWarnings({"unchecked", "unsed", "deprecation"})
+	public void addTire(String tire) {
+		tires.add(tire);   // unchecked
+		String tireName = "Abc Tire";   // unchecked  
+		Date date = new Date();
+		date.getYear();   // deprecation
+	
+	}
+	@Deprecated
+	public static void printVersion() {
+		System.out.println("v1.0"); 
+	}
+	
+	
+	@Autowired("Autowired 처음으로 다뤄보기") 
+	private String aw; 
+	
+	public void printAw() {
+		System.out.println("출력 :" + aw); 
 	}
 	
 }
 
-class Screen{
-	private Optional<Panel> panel; 
-	
-	public Optional<Panel> getPanel(){
-		return panel; 
-	}
-	public void setPanel(Optional<Panel> panel) {
-		this.panel = panel; 
+class NewCar extends Car {
+	@Override 
+	public String getName() {
+		return "[New]" + super.getName(); 
 	}
 }
 
-class Panel {
-	private String type; 
-	private String type2; 
+@Deprecated
+class OldCar {
 	
-	public String getType() {
-		return type; 
-	}
-	public void setType(String type) {
-		this.type = type; 
-	}
-	public void setType2(String type2) {
-		this.type2 = type2; 
-	}
-	@Override
-	public String toString() {
-		return type + type2; 
-	}
 }
 
-class EBook {
-	enum Category {
-		APP, LANG
-	}
-	private String title; 
-	private int price; 
-	private Category category; 
-	
-	public EBook(String title, int price, Category category) {
-		this.title = title; 
-		this.price = price; 
-		this.category = category; 
-	}
-	
-	public String getTitle() {
-		return title; 
-	}
-	public int getPrice() {
-		return price; 
-	}
-	public Category getCategory() {
-		return category; 
-	}
-	public String toString() {
-		return "제목: " + title + ", 가격: " + price + ", 카테고리: " + category;  
-	}
-	
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface RequestMapping{
+	String value(); 
 }
+
+@Retention(RetentionPolicy.RUNTIME)
+// Retention 어노테이션은 생성한 어노테이션 (Settings)을 어느 시점에 사용할지를 나타내는 어노테이션이다. 
+@Target(ElementType.TYPE)
+// Target 어노테이션은 생성한 어노테이션이 어디에 사용 가능한지( 클래스 or 메서드 or 인스턴스 등)를 나타내는 어노테이션이다. 
+@Documented
+//Documented 어노테이션은 API에 생성한 어노테이션 정보가 출력(문서화)되게 된다 (원래 어노테이션은 출력되지 않음 ) 
+@interface Settings{
+	// 어노테이션 만드는 방법 
+	String lang() default "kor"; 
+	// default는 해당 인스턴스변수에 아무 값도 입력하지 않았을 경우의 기본값이다. 
+	double version() default 1.0; 
+	String[] author(); 
+}
+
+@Inherited
+@Repeatable(value = Roles.class)
+// Repeatable 어노테이션은 생성 어노테이션을 여러번 반복해서 사용할 수 있게 한다. 
+// 또한 () 내에 생성 어노테이션을 배열로 담을 수 있는 어노테이션을 적어주어야 한다. 
+// @Repeatalbe을 사용하면 어떤 방식으로 Role을 반복해서 사용할 수 있지 
+@Retention(RetentionPolicy.RUNTIME)
+@interface Role {
+	String value();
+}
+
+@Inherited // 상속의 개념 @Inherited
+// Inhertied는 상속이며, 해당 어노테이션이 적용된 클래스가 상속될 때 그 자식클래스에서도 해당 어노테이션이 사용이 가능하다. (즉 . 해당 어노테이션도 함께 상속) (원래 불가)
+@Target({ElementType.TYPE, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@interface Roles {
+	Role[] value(); 
+}
+
+@Target(ElementType.FIELD)
+@interface Autowired{
+	String value(); 
+}
+
+/*
+ * <메타 어노테이션>
+ * @Retention 
+ * 			RetentionPolicy.SOURCE
+ * 			RetentionPolicy.CLASS
+ * 			RetentionPolicy.RUNTIME
+ * 
+ * @Target 
+ * 			ElementType.ANNOTAION_TYPE
+ * 			ElementType.CONSTRUCTOR
+ * 			ElementType.FIELD
+ * 			ElementType.LOCAL_VARIABLE
+ * 			ElemnetType.METHOD
+ * 			ElementType.PACKAGE
+ * 			ElementTyep.PARAMETER
+ * 			ElementType.TYPE : TYPE은 클래스 레벨 (이넘, 인터페이스, 클래스)에만 사용할 수 있도록 한다. 
+ * 
+ * @Inherited
+ * @Repeatable
+ * @Documented
+ * 
+ */

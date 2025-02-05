@@ -154,7 +154,7 @@ class OldCar {
 
 	
 /*
- * <메타 어노테이션>
+ * <메타 어노테이션> 
  * @Retention
  * 		RetentionPolicy.SOURCE
  * 		RetentionPolicy.CLASS
